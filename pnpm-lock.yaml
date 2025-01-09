@@ -242,8 +242,8 @@ importers:
         specifier: 9.16.0
         version: 9.16.0(patch_hash=t64n7kxodazs6lnwu42sgf5voe)(jiti@2.4.1)
       eslint-merge-processors:
-        specifier: ^0.1.0
-        version: 0.1.0(eslint@9.16.0(patch_hash=t64n7kxodazs6lnwu42sgf5voe)(jiti@2.4.1))
+        specifier: ^1.0.0
+        version: 1.0.0(eslint@9.16.0(patch_hash=t64n7kxodazs6lnwu42sgf5voe)(jiti@2.4.1))
       eslint-plugin-vue:
         specifier: ^9.31.0
         version: 9.32.0(eslint@9.16.0(patch_hash=t64n7kxodazs6lnwu42sgf5voe)(jiti@2.4.1))
@@ -4050,8 +4050,8 @@ packages:
     peerDependencies:
       eslint: '>=8.0.0'
 
-  eslint-merge-processors@0.1.0:
-    resolution: {integrity: sha512-IvRXXtEajLeyssvW4wJcZ2etxkR9mUf4zpNwgI+m/Uac9RfXHskuJefkHUcawVzePnd6xp24enp5jfgdHzjRdQ==}
+  eslint-merge-processors@1.0.0:
+    resolution: {integrity: sha512-4GybyHmhXtT7/W8RAouQzNM0791sYasJCTYHIAYjuiJvbNFY0jMKkoESREhX+mjX37dxiN6v4EqhZ1nc0tJF7A==}
     peerDependencies:
       eslint: '*'
 
@@ -11415,7 +11415,7 @@ snapshots:
       - bluebird
       - supports-color
 
-  eslint-merge-processors@0.1.0(eslint@9.16.0(patch_hash=t64n7kxodazs6lnwu42sgf5voe)(jiti@2.4.1)):
+  eslint-merge-processors@1.0.0(eslint@9.16.0(patch_hash=t64n7kxodazs6lnwu42sgf5voe)(jiti@2.4.1)):
     dependencies:
       eslint: 9.16.0(patch_hash=t64n7kxodazs6lnwu42sgf5voe)(jiti@2.4.1)
 
