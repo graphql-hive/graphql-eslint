@@ -29,7 +29,7 @@
     "@svgr/webpack": "^8.1.0",
     "@theguild/tailwind-config": "0.6.1",
     "@types/lodash.uniqwith": "4.5.9",
-    "@types/node": "22.10.1",
+    "@types/node": "22.10.6",
     "@types/react": "18.3.13",
     "pagefind": "1.2.0",
     "tailwindcss-radix": "3.0.5",
