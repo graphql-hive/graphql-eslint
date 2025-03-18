@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@graphql-eslint/eslint-plugin": "workspace:*",
-    "eslint": "9.16.0",
+    "eslint": "9.22.0",
     "svelte": "5.17.4",
     "svelte-eslint-parser": "0.43.0",
     "svelte2tsx": "0.7.30"
