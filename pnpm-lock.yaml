@@ -32,6 +32,9 @@ importers:
       '@graphql-tools/utils':
         specifier: 10.8.6
         version: 10.8.6(graphql@16.10.0)
+      '@ianvs/prettier-plugin-sort-imports':
+        specifier: 4.4.1
+        version: 4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.3)
       '@theguild/eslint-config':
         specifier: 0.13.2
         version: 0.13.2(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2))(typescript@5.7.2)
@@ -79,7 +82,7 @@ importers:
         version: 0.15.0(prettier@3.5.3)
       prettier-plugin-tailwindcss:
         specifier: 0.6.11
-        version: 0.6.11(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3))(prettier@3.5.3)
+        version: 0.6.11(@ianvs/prettier-plugin-sort-imports@4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.3))(prettier@3.5.3)
       rimraf:
         specifier: 6.0.1
         version: 6.0.1
@@ -1850,6 +1853,15 @@ packages:
 
   '@ianvs/prettier-plugin-sort-imports@4.4.0':
     resolution: {integrity: sha512-f4/e+/ANGk3tHuwRW0uh2YuBR50I4h1ZjGQ+5uD8sWfinHTivQsnieR5cz24t8M6Vx4rYvZ5v/IEKZhYpzQm9Q==}
+    peerDependencies:
+      '@vue/compiler-sfc': 2.7.x || 3.x
+      prettier: 2 || 3
+    peerDependenciesMeta:
+      '@vue/compiler-sfc':
+        optional: true
+
+  '@ianvs/prettier-plugin-sort-imports@4.4.1':
+    resolution: {integrity: sha512-F0/Hrcfpy8WuxlQyAWJTEren/uxKhYonOGY4OyWmwRdeTvkh9mMSCxowZLjNkhwi/2ipqCgtXwwOk7tW0mWXkA==}
     peerDependencies:
       '@vue/compiler-sfc': 2.7.x || 3.x
       prettier: 2 || 3
@@ -9847,6 +9859,19 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  '@ianvs/prettier-plugin-sort-imports@4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.3)':
+    dependencies:
+      '@babel/generator': 7.26.10
+      '@babel/parser': 7.26.10
+      '@babel/traverse': 7.26.10
+      '@babel/types': 7.26.10
+      prettier: 3.5.3
+      semver: 7.7.1
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.5.13
+    transitivePeerDependencies:
+      - supports-color
+
   '@iconify/types@2.0.0': {}
 
   '@iconify/utils@2.3.0':
@@ -14983,11 +15008,11 @@ snapshots:
       prettier: 3.5.3
       sh-syntax: 0.4.2
 
-  prettier-plugin-tailwindcss@0.6.11(@ianvs/prettier-plugin-sort-imports@4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3))(prettier@3.5.3):
+  prettier-plugin-tailwindcss@0.6.11(@ianvs/prettier-plugin-sort-imports@4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.3))(prettier@3.5.3):
     dependencies:
       prettier: 3.5.3
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.4.0(@vue/compiler-sfc@3.5.13)(prettier@3.5.3)
+      '@ianvs/prettier-plugin-sort-imports': 4.4.1(@vue/compiler-sfc@3.5.13)(prettier@3.5.3)
 
   prettier@2.8.8: {}
 
