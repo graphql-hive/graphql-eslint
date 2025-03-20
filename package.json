@@ -5,7 +5,7 @@
   "author": "Dotan Simha <dotansimha@gmail.com>",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.6.5",
   "engines": {
     "node": ">=16",
     "pnpm": ">=9.0.6"
