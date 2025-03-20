@@ -57,7 +57,8 @@
       "json-schema-to-markdown@1.1.1": "patches/json-schema-to-markdown@1.1.1.patch"
     },
     "overrides": {
-      "@graphql-eslint/eslint-plugin": "workspace:*"
+      "@graphql-eslint/eslint-plugin": "workspace:*",
+      "eslint": "9.22.0"
     }
   }
 }
