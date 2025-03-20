@@ -42,6 +42,22 @@ exports[`Examples > should work in monorepo 1`] = `
         nodeType: Identifier,
         ruleId: no-unused-vars,
         severity: 2,
+        suggestions: [
+          {
+            data: {
+              varName: GET_POSTS,
+            },
+            desc: Remove unused variable 'GET_POSTS'.,
+            fix: {
+              range: [
+                0,
+                161,
+              ],
+              text: ,
+            },
+            messageId: removeVar,
+          },
+        ],
       },
       {
         column: 9,
@@ -230,6 +246,22 @@ exports[`Examples > should work in monorepo 2`] = `
         nodeType: Identifier,
         ruleId: no-unused-vars,
         severity: 2,
+        suggestions: [
+          {
+            data: {
+              varName: GET_POSTS,
+            },
+            desc: Remove unused variable 'GET_POSTS'.,
+            fix: {
+              range: [
+                0,
+                161,
+              ],
+              text: ,
+            },
+            messageId: removeVar,
+          },
+        ],
       },
       {
         column: 9,
@@ -635,6 +667,22 @@ exports[`Examples > should work in vue 1`] = `
         nodeType: Identifier,
         ruleId: no-unused-vars,
         severity: 2,
+        suggestions: [
+          {
+            data: {
+              varName: GET_USER,
+            },
+            desc: Remove unused variable 'GET_USER'.,
+            fix: {
+              range: [
+                0,
+                77,
+              ],
+              text: ,
+            },
+            messageId: removeVar,
+          },
+        ],
       },
       {
         column: 4,
@@ -669,6 +717,22 @@ exports[`Examples > should work in vue 1`] = `
         nodeType: Identifier,
         ruleId: no-unused-vars,
         severity: 2,
+        suggestions: [
+          {
+            data: {
+              varName: GET_ANOTHER_USER,
+            },
+            desc: Remove unused variable 'GET_ANOTHER_USER'.,
+            fix: {
+              range: [
+                79,
+                174,
+              ],
+              text: ,
+            },
+            messageId: removeVar,
+          },
+        ],
       },
       {
         column: 10,
@@ -740,6 +804,22 @@ exports[`Examples > should work in vue 2`] = `
         nodeType: Identifier,
         ruleId: no-unused-vars,
         severity: 2,
+        suggestions: [
+          {
+            data: {
+              varName: GET_ANOTHER_USER,
+            },
+            desc: Remove unused variable 'GET_ANOTHER_USER'.,
+            fix: {
+              range: [
+                243,
+                338,
+              ],
+              text: ,
+            },
+            messageId: removeVar,
+          },
+        ],
       },
     ],
   },
