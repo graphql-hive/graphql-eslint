@@ -406,8 +406,8 @@ importers:
         specifier: 1.3.0
         version: 1.3.0
       tailwindcss-radix:
-        specifier: 3.0.5
-        version: 3.0.5(tailwindcss@3.4.17)
+        specifier: 4.0.2
+        version: 4.0.2(tailwindcss@3.4.17)
       webpack:
         specifier: ^5.88.2
         version: 5.98.0(esbuild@0.25.1)
@@ -6965,11 +6965,11 @@ packages:
   tailwind-merge@2.6.0:
     resolution: {integrity: sha512-P+Vu1qXfzediirmHOC3xKGAYeZtPcV9g76X+xg2FD4tYgR71ewMA35Y3sCz3zhiN/dwefRpJX0yBcgwi1fXNQA==}
 
-  tailwindcss-radix@3.0.5:
-    resolution: {integrity: sha512-dy5bIHixuvrmMzljDoteKD1mcLAm76Z1IPkCr7IWUN89zoxfokVepPlxMQkmWEQokYs3N9BOLsXXvn8fLZWoBg==}
-    engines: {pnpm: '9'}
+  tailwindcss-radix@4.0.2:
+    resolution: {integrity: sha512-Uoa2BUCfWKGCjQPXbj4X4Q4EWAeCsvhj0udn0IupeNcvuLbqRXvC5+bKAqsngIne5mrRUPTy/IqMXGh81YyrCA==}
+    engines: {node: '>=20'}
     peerDependencies:
-      tailwindcss: ^3.4.1
+      tailwindcss: ^3.0 || ^4.0
 
   tailwindcss@3.4.17:
     resolution: {integrity: sha512-w33E2aCvSDP0tW9RZuNXadXlkHXqFzSkQew/aIa2i/Sj8fThxwovwlXHSPXTbAHwEIhBFXAedUhP2tueAKP8Og==}
@@ -15923,7 +15923,7 @@ snapshots:
 
   tailwind-merge@2.6.0: {}
 
-  tailwindcss-radix@3.0.5(tailwindcss@3.4.17):
+  tailwindcss-radix@4.0.2(tailwindcss@3.4.17):
     dependencies:
       tailwindcss: 3.4.17
 
