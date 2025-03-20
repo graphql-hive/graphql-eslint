@@ -5,7 +5,7 @@
   "author": "Dotan Simha <dotansimha@gmail.com>",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@9.15.9",
+  "packageManager": "pnpm@10.6.5",
   "engines": {
     "node": ">=16",
     "pnpm": ">=9.0.6"
@@ -28,7 +28,9 @@
     "@arethetypeswrong/cli": "^0.17.0",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.10",
+    "@eslint/js": "9.22.0",
     "@graphql-tools/utils": "10.8.6",
+    "@ianvs/prettier-plugin-sort-imports": "4.4.1",
     "@theguild/eslint-config": "0.13.2",
     "@theguild/prettier-config": "3.0.0",
     "@types/dedent": "0.7.2",
@@ -42,6 +44,8 @@
     "jest-snapshot-serializer-raw": "2.0.0",
     "json-schema-to-markdown": "1.1.1",
     "prettier": "3.5.3",
+    "prettier-plugin-pkg": "0.18.1",
+    "prettier-plugin-sh": "0.15.0",
     "prettier-plugin-tailwindcss": "0.6.11",
     "rimraf": "6.0.1",
     "tsup": "^8.3.5",
