@@ -1,5 +1,23 @@
 # @graphql-eslint/eslint-plugin
 
+## 4.4.0
+
+### Minor Changes
+
+- [#2838](https://github.com/graphql-hive/graphql-eslint/pull/2838)
+  [`10b9975`](https://github.com/graphql-hive/graphql-eslint/commit/10b9975147e031717f955f2be747924bb800f237)
+  Thanks [@dimaMachina](https://github.com/dimaMachina)! - - allow to config `naming-convention` for
+  Relay fragment convention `<module_name>_<property_name>` via `requiredPattern` option
+
+  - replace `requiredPatterns: RegEx[]` by `requiredPattern: RegEx` option
+
+### Patch Changes
+
+- [#2845](https://github.com/graphql-hive/graphql-eslint/pull/2845)
+  [`00b4617`](https://github.com/graphql-hive/graphql-eslint/commit/00b46173910663f1ce6d4e7b02d41fe3875edf86)
+  Thanks [@dimaMachina](https://github.com/dimaMachina)! - add `"./*"` to `exports` field in
+  `package.json`
+
 ## 4.3.0
 
 ### Minor Changes
