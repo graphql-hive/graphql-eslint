@@ -1,6 +1,6 @@
 {
   "name": "@graphql-eslint/eslint-plugin",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "type": "module",
   "description": "GraphQL plugin for ESLint",
   "repository": "https://github.com/dimaMachina/graphql-eslint",
