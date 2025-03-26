@@ -13,6 +13,6 @@
   },
   "devDependencies": {
     "@graphql-eslint/eslint-plugin": "workspace:*",
-    "eslint": "9.23.0"
+    "eslint": "9.22.0"
   }
 }
