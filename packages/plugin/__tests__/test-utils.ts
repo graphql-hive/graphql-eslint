@@ -1,5 +1,5 @@
 import { Linter } from 'eslint';
-import graphqlPlugin, { type ParserConfigGraphQLConfig } from '@graphql-eslint/eslint-plugin';
+import graphqlPlugin, { ParserConfigGraphQLConfig } from '@graphql-eslint/eslint-plugin';
 import { RuleTester } from '@theguild/eslint-rule-tester';
 
 export const DEFAULT_CONFIG: Linter.Config = {
