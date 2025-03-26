@@ -1,6 +1,18 @@
 import { parseForESLint } from '../src/parser.js';
 
 describe('Parser', () => {
+  it('should allow to pass inline schema string as input', () => {
+    const code = /* GraphQL */ `
+      type Query {
+        foo: String
+      }
+    `;
+
+    const result = parseForESLint(code, { schemaSdl: code, filePath: 'test.graphql' });
+    expect(result.ast).toMatchSnapshot();
+    expect(result.ast.tokens).toBeTruthy();
+  });
+
   it('parseForESLint() should return ast and tokens', () => {
     const code = /* GraphQL */ `
       """

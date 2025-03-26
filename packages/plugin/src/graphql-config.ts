@@ -3,7 +3,7 @@ import path from 'node:path';
 import debugFactory from 'debug';
 import { GraphQLConfig, GraphQLExtensionDeclaration, loadConfigSync } from 'graphql-config';
 import { CodeFileLoader } from '@graphql-tools/code-file-loader';
-import { ParserOptions } from './types.js';
+import { ParserConfigGraphQLConfig, ParserOptions } from './types.js';
 
 const debug = debugFactory('graphql-eslint:graphql-config');
 let graphQLConfig: GraphQLConfig;
@@ -31,7 +31,7 @@ export function loadOnDiskGraphQLConfig(filePath: string): GraphQLConfig {
 export function loadGraphQLConfig({
   graphQLConfig: config,
   filePath,
-}: ParserOptions): GraphQLConfig {
+}: ParserConfigGraphQLConfig): GraphQLConfig {
   // We don't want cache config on test environment
   // Otherwise schema and documents will be same for all tests
   if (process.env.NODE_ENV !== 'test' && graphQLConfig) {

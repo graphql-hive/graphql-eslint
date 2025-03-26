@@ -35,7 +35,7 @@ type user {
 ### Incorrect
 
 ```graphql
-# eslint @graphql-eslint/naming-convention: ['error', { FragmentDefinition: { style: 'PascalCase', forbiddenPatterns: ['/fragment$/i'] } }]
+# eslint @graphql-eslint/naming-convention: ['error', { FragmentDefinition: { style: 'PascalCase', forbiddenPatterns: ['/(^fragment)|(fragment$)/i'] } }]
 
 fragment UserFragment on User {
   # ...
@@ -65,7 +65,7 @@ type User {
 ### Correct
 
 ```graphql
-# eslint @graphql-eslint/naming-convention: ['error', { FragmentDefinition: { style: 'PascalCase', forbiddenPatterns: ['/fragment$/i'] } }]
+# eslint @graphql-eslint/naming-convention: ['error', { FragmentDefinition: { style: 'PascalCase', forbiddenPatterns: ['/(^fragment)|(fragment$)/i'] } }]
 
 fragment UserFields on User {
   # ...

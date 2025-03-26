@@ -43,32 +43,38 @@ export function parseForESLint(code: string, options: ParserOptions): GraphQLESL
     // documents or even graphql-config instance
     const { document } = parseGraphQLSDL(filePath, code, { noLocation: false });
     let project: GraphQLProjectConfig;
-    let schema: Schema, documents: Source[];
-    if (typeof window === 'undefined') {
-      const gqlConfig = loadGraphQLConfig(options);
-      project = gqlConfig.getProjectForFile(getFirstExistingPath(filePath));
-      documents = getDocuments(project);
-    } else {
-      documents = [
-        parseGraphQLSDL(
-          'operation.graphql',
-          (options.graphQLConfig as IGraphQLProject).documents as string,
-          { noLocation: true },
-        ),
-      ];
-    }
+    let schema: Schema,
+      documents: Source[] = [];
 
-    try {
+    if ('schemaSdl' in options) {
+      schema = buildSchema(options.schemaSdl);
+    } else {
       if (typeof window === 'undefined') {
-        schema = getSchema(project!);
+        const gqlConfig = loadGraphQLConfig(options);
+        project = gqlConfig.getProjectForFile(getFirstExistingPath(filePath));
+        documents = getDocuments(project);
       } else {
-        schema = buildSchema((options.graphQLConfig as IGraphQLProject).schema as string);
+        documents = [
+          parseGraphQLSDL(
+            'operation.graphql',
+            (options.graphQLConfig as IGraphQLProject).documents as string,
+            { noLocation: true },
+          ),
+        ];
       }
-    } catch (error) {
-      if (error instanceof Error) {
-        error.message = `Error while loading schema: ${error.message}`;
+
+      try {
+        if (typeof window === 'undefined') {
+          schema = getSchema(project!);
+        } else {
+          schema = buildSchema((options.graphQLConfig as IGraphQLProject).schema as string);
+        }
+      } catch (error) {
+        if (error instanceof Error) {
+          error.message = `Error while loading schema: ${error.message}`;
+        }
+        throw error;
       }
-      throw error;
     }
 
     const rootTree = convertToESTree(document, schema);
