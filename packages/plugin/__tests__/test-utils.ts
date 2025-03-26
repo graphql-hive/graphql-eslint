@@ -1,7 +1,6 @@
 import { Linter } from 'eslint';
-import graphqlPlugin from '@graphql-eslint/eslint-plugin';
+import graphqlPlugin, { type ParserConfigGraphQLConfig } from '@graphql-eslint/eslint-plugin';
 import { RuleTester } from '@theguild/eslint-rule-tester';
-import { ParserOptions } from '../src/index.js';
 
 export const DEFAULT_CONFIG: Linter.Config = {
   languageOptions: {
@@ -10,7 +9,7 @@ export const DEFAULT_CONFIG: Linter.Config = {
 };
 
 export type ParserOptionsForTests = {
-  graphQLConfig: Partial<ParserOptions['graphQLConfig']>;
+  graphQLConfig: Partial<ParserConfigGraphQLConfig['graphQLConfig']>;
 };
 
 export const ruleTester = new RuleTester<ParserOptionsForTests>(DEFAULT_CONFIG);

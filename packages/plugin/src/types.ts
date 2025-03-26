@@ -10,10 +10,17 @@ export type Schema = GraphQLSchema | null;
 export type Pointer = string | string[];
 export type { GraphQLESTreeNode } from './estree-converter/types.js';
 
-export interface ParserOptions {
+export type ParserConfigGraphQLConfig = {
   graphQLConfig?: IGraphQLConfig;
   filePath: string;
-}
+};
+
+export type ParserConfigProgrammatic = {
+  schemaSdl: string;
+  filePath: string;
+};
+
+export type ParserOptions = ParserConfigGraphQLConfig | ParserConfigProgrammatic;
 
 export type ParserServices = {
   schema: Schema;
