@@ -1,6 +1,6 @@
 import path from 'node:path';
 import debugFactory from 'debug';
-import fg from 'fast-glob';
+import { globSync } from 'tinyglobby';
 import { GraphQLProjectConfig } from 'graphql-config';
 import { Source } from '@graphql-tools/utils';
 import { ModuleCache } from './cache.js';
@@ -47,7 +47,7 @@ export const getDocuments = (project: GraphQLProjectConfig): Source[] => {
     });
     if (debug.enabled) {
       debug('Loaded %d operations', documents.length);
-      const operationsPaths = fg.sync(project.documents as Pointer, { absolute: true });
+      const operationsPaths = globSync(project.documents as Pointer, { absolute: true, expandDirectories: false });
       debug('Operations pointers %O', operationsPaths);
     }
     siblings = handleVirtualPath(documents);
