@@ -44,6 +44,9 @@ export const rule: GraphQLESLintRule = {
     function hasRequiresScopesDirective(
       node: GraphQLESTreeNode<ObjectTypeDefinitionNode> | TypeExtensionNode,
     ): boolean {
+      if (node.name.value === 'Query' || node.name.value === 'Mutation') {
+        return true;
+      }
       const directive = (node.directives || []).find(d => d.name.value === 'requiresScopes');
 
       if (directive) {
