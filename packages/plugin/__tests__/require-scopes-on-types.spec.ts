@@ -1,5 +1,5 @@
-import { ruleTester } from '../../../__tests__/test-utils.js';
-import { rule } from './index.js';
+import { RuleTester } from '@theguild/eslint-rule-tester';
+import { rule } from '../src/rules/require-scopes-on-types/index';
 
 const TYPE_WITH_SCOPES = /* GraphQL */ `
   directive @requiresScopes(scopes: [String!]!) on OBJECT
@@ -23,7 +23,7 @@ const TYPE_WITH_EMPTY_SCOPES = /* GraphQL */ `
   }
 `;
 
-ruleTester.run('require-scopes-on-types', rule, {
+new RuleTester().run('require-scopes-on-types', rule, {
   valid: [
     {
       name: 'should ignore types that have the @requiresScopes directive',
@@ -32,7 +32,7 @@ ruleTester.run('require-scopes-on-types', rule, {
         graphQLConfig: {
           schema: TYPE_WITH_SCOPES,
         },
-      },
+      }
     },
   ],
   invalid: [
@@ -47,7 +47,7 @@ ruleTester.run('require-scopes-on-types', rule, {
       errors: [{ messageId: 'require-scopes-on-types' }],
     },
     {
-      name: 'should report types that have the @requireScopes directive but have not defined any scopes',
+      name: "should report types that have the @requireScopes directive but haven't defined any scopes",
       code: TYPE_WITH_EMPTY_SCOPES,
       parserOptions: {
         graphQLConfig: {

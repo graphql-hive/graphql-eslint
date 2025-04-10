@@ -1,63 +1,69 @@
-import {GraphQLESLintRule, GraphQLESTreeNode} from "@/types.js";
 import {
-    ConstListValueNode,
-    ObjectTypeDefinitionNode,
-    TypeExtensionNode
-} from "graphql";
+  ConstArgumentNode,
+  ConstListValueNode,
+  ObjectTypeDefinitionNode,
+  TypeExtensionNode,
+} from 'graphql';
+import { GraphQLESLintRule, GraphQLESTreeNode } from '@/types.js';
+import { logger } from '@/utils.js';
 
 const RULE_ID = 'require-scopes-on-types';
 
 export const rule: GraphQLESLintRule = {
-    meta: {
-        type: 'problem',
-        docs: {
-            category: 'Schema',
-            description: '',
-            url: `https://the-guild.dev/graphql/eslint/rules/${RULE_ID}`,
-            examples: [
-                {
-                    title: 'Incorrect',
-                    code: /* GraphQL */ `
-                        type InvalidType { foo: String }
-                    `,
-                },
-                {
-                    title: 'Correct',
-                    code: /* GraphQL */ `
-                        type ValidType @requiresScopes(scopes: ["my-scope"]) { foo: String }
-                    `,
-                },
-            ]
+  meta: {
+    type: 'problem',
+    docs: {
+      category: 'Schema',
+      description: 'Requires the @requiresScopes directive on any Type.',
+      url: `https://the-guild.dev/graphql/eslint/rules/${RULE_ID}`,
+      examples: [
+        {
+          title: 'Incorrect',
+          code: /* GraphQL */ `
+            type InvalidType {
+              foo: String
+            }
+          `,
         },
-        messages: {
-            [RULE_ID]: 'All types must have the @requiresScopes directive applied to them.'
+        {
+          title: 'Correct',
+          code: /* GraphQL */ `
+            type ValidType @requiresScopes(scopes: ["my-scope"]) {
+              foo: String
+            }
+          `,
         },
-        schema: [],
+      ],
     },
-    create(context) {
-        function hasDefinedScopes(node: GraphQLESTreeNode<ObjectTypeDefinitionNode> | TypeExtensionNode): boolean {
-            const scopeDirective = (node.directives || []).find((dir) => dir.name.value === 'requiresScopes');
-            if (!scopeDirective) {
-                return false;
-            }
+    messages: {
+      [RULE_ID]: 'All types must have the @requiresScopes directive applied to them.',
+    },
+    schema: [],
+  },
+  create(context) {
+    function hasRequiresScopesDirective(
+      node: GraphQLESTreeNode<ObjectTypeDefinitionNode> | TypeExtensionNode,
+    ): boolean {
+      const directive = (node.directives || []).find(d => d.name.value === 'requiresScopes');
 
-            return (scopeDirective.arguments || []).filter(a => a.name.value === 'scopes')
-                .some(v => (v.value as ConstListValueNode).values.length === 0);
-        }
+      if (directive) {
+        return (directive.arguments || [])
+          .filter(a => a.name.value === 'scopes')
+          .every(v => (v.value as ConstListValueNode).values.length > 0);
+      }
 
-        function report(node: GraphQLESTreeNode<ObjectTypeDefinitionNode>) {
-            context.report({
-                node: node as any,
-                messageId: RULE_ID
-            });
-        }
-
-        return {
-            ObjectTypeDefinition(node) {
-                if (!hasDefinedScopes(node)) {
-                    report(node);
-                }
-            }
-        }
+      return false;
     }
-}
+
+    return {
+      ObjectTypeDefinition(node) {
+        if (!hasRequiresScopesDirective(node)) {
+          context.report({
+            node: node.name,
+            messageId: RULE_ID,
+          });
+        }
+      },
+    };
+  },
+};
