@@ -319,25 +319,25 @@ ruleTester.run<RuleOptions, true>('require-selections', rule, {
     },
     {
       name: 'should require only extant fields with `requireAllFields` option',
-        code: /* GraphQL */`
-            {
-              user {
-                id
-                posts {
-                  id
-                  title
-                  content
-                }
-              }
+      code: /* GraphQL */ `
+        {
+          user {
+            id
+            posts {
+              id
+              title
+              content
             }
-          `,
+          }
+        }
+      `,
       options: [{ requireAllFields: true, fieldName: ['id', 'title', 'content'] }],
       parserOptions: {
         graphQLConfig: {
           schema: USER_POST_SCHEMA,
           documents: `
           fragment Example on User { id }
-          `
+          `,
         },
       },
     },
@@ -548,10 +548,13 @@ ruleTester.run<RuleOptions, true>('require-selections', rule, {
           documents: '{ foo }',
         },
       },
-      errors: [{
-    message: "Field `hasId.name` must be selected when it's available on a type.\n" +
-      'Include it in your selection set.',
-      }]
+      errors: [
+        {
+          message:
+            "Field `hasId.name` must be selected when it's available on a type.\n" +
+            'Include it in your selection set.',
+        },
+      ],
     },
   ],
 });
