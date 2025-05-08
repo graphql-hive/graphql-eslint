@@ -201,8 +201,11 @@ export const rule: GraphQLESLintRule<RuleOptions, true> = {
 
       function checkFields(rawType: GraphQLInterfaceType | GraphQLObjectType) {
         const fields = rawType.getFields();
+
+        // Only check fields which are actually present on this type
         const idFieldsInType = idNames.filter(name => fields[name]);
 
+        // Type doesn't implement any of the `fieldNames`
         if (idFieldsInType.length === 0) {
           return;
         }
@@ -211,9 +214,13 @@ export const rule: GraphQLESLintRule<RuleOptions, true> = {
 
         if (requireAllFields) {
           for (const idName of idFieldsInType) {
+            // For each `fieldName` present on this type, check it's in the
+            // selection separately
             report([idName]);
           }
         } else {
+          // Pass the `fieldNames` present on this type together; `report` will
+          // pass if _any_ of them are selected
           report(idFieldsInType);
         }
       }
