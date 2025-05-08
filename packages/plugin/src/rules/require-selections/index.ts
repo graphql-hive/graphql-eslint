@@ -201,20 +201,20 @@ export const rule: GraphQLESLintRule<RuleOptions, true> = {
 
       function checkFields(rawType: GraphQLInterfaceType | GraphQLObjectType) {
         const fields = rawType.getFields();
-        const hasIdFieldInType = idNames.some(name => fields[name]);
+        const idFieldsInType = idNames.filter(name => fields[name]);
 
-        if (!hasIdFieldInType) {
+        if (idFieldsInType.length === 0) {
           return;
         }
 
         checkFragments(node as GraphQLESTreeNode<SelectionSetNode>);
 
         if (requireAllFields) {
-          for (const idName of idNames) {
+          for (const idName of idFieldsInType) {
             report([idName]);
           }
         } else {
-          report(idNames);
+          report(idFieldsInType);
         }
       }
 
