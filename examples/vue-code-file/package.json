@@ -15,6 +15,6 @@
     "eslint": "9.22.0",
     "eslint-merge-processors": "^0.1.0",
     "eslint-plugin-vue": "^9.31.0",
-    "eslint-processor-vue-blocks": "^0.1.2"
+    "eslint-processor-vue-blocks": "^2.0.0"
   }
 }
