@@ -258,8 +258,8 @@ importers:
         specifier: 9.22.0
         version: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2)
       eslint-merge-processors:
-        specifier: ^0.1.0
-        version: 0.1.0(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2))
+        specifier: ^2.0.0
+        version: 2.0.0(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2))
       eslint-plugin-vue:
         specifier: ^9.31.0
         version: 9.33.0(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2))
@@ -4422,8 +4422,8 @@ packages:
       remark-lint-file-extension:
         optional: true
 
-  eslint-merge-processors@0.1.0:
-    resolution: {integrity: sha512-IvRXXtEajLeyssvW4wJcZ2etxkR9mUf4zpNwgI+m/Uac9RfXHskuJefkHUcawVzePnd6xp24enp5jfgdHzjRdQ==}
+  eslint-merge-processors@2.0.0:
+    resolution: {integrity: sha512-sUuhSf3IrJdGooquEUB5TNpGNpBoQccbnaLHsb1XkBLUPPqCNivCpY05ZcpCOiV9uHwO2yxXEWVczVclzMxYlA==}
     peerDependencies:
       eslint: 9.22.0
 
@@ -12218,7 +12218,7 @@ snapshots:
       - bluebird
       - supports-color
 
-  eslint-merge-processors@0.1.0(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2)):
+  eslint-merge-processors@2.0.0(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2)):
     dependencies:
       eslint: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.4.2)
 
