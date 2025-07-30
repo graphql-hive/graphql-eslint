@@ -51,7 +51,7 @@
     "tsup": "^8.3.5",
     "tsx": "4.19.3",
     "turbo": "2.4.4",
-    "typescript": "5.7.2",
+    "typescript": "5.8.3",
     "vitest": "2.1.9",
     "wrangler": "4.2.0"
   },
