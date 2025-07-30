@@ -62,7 +62,11 @@
     },
     "overrides": {
       "@graphql-eslint/eslint-plugin": "workspace:*",
-      "eslint": "9.22.0"
+      "eslint": "9.22.0",
+      "graphql": "16.10.0",
+      "esbuild": "0.25.0",
+      "@eslint/plugin-kit": "0.3.4",
+      "cookie": "0.7.0"
     }
   }
 }
