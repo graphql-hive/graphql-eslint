@@ -26,13 +26,13 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.0",
-    "@changesets/changelog-github": "0.5.0",
-    "@changesets/cli": "2.27.10",
+    "@changesets/changelog-github": "0.5.1",
+    "@changesets/cli": "2.29.5",
     "@eslint/js": "9.22.0",
     "@graphql-tools/utils": "10.8.6",
     "@ianvs/prettier-plugin-sort-imports": "4.4.1",
-    "@theguild/eslint-config": "0.13.2",
-    "@theguild/prettier-config": "3.0.0",
+    "@theguild/eslint-config": "0.13.4",
+    "@theguild/prettier-config": "3.0.1",
     "@types/dedent": "0.7.2",
     "@types/node": "22.13.10",
     "chalk": "5.4.1",
@@ -51,7 +51,7 @@
     "tsup": "^8.3.5",
     "tsx": "4.19.3",
     "turbo": "2.4.4",
-    "typescript": "5.7.2",
+    "typescript": "5.8.3",
     "vitest": "2.1.9",
     "wrangler": "4.2.0"
   },
@@ -62,7 +62,11 @@
     },
     "overrides": {
       "@graphql-eslint/eslint-plugin": "workspace:*",
-      "eslint": "9.22.0"
+      "eslint": "9.22.0",
+      "graphql": "16.10.0",
+      "esbuild": "0.25.0",
+      "@eslint/plugin-kit": "0.3.4",
+      "cookie": "0.7.0"
     }
   }
 }

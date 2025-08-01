@@ -13,8 +13,8 @@
   "devDependencies": {
     "@graphql-eslint/eslint-plugin": "workspace:*",
     "eslint": "9.22.0",
-    "eslint-merge-processors": "^0.1.0",
-    "eslint-plugin-vue": "^9.31.0",
-    "eslint-processor-vue-blocks": "^0.1.2"
+    "eslint-merge-processors": "^2.0.0",
+    "eslint-plugin-vue": "^10.0.0",
+    "eslint-processor-vue-blocks": "^2.0.0"
   }
 }
