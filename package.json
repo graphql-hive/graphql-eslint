@@ -1,7 +1,7 @@
 {
   "name": "graphql-eslint-monorepo",
   "type": "module",
-  "repository": "https://github.com/dimaMachina/graphql-eslint",
+  "repository": "https://github.com/graphql-hive/graphql-eslint",
   "author": "Dotan Simha <dotansimha@gmail.com>",
   "license": "MIT",
   "private": true,

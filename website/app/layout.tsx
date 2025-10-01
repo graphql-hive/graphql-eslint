@@ -40,7 +40,7 @@ const RootLayout: FC<{
             <Anchor href="https://074c6ee9.graphql-eslint.pages.dev/docs">here</Anchor>.
           </Banner>
         ),
-        docsRepositoryBase: 'https://github.com/dimaMachina/graphql-eslint/tree/master/website',
+        docsRepositoryBase: 'https://github.com/graphql-hive/graphql-eslint/tree/master/website',
       }}
       navbarProps={{
         navLinks: [
@@ -53,9 +53,13 @@ const RootLayout: FC<{
             icon: <PaperIcon />,
             children: 'Documentation',
           },
-          { href: 'https://the-guild.dev/graphql/hive/blog', icon: <PencilIcon />, children: 'Blog' },
           {
-            href: 'https://github.com/dimaMachina/graphql-eslint',
+            href: 'https://the-guild.dev/graphql/hive/blog',
+            icon: <PencilIcon />,
+            children: 'Blog',
+          },
+          {
+            href: 'https://github.com/graphql-hive/graphql-eslint',
             icon: <GitHubIcon />,
             children: 'GitHub',
           },
