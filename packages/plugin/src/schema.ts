@@ -1,5 +1,5 @@
 import debugFactory from 'debug';
-import fg from 'fast-glob';
+import { globSync } from 'tinyglobby';
 import { BREAK, GraphQLSchema, visit } from 'graphql';
 import { GraphQLProjectConfig } from 'graphql-config';
 import { ModuleCache } from './cache.js';
@@ -57,7 +57,7 @@ export function getSchema(project: GraphQLProjectConfig): Schema {
 
   if (debug.enabled) {
     debug('Schema loaded: %o', schema instanceof GraphQLSchema);
-    const schemaPaths = fg.sync(project.schema as Pointer, { absolute: true });
+    const schemaPaths = globSync(project.schema as Pointer, { absolute: true, expandDirectories: false });
     debug('Schema pointers %O', schemaPaths);
   }
   schemaCache.set(schemaKey, schema);
