@@ -3,7 +3,7 @@
   "version": "4.4.0",
   "type": "module",
   "description": "GraphQL plugin for ESLint",
-  "repository": "https://github.com/dimaMachina/graphql-eslint",
+  "repository": "https://github.com/graphql-hive/graphql-eslint",
   "author": "Dotan Simha <dotansimha@gmail.com>",
   "license": "MIT",
   "engines": {

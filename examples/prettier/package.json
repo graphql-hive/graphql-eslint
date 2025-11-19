@@ -2,7 +2,7 @@
   "name": "@graphql-eslint/example-prettier",
   "version": "0.0.0",
   "type": "module",
-  "repository": "https://github.com/dimaMachina/graphql-eslint",
+  "repository": "https://github.com/graphql-hive/graphql-eslint",
   "author": "JounQin <admin@1stg.me>",
   "private": true,
   "scripts": {

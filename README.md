@@ -1,5 +1,3 @@
-
-
 # GraphQL-ESLint
 
 [![npm version](https://badge.fury.io/js/%40graphql-eslint%2Feslint-plugin.svg)](https://badge.fury.io/js/%40graphql-eslint%2Feslint-plugin)
