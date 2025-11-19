@@ -11,6 +11,7 @@ overrides:
   esbuild: 0.25.0
   '@eslint/plugin-kit': 0.3.4
   cookie: 0.7.0
+  glob: 11.1.0
 
 patchedDependencies:
   eslint:
@@ -2080,10 +2081,6 @@ packages:
     resolution: {integrity: sha512-BR1bIRWOMqkf8IoU576YDhij1Wd/Zf2kX/kCI0b2qzCKC8wcc2GQJaaRMCpzvCCrmliO4vtJ6RITp/AnoYUUmQ==}
     cpu: [x64]
     os: [win32]
-
-  '@pkgjs/parseargs@0.11.0':
-    resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
-    engines: {node: '>=14'}
 
   '@pkgr/core@0.1.2':
     resolution: {integrity: sha512-fdDH1LSGfZdTH2sxdpVMw31BanV28K/Gry0cVFxaNP77neJSkd82mM8ErPNYs9e+0O7SdHBLTDzDgwUuy18RnQ==}
@@ -4571,12 +4568,8 @@ packages:
   glob-to-regexp@0.4.1:
     resolution: {integrity: sha512-lkX1HJXwyMcprw/5YUZc2s7DrpAiHB21/V+E1rHUrVNokkvB6bqMzT0VfV6/86ZNabt1k14YOIaT7nDvOX3Iiw==}
 
-  glob@10.4.5:
-    resolution: {integrity: sha512-7Bv8RF0k6xjo7d4A/PxYLbUCfb6c+Vpd2/mB2yRDlew7Jb5hEXiCD9ibfO7wpk8i4sevK6DFny9h7EYbM3/sHg==}
-    hasBin: true
-
-  glob@11.0.3:
-    resolution: {integrity: sha512-2Nim7dha1KVkaiF4q6Dj+ngPPMdfvLJEOpZk/jKiUAkqKebpGAWQXAq9z1xu9HKu5lWfqw/FASuccEjyznjPaA==}
+  glob@11.1.0:
+    resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
     hasBin: true
 
@@ -4997,9 +4990,6 @@ packages:
     resolution: {integrity: sha512-H0dkQoCa3b2VEeKQBOxFph+JAbcrQdE7KC0UkqwpLmv2EC4P41QXP+rqo9wYodACiG5/WM5s9oDApTU8utwj9g==}
     engines: {node: '>= 0.4'}
 
-  jackspeak@3.4.3:
-    resolution: {integrity: sha512-OGlZQpz2yfahA/Rd1Y8Cd9SIEsqvXkLVoSw/cgwhnhFMDbsQFeZYoJJ7bIZBS9BcamUW96asq/npPWugM+RQBw==}
-
   jackspeak@4.1.1:
     resolution: {integrity: sha512-zptv57P3GpL+O0I7VdMJNBZCu+BPHVQUk55Ft8/QCJjTVxrnJHuVuX/0Bl2A6/+2oyR/ZMEuFKwmzqqZ/U5nPQ==}
     engines: {node: 20 || >=22}
@@ -5325,6 +5315,7 @@ packages:
 
   mathjax-full@3.2.2:
     resolution: {integrity: sha512-+LfG9Fik+OuI8SLwsiR02IVdjcnRCy5MufYLi0C3TdMT56L/pjB0alMVGgoWJF8pN9Rc7FESycZB9BMNWIid5w==}
+    deprecated: Version 4 replaces this package with the scoped package @mathjax/src
 
   mdast-util-find-and-replace@3.0.2:
     resolution: {integrity: sha512-Tmd1Vg/m3Xz43afeNxDIhWRtFZgM2VLyaf4vSTYwudTyeuTneoL3qtWMA5jeLyz/O1vDJmmV4QuScFCA2tBPwg==}
@@ -5552,8 +5543,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  minimatch@10.0.3:
-    resolution: {integrity: sha512-IPZ167aShDZZUMdRk66cyQAW3qr0WzbHkPdMYa8bzZhlHhO3jALbKdxcaak7W9FfT2rZNpQuUu4Od7ILEpXSaw==}
+  minimatch@10.1.1:
+    resolution: {integrity: sha512-enIvLvRAFZYXJzkCYG5RKmPfrFArdLv+R+lbQ53BmIMLIry74bjKzX6iHAm8WYamJkhSSEabrWN5D97XnKObjQ==}
     engines: {node: 20 || >=22}
 
   minimatch@3.1.2:
@@ -5904,10 +5895,6 @@ packages:
 
   path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
-
-  path-scurry@1.11.1:
-    resolution: {integrity: sha512-Xa4Nw17FS9ApQFJ9umLiJS4orGjm7ZzwUrwamcGQuHSzDyth9boKDaycYdDcZDuqYATXw4HFXgaqWTctW/v1HA==}
-    engines: {node: '>=16 || 14 >=14.18'}
 
   path-scurry@2.0.0:
     resolution: {integrity: sha512-ypGJsmGtdXUOeM5u93TyeIEfEhM6s+ljAhrk5vAvSx8uyY/02OvrZnA0YNGUrPXfpJMgI1ODd3nwz8Npx4O4cg==}
@@ -9453,7 +9440,7 @@ snapshots:
   '@npmcli/map-workspaces@3.0.6':
     dependencies:
       '@npmcli/name-from-folder': 2.0.0
-      glob: 10.4.5
+      glob: 11.1.0
       minimatch: 9.0.5
       read-package-json-fast: 3.0.2
 
@@ -9462,7 +9449,7 @@ snapshots:
   '@npmcli/package-json@5.2.1':
     dependencies:
       '@npmcli/git': 5.0.8
-      glob: 10.4.5
+      glob: 11.1.0
       hosted-git-info: 7.0.2
       json-parse-even-better-errors: 3.0.2
       normalize-package-data: 6.0.2
@@ -9488,9 +9475,6 @@ snapshots:
     optional: true
 
   '@pagefind/windows-x64@1.3.0':
-    optional: true
-
-  '@pkgjs/parseargs@0.11.0':
     optional: true
 
   '@pkgr/core@0.1.2': {}
@@ -10055,8 +10039,8 @@ snapshots:
       '@typescript-eslint/parser': 8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3)
       eslint: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)
       eslint-config-prettier: 10.1.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
-      eslint-import-resolver-typescript: 4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-typescript@4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
+      eslint-import-resolver-typescript: 4.2.1(eslint-plugin-import@2.31.0)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-typescript@4.2.1)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
       eslint-plugin-jsonc: 2.19.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
       eslint-plugin-mdx: 3.2.0(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
@@ -11680,7 +11664,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-import-resolver-typescript@4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)):
+  eslint-import-resolver-typescript@4.2.1(eslint-plugin-import@2.31.0)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)):
     dependencies:
       debug: 4.4.1
       eslint: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)
@@ -11689,7 +11673,7 @@ snapshots:
       stable-hash: 0.0.5
       tinyglobby: 0.2.14
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-typescript@4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-typescript@4.2.1)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -11723,14 +11707,14 @@ snapshots:
     dependencies:
       eslint: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)
 
-  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)):
+  eslint-module-utils@2.12.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.2.1)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)):
     dependencies:
       debug: 3.2.7
     optionalDependencies:
       '@typescript-eslint/parser': 8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3)
       eslint: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
+      eslint-import-resolver-typescript: 4.2.1(eslint-plugin-import@2.31.0)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -11747,7 +11731,7 @@ snapshots:
       eslint: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)
       estraverse: 5.3.0
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-typescript@4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-typescript@4.2.1)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -11758,7 +11742,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.2.1(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1)))(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
+      eslint-module-utils: 2.12.1(@typescript-eslint/parser@8.26.1(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@4.2.1)(eslint@9.22.0(patch_hash=cb00d0a959512dc3ccdfa2be3c84743c7edf6fb8e7593371f0b2a9588a2b969f)(jiti@2.5.1))
       hasown: 2.0.2
       is-core-module: 2.16.1
       is-glob: 4.0.3
@@ -12289,20 +12273,11 @@ snapshots:
 
   glob-to-regexp@0.4.1: {}
 
-  glob@10.4.5:
-    dependencies:
-      foreground-child: 3.3.1
-      jackspeak: 3.4.3
-      minimatch: 9.0.5
-      minipass: 7.1.2
-      package-json-from-dist: 1.0.1
-      path-scurry: 1.11.1
-
-  glob@11.0.3:
+  glob@11.1.0:
     dependencies:
       foreground-child: 3.3.1
       jackspeak: 4.1.1
-      minimatch: 10.0.3
+      minimatch: 10.1.1
       minipass: 7.1.2
       package-json-from-dist: 1.0.1
       path-scurry: 2.0.0
@@ -12781,12 +12756,6 @@ snapshots:
       get-proto: 1.0.1
       has-symbols: 1.1.0
       set-function-name: 2.0.2
-
-  jackspeak@3.4.3:
-    dependencies:
-      '@isaacs/cliui': 8.0.2
-    optionalDependencies:
-      '@pkgjs/parseargs': 0.11.0
 
   jackspeak@4.1.1:
     dependencies:
@@ -13609,7 +13578,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  minimatch@10.0.3:
+  minimatch@10.1.1:
     dependencies:
       '@isaacs/brace-expansion': 5.0.0
 
@@ -14026,11 +13995,6 @@ snapshots:
   path-key@4.0.0: {}
 
   path-parse@1.0.7: {}
-
-  path-scurry@1.11.1:
-    dependencies:
-      lru-cache: 10.4.3
-      minipass: 7.1.2
 
   path-scurry@2.0.0:
     dependencies:
@@ -14577,7 +14541,7 @@ snapshots:
 
   rimraf@6.0.1:
     dependencies:
-      glob: 11.0.3
+      glob: 11.1.0
       package-json-from-dist: 1.0.1
 
   robust-predicates@3.0.2: {}
@@ -15035,7 +14999,7 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.12
       commander: 4.1.1
-      glob: 10.4.5
+      glob: 11.1.0
       lines-and-columns: 1.2.4
       mz: 2.7.0
       pirates: 4.0.7
@@ -15428,7 +15392,7 @@ snapshots:
       concat-stream: 2.0.0
       debug: 4.4.1
       extend: 3.0.2
-      glob: 10.4.5
+      glob: 11.1.0
       ignore: 6.0.2
       is-empty: 1.2.0
       is-plain-obj: 4.1.0
