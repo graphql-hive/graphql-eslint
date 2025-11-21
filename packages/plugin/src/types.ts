@@ -52,7 +52,7 @@ export type CategoryType = 'Operations' | 'Schema';
 type RuleMetaDataDocs = Required<Rule.RuleMetaData>['docs'];
 
 export type RuleDocsInfo<T> = Omit<RuleMetaDataDocs, 'category' | 'suggestion'> & {
-  category: CategoryType | CategoryType[];
+  category: CategoryType;
   requiresSchema?: true;
   requiresSiblings?: true;
   examples?: {
