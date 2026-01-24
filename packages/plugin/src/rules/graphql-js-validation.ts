@@ -309,6 +309,9 @@ export const GRAPHQL_JS_VALIDATIONS: Record<string, GraphQLESLintRule> = Object.
 
         return visit(documentNode, {
           Field: filterDirectives,
+          FragmentDefinition: filterDirectives,
+          FragmentSpread: filterDirectives,
+          InlineFragment: filterDirectives,
           OperationDefinition: filterDirectives,
         });
       },
