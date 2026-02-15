@@ -33,15 +33,15 @@
 
 ### Minor Changes
 
-- [#2814](https://github.com/dimaMachina/graphql-eslint/pull/2814)
-  [`ccc302d`](https://github.com/dimaMachina/graphql-eslint/commit/ccc302d3e43634f1010564a6522413f133aeb674)
+- [#2814](https://github.com/graphql-hive/graphql-eslint/pull/2814)
+  [`ccc302d`](https://github.com/graphql-hive/graphql-eslint/commit/ccc302d3e43634f1010564a6522413f133aeb674)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - lint federation subgraphs schemas without
   parse errors
 
 ### Patch Changes
 
-- [#2814](https://github.com/dimaMachina/graphql-eslint/pull/2814)
-  [`ccc302d`](https://github.com/dimaMachina/graphql-eslint/commit/ccc302d3e43634f1010564a6522413f133aeb674)
+- [#2814](https://github.com/graphql-hive/graphql-eslint/pull/2814)
+  [`ccc302d`](https://github.com/graphql-hive/graphql-eslint/commit/ccc302d3e43634f1010564a6522413f133aeb674)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - dependencies updates:
 
   - Updated dependency
@@ -51,16 +51,16 @@
     [`@apollo/subgraph@^2` ↗︎](https://www.npmjs.com/package/@apollo/subgraph/v/2.0.0) (to
     `peerDependencies`)
 
-- [#2797](https://github.com/dimaMachina/graphql-eslint/pull/2797)
-  [`b904515`](https://github.com/dimaMachina/graphql-eslint/commit/b9045158e181925cbf2eedbb9f6b9964f25fe613)
+- [#2797](https://github.com/graphql-hive/graphql-eslint/pull/2797)
+  [`b904515`](https://github.com/graphql-hive/graphql-eslint/commit/b9045158e181925cbf2eedbb9f6b9964f25fe613)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - remove `truthy` helper function
 
 ## 4.2.1
 
 ### Patch Changes
 
-- [#2805](https://github.com/dimaMachina/graphql-eslint/pull/2805)
-  [`fc2bf85`](https://github.com/dimaMachina/graphql-eslint/commit/fc2bf850b813ac567967ee5ce0f1358f0b7fa4e0)
+- [#2805](https://github.com/graphql-hive/graphql-eslint/pull/2805)
+  [`fc2bf85`](https://github.com/graphql-hive/graphql-eslint/commit/fc2bf850b813ac567967ee5ce0f1358f0b7fa4e0)
   Thanks [@FloEdelmann](https://github.com/FloEdelmann)! - fix(deps): increase minimum
   graphql-config version
 
@@ -68,8 +68,8 @@
 
 ### Minor Changes
 
-- [#2790](https://github.com/dimaMachina/graphql-eslint/pull/2790)
-  [`438078d`](https://github.com/dimaMachina/graphql-eslint/commit/438078d54442ef5e584affb2ae82c32898ce7e3e)
+- [#2790](https://github.com/graphql-hive/graphql-eslint/pull/2790)
+  [`438078d`](https://github.com/graphql-hive/graphql-eslint/commit/438078d54442ef5e584affb2ae82c32898ce7e3e)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - feat(`require-selections` rule):
   introduce new option `requireAllFields` to require all values of `fieldName: string[]` option
 
@@ -77,41 +77,41 @@
 
 ### Patch Changes
 
-- [#2785](https://github.com/dimaMachina/graphql-eslint/pull/2785)
-  [`99b0703`](https://github.com/dimaMachina/graphql-eslint/commit/99b0703e91fc6661664c8773f48ffe28ac4a3467)
+- [#2785](https://github.com/graphql-hive/graphql-eslint/pull/2785)
+  [`99b0703`](https://github.com/graphql-hive/graphql-eslint/commit/99b0703e91fc6661664c8773f48ffe28ac4a3467)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - `allowLeadingUnderscore` and
   `allowTrailingUnderscore` should not conflict with `ignorePattern` in `naming-convention` rule
 
-- [#2787](https://github.com/dimaMachina/graphql-eslint/pull/2787)
-  [`f370359`](https://github.com/dimaMachina/graphql-eslint/commit/f370359b4844c291cf5790e4503454ebd30373a2)
+- [#2787](https://github.com/graphql-hive/graphql-eslint/pull/2787)
+  [`f370359`](https://github.com/graphql-hive/graphql-eslint/commit/f370359b4844c291cf5790e4503454ebd30373a2)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - add an example with
-  [custom graphql rules](https://github.com/dimaMachina/graphql-eslint/tree/master/examples/custom-rules)
+  [custom graphql rules](https://github.com/graphql-hive/graphql-eslint/tree/master/examples/custom-rules)
 
 ## 4.1.0
 
 ### Minor Changes
 
-- [#2780](https://github.com/dimaMachina/graphql-eslint/pull/2780)
-  [`98e0b56`](https://github.com/dimaMachina/graphql-eslint/commit/98e0b564a7df339aad03e5ea69e40d34864b2fc1)
+- [#2780](https://github.com/graphql-hive/graphql-eslint/pull/2780)
+  [`98e0b56`](https://github.com/graphql-hive/graphql-eslint/commit/98e0b564a7df339aad03e5ea69e40d34864b2fc1)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - introduce `forbiddenPatterns` and
   `requiredPatterns` options for `naming-convention` rule and deprecate `forbiddenPrefixes`,
   `forbiddenSuffixes` and `requiredPrefixes` and `requiredSuffixes`
 
-- [#2782](https://github.com/dimaMachina/graphql-eslint/pull/2782)
-  [`4c20cdd`](https://github.com/dimaMachina/graphql-eslint/commit/4c20cddd252091d61be708a83649ef4b3655e66c)
+- [#2782](https://github.com/graphql-hive/graphql-eslint/pull/2782)
+  [`4c20cdd`](https://github.com/graphql-hive/graphql-eslint/commit/4c20cddd252091d61be708a83649ef4b3655e66c)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - add new option `ignoredSelectors` for
   `require-description` rule, to ignore eslint selectors, e.g. types which ends with `Connection` or
   `Edge`
 
-- [#2783](https://github.com/dimaMachina/graphql-eslint/pull/2783)
-  [`6e354c9`](https://github.com/dimaMachina/graphql-eslint/commit/6e354c91ec926ae2ff82668d7b81c0a79b019bc3)
+- [#2783](https://github.com/graphql-hive/graphql-eslint/pull/2783)
+  [`6e354c9`](https://github.com/graphql-hive/graphql-eslint/commit/6e354c91ec926ae2ff82668d7b81c0a79b019bc3)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - add `json-schema-to-ts` as optional peer
   dependency
 
 ### Patch Changes
 
-- [#2783](https://github.com/dimaMachina/graphql-eslint/pull/2783)
-  [`6e354c9`](https://github.com/dimaMachina/graphql-eslint/commit/6e354c91ec926ae2ff82668d7b81c0a79b019bc3)
+- [#2783](https://github.com/graphql-hive/graphql-eslint/pull/2783)
+  [`6e354c9`](https://github.com/graphql-hive/graphql-eslint/commit/6e354c91ec926ae2ff82668d7b81c0a79b019bc3)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - dependencies updates:
   - Added dependency
     [`json-schema-to-ts@^3` ↗︎](https://www.npmjs.com/package/json-schema-to-ts/v/3.0.0) (to
@@ -121,8 +121,8 @@
 
 ### Patch Changes
 
-- [#2775](https://github.com/dimaMachina/graphql-eslint/pull/2775)
-  [`84d78b7`](https://github.com/dimaMachina/graphql-eslint/commit/84d78b796ad2c44221dd5789be858e8dc87933b5)
+- [#2775](https://github.com/graphql-hive/graphql-eslint/pull/2775)
+  [`84d78b7`](https://github.com/graphql-hive/graphql-eslint/commit/84d78b796ad2c44221dd5789be858e8dc87933b5)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix error
   `TypeError: Cannot read properties of undefined (reading 'type')` in `require-description` rule
 
@@ -130,8 +130,8 @@
 
 ### Major Changes
 
-- [#2598](https://github.com/dimaMachina/graphql-eslint/pull/2598)
-  [`e771499`](https://github.com/dimaMachina/graphql-eslint/commit/e771499db22ed6aa358af090b535f6206e191ebb)
+- [#2598](https://github.com/graphql-hive/graphql-eslint/pull/2598)
+  [`e771499`](https://github.com/graphql-hive/graphql-eslint/commit/e771499db22ed6aa358af090b535f6206e191ebb)
   Thanks [@bmulholland](https://github.com/bmulholland)! - 1. graphql plugin can now we be specified
   as
 
@@ -166,8 +166,8 @@
      + import graphqlPlugin from '@graphql-eslint/eslint-plugin'
      ```
 
-- [#1813](https://github.com/dimaMachina/graphql-eslint/pull/1813)
-  [`1c2d220`](https://github.com/dimaMachina/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
+- [#1813](https://github.com/graphql-hive/graphql-eslint/pull/1813)
+  [`1c2d220`](https://github.com/graphql-hive/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - - bring back `possible-type-extension`
   rule to `schema-recommended` config
 
@@ -183,8 +183,8 @@
   > To avoid confusing when users extend this config for executable definitions (operations and
   > fragments)
 
-- [#1813](https://github.com/dimaMachina/graphql-eslint/pull/1813)
-  [`1c2d220`](https://github.com/dimaMachina/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
+- [#1813](https://github.com/graphql-hive/graphql-eslint/pull/1813)
+  [`1c2d220`](https://github.com/graphql-hive/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - - `alphabetize` rule changes
 
   - add `definitions: true` option for `schema-all`/`operations-all` configs
@@ -235,8 +235,8 @@
 
     Do not check subscriptions
 
-- [#1813](https://github.com/dimaMachina/graphql-eslint/pull/1813)
-  [`1c2d220`](https://github.com/dimaMachina/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
+- [#1813](https://github.com/graphql-hive/graphql-eslint/pull/1813)
+  [`1c2d220`](https://github.com/graphql-hive/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - - remove `parserOptions.schema`
 
   - remove `parserOptions.documents`
@@ -250,30 +250,30 @@
   - remove `parserOptions.operations`
   - add `parserOptions.graphQLConfig?: IGraphQLConfig` for programmatic usage
 
-- [#2281](https://github.com/dimaMachina/graphql-eslint/pull/2281)
-  [`c53cb4e`](https://github.com/dimaMachina/graphql-eslint/commit/c53cb4e8e462f65e880cb700020602081632503c)
+- [#2281](https://github.com/graphql-hive/graphql-eslint/pull/2281)
+  [`c53cb4e`](https://github.com/graphql-hive/graphql-eslint/commit/c53cb4e8e462f65e880cb700020602081632503c)
   Thanks [@maciesielka](https://github.com/maciesielka)! - Add new config option
   `ignoredFieldSelectors` to `no-unused-fields` rule to ignore all the relay pagination fields for
   every connection exposed in schema for example
 
-- [#1813](https://github.com/dimaMachina/graphql-eslint/pull/1813)
-  [`1c2d220`](https://github.com/dimaMachina/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
+- [#1813](https://github.com/graphql-hive/graphql-eslint/pull/1813)
+  [`1c2d220`](https://github.com/graphql-hive/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - drop support of Node.js 12/14/16, GraphQL
   14/15
 
-- [#2418](https://github.com/dimaMachina/graphql-eslint/pull/2418)
-  [`c2d5386`](https://github.com/dimaMachina/graphql-eslint/commit/c2d53869c84e7393b11239f78d55eb1477a9a077)
+- [#2418](https://github.com/graphql-hive/graphql-eslint/pull/2418)
+  [`c2d5386`](https://github.com/graphql-hive/graphql-eslint/commit/c2d53869c84e7393b11239f78d55eb1477a9a077)
   Thanks [@comatory](https://github.com/comatory)! - exposing GraphQLESTreeNode type
 
-- [#2768](https://github.com/dimaMachina/graphql-eslint/pull/2768)
-  [`241936a`](https://github.com/dimaMachina/graphql-eslint/commit/241936acfebef3e6201703e483776d3f952a6f0f)
+- [#2768](https://github.com/graphql-hive/graphql-eslint/pull/2768)
+  [`241936a`](https://github.com/graphql-hive/graphql-eslint/commit/241936acfebef3e6201703e483776d3f952a6f0f)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - - rename `requireSiblingsOperations` to
   `requireGraphQLOperations`
 
   - rename `requireGraphQLSchemaFromContext` to `requireGraphQLSchema`
 
-- [#1813](https://github.com/dimaMachina/graphql-eslint/pull/1813)
-  [`1c2d220`](https://github.com/dimaMachina/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
+- [#1813](https://github.com/graphql-hive/graphql-eslint/pull/1813)
+  [`1c2d220`](https://github.com/graphql-hive/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - Remove `GraphQLRuleTester` from bundle,
   to test your rules use regular `RuleTester` from eslint
 
@@ -287,40 +287,40 @@
   })
   ```
 
-- [#2319](https://github.com/dimaMachina/graphql-eslint/pull/2319)
-  [`b3c73dc`](https://github.com/dimaMachina/graphql-eslint/commit/b3c73dc6f0d1de7cfb232bc0e78ab871edc247de)
+- [#2319](https://github.com/graphql-hive/graphql-eslint/pull/2319)
+  [`b3c73dc`](https://github.com/graphql-hive/graphql-eslint/commit/b3c73dc6f0d1de7cfb232bc0e78ab871edc247de)
   Thanks [@maciesielka](https://github.com/maciesielka)! - Enforce `require-selections` on
   `FragmentSpread`s within `GraphQLUnionType`s
 
 ### Minor Changes
 
-- [#2385](https://github.com/dimaMachina/graphql-eslint/pull/2385)
-  [`afa8b8a`](https://github.com/dimaMachina/graphql-eslint/commit/afa8b8af92b8eb92595a1cc9b24c42c4e4705ed2)
+- [#2385](https://github.com/graphql-hive/graphql-eslint/pull/2385)
+  [`afa8b8a`](https://github.com/graphql-hive/graphql-eslint/commit/afa8b8af92b8eb92595a1cc9b24c42c4e4705ed2)
   Thanks [@deathemperor](https://github.com/deathemperor)! - feat: add a new option `{` for
   alphabetize rule to sort fields `selection set`
 
-- [#2293](https://github.com/dimaMachina/graphql-eslint/pull/2293)
-  [`01f7087`](https://github.com/dimaMachina/graphql-eslint/commit/01f70879e5befc92acd9afffe7d2a56ee447f316)
+- [#2293](https://github.com/graphql-hive/graphql-eslint/pull/2293)
+  [`01f7087`](https://github.com/graphql-hive/graphql-eslint/commit/01f70879e5befc92acd9afffe7d2a56ee447f316)
   Thanks [@yoavsion](https://github.com/yoavsion)! - Support the fragment spread group when defining
   alphabetize rule's groups with new option `...`
 
-- [#2719](https://github.com/dimaMachina/graphql-eslint/pull/2719)
-  [`57d6edf`](https://github.com/dimaMachina/graphql-eslint/commit/57d6edf07226dba743b4045ddaab3c0212d738bf)
+- [#2719](https://github.com/graphql-hive/graphql-eslint/pull/2719)
+  [`57d6edf`](https://github.com/graphql-hive/graphql-eslint/commit/57d6edf07226dba743b4045ddaab3c0212d738bf)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - check for deprecated arguments and object
   field nodes in graphql operations in `no-deprecated` rule
 
 ### Patch Changes
 
-- [#1813](https://github.com/dimaMachina/graphql-eslint/pull/1813)
-  [`1c2d220`](https://github.com/dimaMachina/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
+- [#1813](https://github.com/graphql-hive/graphql-eslint/pull/1813)
+  [`1c2d220`](https://github.com/graphql-hive/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - dependencies updates:
 
   - Removed dependency
     [`@babel/code-frame@^7.18.6` ↗︎](https://www.npmjs.com/package/@babel/code-frame/v/7.18.6)
     (from `dependencies`)
 
-- [#1813](https://github.com/dimaMachina/graphql-eslint/pull/1813)
-  [`1c2d220`](https://github.com/dimaMachina/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
+- [#1813](https://github.com/graphql-hive/graphql-eslint/pull/1813)
+  [`1c2d220`](https://github.com/graphql-hive/graphql-eslint/commit/1c2d2205a8eb1d7446e4101bb4300e6e71120e42)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - dependencies updates:
 
   - Updated dependency
@@ -339,39 +339,39 @@
   - Added dependency [`eslint@>=8.44.0` ↗︎](https://www.npmjs.com/package/eslint/v/8.44.0) (to
     `peerDependencies`)
 
-- [#2455](https://github.com/dimaMachina/graphql-eslint/pull/2455)
-  [`08a8a13`](https://github.com/dimaMachina/graphql-eslint/commit/08a8a1382d51140ddf7a310de3a711b354533879)
+- [#2455](https://github.com/graphql-hive/graphql-eslint/pull/2455)
+  [`08a8a13`](https://github.com/graphql-hive/graphql-eslint/commit/08a8a1382d51140ddf7a310de3a711b354533879)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix caching issues for
   `no-unreachable-types` / `no-unused-fields` rules for multi projects
 
-- [#2483](https://github.com/dimaMachina/graphql-eslint/pull/2483)
-  [`d52585a`](https://github.com/dimaMachina/graphql-eslint/commit/d52585a08513546e1c403a6cf83de6d6370e96da)
+- [#2483](https://github.com/graphql-hive/graphql-eslint/pull/2483)
+  [`d52585a`](https://github.com/graphql-hive/graphql-eslint/commit/d52585a08513546e1c403a6cf83de6d6370e96da)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix compatibility with Node.js v22
 
-- [#2743](https://github.com/dimaMachina/graphql-eslint/pull/2743)
-  [`03ccb9d`](https://github.com/dimaMachina/graphql-eslint/commit/03ccb9dabcd70af92ae46a0807f6cd979317a38f)
+- [#2743](https://github.com/graphql-hive/graphql-eslint/pull/2743)
+  [`03ccb9d`](https://github.com/graphql-hive/graphql-eslint/commit/03ccb9dabcd70af92ae46a0807f6cd979317a38f)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix error from `no-deprecated` rule
   `4.0.0-alpha.13: node.typeInfo(...).inputType.getFields is not a function`
 
-- [#2466](https://github.com/dimaMachina/graphql-eslint/pull/2466)
-  [`da608d7`](https://github.com/dimaMachina/graphql-eslint/commit/da608d735f7e292b15955ace2fd4b1f17406105e)
+- [#2466](https://github.com/graphql-hive/graphql-eslint/pull/2466)
+  [`da608d7`](https://github.com/graphql-hive/graphql-eslint/commit/da608d735f7e292b15955ace2fd4b1f17406105e)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix `require is not defined` in flat
   configs for Vue/Svelte projects
 
-- [#2277](https://github.com/dimaMachina/graphql-eslint/pull/2277)
-  [`3b35bae`](https://github.com/dimaMachina/graphql-eslint/commit/3b35baedacb8cdac542268933d8a8fec6c199af0)
+- [#2277](https://github.com/graphql-hive/graphql-eslint/pull/2277)
+  [`3b35bae`](https://github.com/graphql-hive/graphql-eslint/commit/3b35baedacb8cdac542268933d8a8fec6c199af0)
   Thanks [@yoavain-sundaysky](https://github.com/yoavain-sundaysky)! - fix false positive cases for
   `require-import-fragment` on Windows, when `graphql-config`'s `documents` key contained glob
   pattern => source file path of document contained always forward slashes
 
-- [#2735](https://github.com/dimaMachina/graphql-eslint/pull/2735)
-  [`ccd9303`](https://github.com/dimaMachina/graphql-eslint/commit/ccd930309957896f5d22ed59d40a67803ee77868)
+- [#2735](https://github.com/graphql-hive/graphql-eslint/pull/2735)
+  [`ccd9303`](https://github.com/graphql-hive/graphql-eslint/commit/ccd930309957896f5d22ed59d40a67803ee77868)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix reporting lint issues not on first
   char of file for `.vue` and support ESLint fixes and suggestions for them. Use
-  [new official example](https://github.com/dimaMachina/graphql-eslint/blob/master/examples/vue-code-file/eslint.config.js)
+  [new official example](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/vue-code-file/eslint.config.js)
 
-- [#2468](https://github.com/dimaMachina/graphql-eslint/pull/2468)
-  [`733a66e`](https://github.com/dimaMachina/graphql-eslint/commit/733a66e38cb5a444ff3a2f9ed7c1b31665fca404)
+- [#2468](https://github.com/graphql-hive/graphql-eslint/pull/2468)
+  [`733a66e`](https://github.com/graphql-hive/graphql-eslint/commit/733a66e38cb5a444ff3a2f9ed7c1b31665fca404)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - - rename flat configs exports
 
   ```diff
@@ -390,51 +390,51 @@
   - fix with programmatic usage when passing large schema as string causes `pattern too long` error
   - fix loading ESM `graphql.config.js` configs
 
-- [#2616](https://github.com/dimaMachina/graphql-eslint/pull/2616)
-  [`c0f1b07`](https://github.com/dimaMachina/graphql-eslint/commit/c0f1b077c8c7b8ee872bcee191f1acf5a8d5f62b)
+- [#2616](https://github.com/graphql-hive/graphql-eslint/pull/2616)
+  [`c0f1b07`](https://github.com/graphql-hive/graphql-eslint/commit/c0f1b077c8c7b8ee872bcee191f1acf5a8d5f62b)
   Thanks [@fcortes](https://github.com/fcortes)! - The import attribute syntax (with { type: "json"
   }) is still experimental so warnings showed up when using the library as it was being used to
   import the package.json file to extract the package version
 
   As an alternative, the current version will be injected on build time through tsup configuration.
 
-- [#2605](https://github.com/dimaMachina/graphql-eslint/pull/2605)
-  [`2ae64e1`](https://github.com/dimaMachina/graphql-eslint/commit/2ae64e12ab2e61c14b8a195410e2e68dc3fb29d0)
+- [#2605](https://github.com/graphql-hive/graphql-eslint/pull/2605)
+  [`2ae64e1`](https://github.com/graphql-hive/graphql-eslint/commit/2ae64e12ab2e61c14b8a195410e2e68dc3fb29d0)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix types exports by
   `@arethetypeswrong/cli` package
 
-- [#2458](https://github.com/dimaMachina/graphql-eslint/pull/2458)
-  [`9096458`](https://github.com/dimaMachina/graphql-eslint/commit/909645893d41f2ccf618b2c74fb7671ddab538b9)
+- [#2458](https://github.com/graphql-hive/graphql-eslint/pull/2458)
+  [`9096458`](https://github.com/graphql-hive/graphql-eslint/commit/909645893d41f2ccf618b2c74fb7671ddab538b9)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - add `meta` object with `name` and
   `version` to `parser` and `processor` to be compatible with ESLint 9
 
-- [#2692](https://github.com/dimaMachina/graphql-eslint/pull/2692)
-  [`dcf4e35`](https://github.com/dimaMachina/graphql-eslint/commit/dcf4e3558e13f4350e4e0960d8e9603667cda0b2)
+- [#2692](https://github.com/graphql-hive/graphql-eslint/pull/2692)
+  [`dcf4e35`](https://github.com/graphql-hive/graphql-eslint/commit/dcf4e3558e13f4350e4e0960d8e9603667cda0b2)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix some issues on Windows by running
   tests with matrix on github CI
 
-- [#2711](https://github.com/dimaMachina/graphql-eslint/pull/2711)
-  [`b15df66`](https://github.com/dimaMachina/graphql-eslint/commit/b15df66b048fdd57e108a6332a6b546765685f7e)
+- [#2711](https://github.com/graphql-hive/graphql-eslint/pull/2711)
+  [`b15df66`](https://github.com/graphql-hive/graphql-eslint/commit/b15df66b048fdd57e108a6332a6b546765685f7e)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - Reenable running
   `require-id-when-available` on `FragmentDefinition`
 
-- [#2752](https://github.com/dimaMachina/graphql-eslint/pull/2752)
-  [`1e3e966`](https://github.com/dimaMachina/graphql-eslint/commit/1e3e96634a29099704c29a328955c28b060aa7dc)
+- [#2752](https://github.com/graphql-hive/graphql-eslint/pull/2752)
+  [`1e3e966`](https://github.com/graphql-hive/graphql-eslint/commit/1e3e96634a29099704c29a328955c28b060aa7dc)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix - Config types don't satisfy
   `FlatConfig.Config`
 
-- [#2721](https://github.com/dimaMachina/graphql-eslint/pull/2721)
-  [`cda7929`](https://github.com/dimaMachina/graphql-eslint/commit/cda7929a69256afe3f87ef69f950d35b089775f2)
+- [#2721](https://github.com/graphql-hive/graphql-eslint/pull/2721)
+  [`cda7929`](https://github.com/graphql-hive/graphql-eslint/commit/cda7929a69256afe3f87ef69f950d35b089775f2)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix `no-unreachable-types` to consider
   wrapped request directive argument types
 
-- [#2763](https://github.com/dimaMachina/graphql-eslint/pull/2763)
-  [`baba639`](https://github.com/dimaMachina/graphql-eslint/commit/baba6392a5e4c8a43690ddd95b54bd2a22f97af2)
+- [#2763](https://github.com/graphql-hive/graphql-eslint/pull/2763)
+  [`baba639`](https://github.com/graphql-hive/graphql-eslint/commit/baba6392a5e4c8a43690ddd95b54bd2a22f97af2)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix
   https://bit.ly/graphql-eslint-operations links
 
-- [#2713](https://github.com/dimaMachina/graphql-eslint/pull/2713)
-  [`8b6d46b`](https://github.com/dimaMachina/graphql-eslint/commit/8b6d46b3ceac6397c6471ce127add2daa6593e30)
+- [#2713](https://github.com/graphql-hive/graphql-eslint/pull/2713)
+  [`8b6d46b`](https://github.com/graphql-hive/graphql-eslint/commit/8b6d46b3ceac6397c6471ce127add2daa6593e30)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - `naming-convention` rule should not fail
   when aliasing underscore fields
 
@@ -442,8 +442,8 @@
 
 ### Patch Changes
 
-- [#2752](https://github.com/dimaMachina/graphql-eslint/pull/2752)
-  [`1e3e966`](https://github.com/dimaMachina/graphql-eslint/commit/1e3e96634a29099704c29a328955c28b060aa7dc)
+- [#2752](https://github.com/graphql-hive/graphql-eslint/pull/2752)
+  [`1e3e966`](https://github.com/graphql-hive/graphql-eslint/commit/1e3e96634a29099704c29a328955c28b060aa7dc)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix - Config types don't satisfy
   `FlatConfig.Config`
 
@@ -451,23 +451,23 @@
 
 ### Patch Changes
 
-- [#2743](https://github.com/dimaMachina/graphql-eslint/pull/2743)
-  [`03ccb9d`](https://github.com/dimaMachina/graphql-eslint/commit/03ccb9dabcd70af92ae46a0807f6cd979317a38f)
+- [#2743](https://github.com/graphql-hive/graphql-eslint/pull/2743)
+  [`03ccb9d`](https://github.com/graphql-hive/graphql-eslint/commit/03ccb9dabcd70af92ae46a0807f6cd979317a38f)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix error from `no-deprecated` rule
   `4.0.0-alpha.13: node.typeInfo(...).inputType.getFields is not a function`
 
-- [#2735](https://github.com/dimaMachina/graphql-eslint/pull/2735)
-  [`ccd9303`](https://github.com/dimaMachina/graphql-eslint/commit/ccd930309957896f5d22ed59d40a67803ee77868)
+- [#2735](https://github.com/graphql-hive/graphql-eslint/pull/2735)
+  [`ccd9303`](https://github.com/graphql-hive/graphql-eslint/commit/ccd930309957896f5d22ed59d40a67803ee77868)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix reporting lint issues not on first
   char of file for `.vue` and support ESLint fixes and suggestions for them. Use
-  [new official example](https://github.com/dimaMachina/graphql-eslint/blob/master/examples/vue-code-file/eslint.config.js)
+  [new official example](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/vue-code-file/eslint.config.js)
 
 ## 4.0.0-alpha.14
 
 ### Patch Changes
 
-- [#2721](https://github.com/dimaMachina/graphql-eslint/pull/2721)
-  [`cda7929`](https://github.com/dimaMachina/graphql-eslint/commit/cda7929a69256afe3f87ef69f950d35b089775f2)
+- [#2721](https://github.com/graphql-hive/graphql-eslint/pull/2721)
+  [`cda7929`](https://github.com/graphql-hive/graphql-eslint/commit/cda7929a69256afe3f87ef69f950d35b089775f2)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix `no-unreachable-types` to consider
   wrapped request directive argument types
 
@@ -475,8 +475,8 @@
 
 ### Minor Changes
 
-- [#2719](https://github.com/dimaMachina/graphql-eslint/pull/2719)
-  [`57d6edf`](https://github.com/dimaMachina/graphql-eslint/commit/57d6edf07226dba743b4045ddaab3c0212d738bf)
+- [#2719](https://github.com/graphql-hive/graphql-eslint/pull/2719)
+  [`57d6edf`](https://github.com/graphql-hive/graphql-eslint/commit/57d6edf07226dba743b4045ddaab3c0212d738bf)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - check for deprecated arguments and object
   field nodes in graphql operations in `no-deprecated` rule
 
@@ -484,13 +484,13 @@
 
 ### Patch Changes
 
-- [#2711](https://github.com/dimaMachina/graphql-eslint/pull/2711)
-  [`b15df66`](https://github.com/dimaMachina/graphql-eslint/commit/b15df66b048fdd57e108a6332a6b546765685f7e)
+- [#2711](https://github.com/graphql-hive/graphql-eslint/pull/2711)
+  [`b15df66`](https://github.com/graphql-hive/graphql-eslint/commit/b15df66b048fdd57e108a6332a6b546765685f7e)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - Reenable running
   `require-id-when-available` on `FragmentDefinition`
 
-- [#2713](https://github.com/dimaMachina/graphql-eslint/pull/2713)
-  [`8b6d46b`](https://github.com/dimaMachina/graphql-eslint/commit/8b6d46b3ceac6397c6471ce127add2daa6593e30)
+- [#2713](https://github.com/graphql-hive/graphql-eslint/pull/2713)
+  [`8b6d46b`](https://github.com/graphql-hive/graphql-eslint/commit/8b6d46b3ceac6397c6471ce127add2daa6593e30)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - `naming-convention` rule should not fail
   when aliasing underscore fields
 
@@ -498,8 +498,8 @@
 
 ### Major Changes
 
-- [#2281](https://github.com/dimaMachina/graphql-eslint/pull/2281)
-  [`c53cb4e`](https://github.com/dimaMachina/graphql-eslint/commit/c53cb4e8e462f65e880cb700020602081632503c)
+- [#2281](https://github.com/graphql-hive/graphql-eslint/pull/2281)
+  [`c53cb4e`](https://github.com/graphql-hive/graphql-eslint/commit/c53cb4e8e462f65e880cb700020602081632503c)
   Thanks [@maciesielka](https://github.com/maciesielka)! - Add new config option
   `ignoredFieldSelectors` to `no-unused-fields` rule to ignore all the relay pagination fields for
   every connection exposed in schema for example
@@ -508,8 +508,8 @@
 
 ### Major Changes
 
-- [#2319](https://github.com/dimaMachina/graphql-eslint/pull/2319)
-  [`b3c73dc`](https://github.com/dimaMachina/graphql-eslint/commit/b3c73dc6f0d1de7cfb232bc0e78ab871edc247de)
+- [#2319](https://github.com/graphql-hive/graphql-eslint/pull/2319)
+  [`b3c73dc`](https://github.com/graphql-hive/graphql-eslint/commit/b3c73dc6f0d1de7cfb232bc0e78ab871edc247de)
   Thanks [@maciesielka](https://github.com/maciesielka)! - Enforce `require-selections` on
   `FragmentSpread`s within `GraphQLUnionType`s
 
@@ -517,8 +517,8 @@
 
 ### Patch Changes
 
-- [#2277](https://github.com/dimaMachina/graphql-eslint/pull/2277)
-  [`3b35bae`](https://github.com/dimaMachina/graphql-eslint/commit/3b35baedacb8cdac542268933d8a8fec6c199af0)
+- [#2277](https://github.com/graphql-hive/graphql-eslint/pull/2277)
+  [`3b35bae`](https://github.com/graphql-hive/graphql-eslint/commit/3b35baedacb8cdac542268933d8a8fec6c199af0)
   Thanks [@yoavain-sundaysky](https://github.com/yoavain-sundaysky)! - fix false positive cases for
   `require-import-fragment` on Windows, when `graphql-config`'s `documents` key contained glob
   pattern => source file path of document contained always forward slashes
@@ -527,13 +527,13 @@
 
 ### Minor Changes
 
-- [#2385](https://github.com/dimaMachina/graphql-eslint/pull/2385)
-  [`afa8b8a`](https://github.com/dimaMachina/graphql-eslint/commit/afa8b8af92b8eb92595a1cc9b24c42c4e4705ed2)
+- [#2385](https://github.com/graphql-hive/graphql-eslint/pull/2385)
+  [`afa8b8a`](https://github.com/graphql-hive/graphql-eslint/commit/afa8b8af92b8eb92595a1cc9b24c42c4e4705ed2)
   Thanks [@deathemperor](https://github.com/deathemperor)! - feat: add a new option `{` for
   alphabetize rule to sort fields `selection set`
 
-- [#2293](https://github.com/dimaMachina/graphql-eslint/pull/2293)
-  [`01f7087`](https://github.com/dimaMachina/graphql-eslint/commit/01f70879e5befc92acd9afffe7d2a56ee447f316)
+- [#2293](https://github.com/graphql-hive/graphql-eslint/pull/2293)
+  [`01f7087`](https://github.com/graphql-hive/graphql-eslint/commit/01f70879e5befc92acd9afffe7d2a56ee447f316)
   Thanks [@yoavsion](https://github.com/yoavsion)! - Support the fragment spread group when defining
   alphabetize rule's groups with new option `...`
 
@@ -541,8 +541,8 @@
 
 ### Major Changes
 
-- [#2598](https://github.com/dimaMachina/graphql-eslint/pull/2598)
-  [`e771499`](https://github.com/dimaMachina/graphql-eslint/commit/e771499db22ed6aa358af090b535f6206e191ebb)
+- [#2598](https://github.com/graphql-hive/graphql-eslint/pull/2598)
+  [`e771499`](https://github.com/graphql-hive/graphql-eslint/commit/e771499db22ed6aa358af090b535f6206e191ebb)
   Thanks [@bmulholland](https://github.com/bmulholland)! - 1. graphql plugin can now we be specified
   as
 
@@ -579,8 +579,8 @@
 
 ### Patch Changes
 
-- [#2692](https://github.com/dimaMachina/graphql-eslint/pull/2692)
-  [`dcf4e35`](https://github.com/dimaMachina/graphql-eslint/commit/dcf4e3558e13f4350e4e0960d8e9603667cda0b2)
+- [#2692](https://github.com/graphql-hive/graphql-eslint/pull/2692)
+  [`dcf4e35`](https://github.com/graphql-hive/graphql-eslint/commit/dcf4e3558e13f4350e4e0960d8e9603667cda0b2)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix some issues on Windows by running
   tests with matrix on github CI
 
@@ -588,8 +588,8 @@
 
 ### Patch Changes
 
-- [#2616](https://github.com/dimaMachina/graphql-eslint/pull/2616)
-  [`c0f1b07`](https://github.com/dimaMachina/graphql-eslint/commit/c0f1b077c8c7b8ee872bcee191f1acf5a8d5f62b)
+- [#2616](https://github.com/graphql-hive/graphql-eslint/pull/2616)
+  [`c0f1b07`](https://github.com/graphql-hive/graphql-eslint/commit/c0f1b077c8c7b8ee872bcee191f1acf5a8d5f62b)
   Thanks [@fcortes](https://github.com/fcortes)! - The import attribute syntax (with { type: "json"
   }) is still experimental so warnings showed up when using the library as it was being used to
   import the package.json file to extract the package version
@@ -600,8 +600,8 @@
 
 ### Patch Changes
 
-- [#2605](https://github.com/dimaMachina/graphql-eslint/pull/2605)
-  [`2ae64e1`](https://github.com/dimaMachina/graphql-eslint/commit/2ae64e12ab2e61c14b8a195410e2e68dc3fb29d0)
+- [#2605](https://github.com/graphql-hive/graphql-eslint/pull/2605)
+  [`2ae64e1`](https://github.com/graphql-hive/graphql-eslint/commit/2ae64e12ab2e61c14b8a195410e2e68dc3fb29d0)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix types exports by
   `@arethetypeswrong/cli` package
 
@@ -609,21 +609,21 @@
 
 ### Patch Changes
 
-- [#2483](https://github.com/dimaMachina/graphql-eslint/pull/2483)
-  [`d52585a`](https://github.com/dimaMachina/graphql-eslint/commit/d52585a08513546e1c403a6cf83de6d6370e96da)
+- [#2483](https://github.com/graphql-hive/graphql-eslint/pull/2483)
+  [`d52585a`](https://github.com/graphql-hive/graphql-eslint/commit/d52585a08513546e1c403a6cf83de6d6370e96da)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix compatibility with Node.js v22
 
 ## 4.0.0-alpha.3
 
 ### Patch Changes
 
-- [#2466](https://github.com/dimaMachina/graphql-eslint/pull/2466)
-  [`da608d7`](https://github.com/dimaMachina/graphql-eslint/commit/da608d735f7e292b15955ace2fd4b1f17406105e)
+- [#2466](https://github.com/graphql-hive/graphql-eslint/pull/2466)
+  [`da608d7`](https://github.com/graphql-hive/graphql-eslint/commit/da608d735f7e292b15955ace2fd4b1f17406105e)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix `require is not defined` in flat
   configs for Vue/Svelte projects
 
-- [#2468](https://github.com/dimaMachina/graphql-eslint/pull/2468)
-  [`733a66e`](https://github.com/dimaMachina/graphql-eslint/commit/733a66e38cb5a444ff3a2f9ed7c1b31665fca404)
+- [#2468](https://github.com/graphql-hive/graphql-eslint/pull/2468)
+  [`733a66e`](https://github.com/graphql-hive/graphql-eslint/commit/733a66e38cb5a444ff3a2f9ed7c1b31665fca404)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - - rename flat configs exports
 
   ```diff
@@ -646,13 +646,13 @@
 
 ### Patch Changes
 
-- [#2455](https://github.com/dimaMachina/graphql-eslint/pull/2455)
-  [`08a8a13`](https://github.com/dimaMachina/graphql-eslint/commit/08a8a1382d51140ddf7a310de3a711b354533879)
+- [#2455](https://github.com/graphql-hive/graphql-eslint/pull/2455)
+  [`08a8a13`](https://github.com/graphql-hive/graphql-eslint/commit/08a8a1382d51140ddf7a310de3a711b354533879)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - fix caching issues for
   `no-unreachable-types` / `no-unused-fields` rules for multi projects
 
-- [#2458](https://github.com/dimaMachina/graphql-eslint/pull/2458)
-  [`9096458`](https://github.com/dimaMachina/graphql-eslint/commit/909645893d41f2ccf618b2c74fb7671ddab538b9)
+- [#2458](https://github.com/graphql-hive/graphql-eslint/pull/2458)
+  [`9096458`](https://github.com/graphql-hive/graphql-eslint/commit/909645893d41f2ccf618b2c74fb7671ddab538b9)
   Thanks [@dimaMachina](https://github.com/dimaMachina)! - add `meta` object with `name` and
   `version` to `parser` and `processor` to be compatible with ESLint 9
 
@@ -660,8 +660,8 @@
 
 ### Major Changes
 
-- [#2418](https://github.com/dimaMachina/graphql-eslint/pull/2418)
-  [`c2d5386`](https://github.com/dimaMachina/graphql-eslint/commit/c2d53869c84e7393b11239f78d55eb1477a9a077)
+- [#2418](https://github.com/graphql-hive/graphql-eslint/pull/2418)
+  [`c2d5386`](https://github.com/graphql-hive/graphql-eslint/commit/c2d53869c84e7393b11239f78d55eb1477a9a077)
   Thanks [@comatory](https://github.com/comatory)! - exposing GraphQLESTreeNode type
 
 ## 4.0.0-alpha.0

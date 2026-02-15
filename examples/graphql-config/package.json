@@ -2,7 +2,7 @@
   "name": "@graphql-eslint/example-graphql-config",
   "version": "0.0.0",
   "type": "module",
-  "repository": "https://github.com/dimaMachina/graphql-eslint",
+  "repository": "https://github.com/graphql-hive/graphql-eslint",
   "author": "Dotan Simha <dotansimha@gmail.com>",
   "private": true,
   "scripts": {
