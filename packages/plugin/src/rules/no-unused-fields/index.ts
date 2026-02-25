@@ -237,7 +237,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
             {
               desc: `Remove \`${fieldName}\` field`,
               fix(fixer) {
-                const sourceCode = context.getSourceCode() as any;
+                const sourceCode = (context.sourceCode ?? context.getSourceCode()) as any;
                 const tokenBefore = sourceCode.getTokenBefore(node);
                 const tokenAfter = sourceCode.getTokenAfter(node);
                 const isEmptyType = tokenBefore.type === '{' && tokenAfter.type === '}';
