@@ -72,7 +72,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
             {
               desc: `Change to ${isBlock ? 'block' : 'inline'} style description`,
               fix(fixer) {
-                const sourceCode = context.getSourceCode();
+                const sourceCode = context.sourceCode ?? context.getSourceCode();
                 const originalText = sourceCode.getText(node as any);
                 const newText = isBlock
                   ? originalText.replace(/(^")|("$)/g, '"""')

@@ -219,7 +219,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
     schema,
   },
   create(context) {
-    const sourceCode = context.getSourceCode();
+    const sourceCode = context.sourceCode ?? context.getSourceCode();
 
     function isNodeAndCommentOnSameLine(node: { loc: SourceLocation }, comment: Comment): boolean {
       return node.loc.end.line === comment.loc!.start.line;

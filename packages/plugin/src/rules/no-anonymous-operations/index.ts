@@ -59,7 +59,7 @@ export const rule: GraphQLESLintRule = {
             {
               desc: `Rename to \`${suggestedName}\``,
               fix(fixer) {
-                const sourceCode = context.getSourceCode();
+                const sourceCode = context.sourceCode ?? context.getSourceCode();
                 const hasQueryKeyword =
                   sourceCode.getText({ range: [node.range[0], node.range[0] + 1] } as any) !== '{';
 

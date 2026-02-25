@@ -80,7 +80,7 @@ function validateDocument({
 
     for (const error of validationErrors) {
       const { line, column } = error.locations![0];
-      const sourceCode = context.getSourceCode();
+      const sourceCode = context.sourceCode ?? context.getSourceCode();
       const { tokens } = sourceCode.ast;
       const token = tokens.find(
         token => token.loc.start.line === line && token.loc.start.column === column - 1,
