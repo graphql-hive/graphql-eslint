@@ -8,11 +8,11 @@
     "lint": "eslint --cache ."
   },
   "dependencies": {
-    "graphql": "16.10.0"
+    "graphql": "16.13.0"
   },
   "devDependencies": {
-    "@eslint/js": "9.22.0",
+    "@eslint/js": "9.39.3",
     "@graphql-eslint/eslint-plugin": "workspace:*",
-    "eslint": "9.22.0"
+    "eslint": "9.39.3"
   }
 }
