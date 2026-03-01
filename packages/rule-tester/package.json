@@ -19,14 +19,14 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "eslint": "9.22.0"
+    "eslint": "9.39.3"
   },
   "dependencies": {
     "@babel/code-frame": "^7.18.6"
   },
   "devDependencies": {
-    "@types/babel__code-frame": "7.0.6",
-    "@types/node": "22.13.10",
-    "eslint": "9.22.0"
+    "@types/babel__code-frame": "7.27.0",
+    "@types/node": "22.19.13",
+    "eslint": "9.39.3"
   }
 }

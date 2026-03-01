@@ -73,11 +73,11 @@
     "@theguild/eslint-rule-tester": "workspace:*",
     "@types/debug": "4.1.12",
     "@types/eslint": "9.6.1",
-    "@types/estree": "1.0.6",
+    "@types/estree": "1.0.8",
     "@types/graphql-depth-limit": "1.1.6",
     "@types/json-schema": "7.0.15",
     "@types/lodash.lowercase": "4.3.9",
-    "graphql": "16.10.0",
+    "graphql": "16.13.0",
     "json-schema-to-ts": "3.1.1",
     "vite-tsconfig-paths": "^5.0.0"
   },
