@@ -368,8 +368,8 @@ importers:
         specifier: ^2.0.0
         version: 2.2.5(@types/react@18.3.19)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@theguild/components':
-        specifier: 8.0.0-alpha-20241206200036-57d75dbef3b4deb9b1f5dc238935dedaa0922382
-        version: 8.0.0-alpha-20241206200036-57d75dbef3b4deb9b1f5dc238935dedaa0922382(@theguild/tailwind-config@0.6.1(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17))(@types/react@18.3.19)(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)(use-sync-external-store@1.5.0(react@18.3.1))
+        specifier: 8.1.2
+        version: 8.1.2(@theguild/tailwind-config@0.6.4(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17))(@types/react@18.3.19)(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)(use-sync-external-store@1.5.0(react@18.3.1))
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
@@ -396,8 +396,8 @@ importers:
         specifier: ^8.1.0
         version: 8.1.0(typescript@5.8.3)
       '@theguild/tailwind-config':
-        specifier: 0.6.1
-        version: 0.6.1(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17)
+        specifier: 0.6.4
+        version: 0.6.4(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17)
       '@types/lodash.uniqwith':
         specifier: 4.5.9
         version: 4.5.9
@@ -1975,8 +1975,8 @@ packages:
   '@napi-rs/wasm-runtime@0.2.12':
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
 
-  '@next/bundle-analyzer@15.0.3':
-    resolution: {integrity: sha512-x7ZNvpoQPO0C5ZG//qVp21Qs3v6+C8LBJmdu9DKj4/NmjlnwoQ7dqRZ/nKZcwVhkFT7BHf+Qd5FaeHq9IDJvDQ==}
+  '@next/bundle-analyzer@15.1.1':
+    resolution: {integrity: sha512-9B3cSGYpzWYjLzjR9TDw4JroZoGZ6xJIjiEowGFSILCYhy9WoOW6JXdxiuLalIoKPP+wNmNuV68LI1Pu6nq8dA==}
 
   '@next/env@13.5.11':
     resolution: {integrity: sha512-fbb2C7HChgM7CemdCY+y3N1n8pcTKdqtQLbC7/EQtPdLvlMUT9JX/dBYl8MMZAtYG4uVMyPFHXckb68q/NRwqg==}
@@ -2664,10 +2664,10 @@ packages:
   '@tanstack/virtual-core@3.13.12':
     resolution: {integrity: sha512-1YBOJfRHV4sXUmWsFSf5rQor4Ss82G8dQWLRbnk3GA4jeP8hQt1hxXh0tmflpC0dz3VgEv/1+qwPyLeWkQuPFA==}
 
-  '@theguild/components@8.0.0-alpha-20241206200036-57d75dbef3b4deb9b1f5dc238935dedaa0922382':
-    resolution: {integrity: sha512-DLgPE9RNEXx6syRo8lGN+IOMt2juo2Z9vKWgg2no3EdUExlfuQN2Lc7wH0wQ7FeX4orcJVUXBEahTghfzBhP4g==}
+  '@theguild/components@8.1.2':
+    resolution: {integrity: sha512-S4zo7fFYkns4LPa67x99G9jGIe5bKmXRlyR16Vq+C2iBchfWNcbypSZmdFj6OXMzh5A2/G7lLCMPG3p5JhUGTg==}
     peerDependencies:
-      '@theguild/tailwind-config': ^0.6.1
+      '@theguild/tailwind-config': ^0.6.2
       next: ^13 || ^14 || ^15.0.0
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -2697,8 +2697,8 @@ packages:
   '@theguild/remark-npm2yarn@0.3.3':
     resolution: {integrity: sha512-ma6DvR03gdbvwqfKx1omqhg9May/VYGdMHvTzB4VuxkyS7KzfZ/lzrj43hmcsggpMje0x7SADA/pcMph0ejRnA==}
 
-  '@theguild/tailwind-config@0.6.1':
-    resolution: {integrity: sha512-oyB6eHgJLEththaJ9s8/x77zFYybNKyTqO3m7dvfVa1szH0R3YYgr+0PmIIvcitK1HlykPBLFMEZN+zrNF7Pzw==}
+  '@theguild/tailwind-config@0.6.4':
+    resolution: {integrity: sha512-7zscZk+L9x0Z8tMQGtVBC+1usAJ6Nz7hJYCmKzwXyMA4paXr/ghCeMArF9hkIkBp/GH+gKpR+ERaHwmqmvqfVg==}
     peerDependencies:
       postcss-import: ^16.1.0
       postcss-lightningcss: ^1.0.1
@@ -4590,6 +4590,7 @@ packages:
   glob@11.1.0:
     resolution: {integrity: sha512-vuNwKSaKiqm7g0THUBu2x7ckSs3XJLXE+2ssL7/MfTGPLLcrJQ/4Uq1CjPTtO5cCIiRxqvN6Twy1qOwhL0Xjcw==}
     engines: {node: 20 || >=22}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   globals@14.0.0:
@@ -5645,6 +5646,7 @@ packages:
   next@15.4.7:
     resolution: {integrity: sha512-OcqRugwF7n7mC8OSYjvsZhhG1AYSvulor1EIUsIkbbEbf1qoE5EbH36Swj8WhF4cHqmDgkiam3z1c1W0J1Wifg==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/CVE-2025-66478 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -5663,16 +5665,16 @@ packages:
       sass:
         optional: true
 
-  nextra-theme-docs@4.0.0-app-router.34:
-    resolution: {integrity: sha512-Vlewxnrk9NSaS4+QISITViow++KqQSWSTFRsmnB4K7OPq+x1rng+XuxvVz9jjNL0U6dlgLgwDeWNs+eAAcKUJA==}
+  nextra-theme-docs@4.0.0-app-router.38:
+    resolution: {integrity: sha512-GBHL4iYg15516PTbIxyihXxORATOiJ4MjeGxljkFcTdU/P46rYULbikQL0FaqMO1RlcDK1JnlYeBrDob4pYTUg==}
     peerDependencies:
       next: '>=14'
-      nextra: 4.0.0-app-router.34
+      nextra: 4.0.0-app-router.38
       react: '>=18'
       react-dom: '>=18'
 
-  nextra@4.0.0-app-router.34:
-    resolution: {integrity: sha512-0gWYq1ZRs1QebYYiuqKxA3zXrHNeC8LgO6EppofrJ0faKdJo9qgkkOoy6ZkynyQpuVH17TUl+nV4Id74dIPn3Q==}
+  nextra@4.0.0-app-router.38:
+    resolution: {integrity: sha512-6nec2LQbDu+x+akoHWt/OBPUE7emd65TYpun/pByo+7xulPpKgDIT1Ftr3vnCfb7/kvGiTtC0wTO8+qpgsyREg==}
     engines: {node: '>=18'}
     peerDependencies:
       next: '>=14'
@@ -9401,7 +9403,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.0
     optional: true
 
-  '@next/bundle-analyzer@15.0.3':
+  '@next/bundle-analyzer@15.1.1':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
@@ -10042,17 +10044,17 @@ snapshots:
 
   '@tanstack/virtual-core@3.13.12': {}
 
-  '@theguild/components@8.0.0-alpha-20241206200036-57d75dbef3b4deb9b1f5dc238935dedaa0922382(@theguild/tailwind-config@0.6.1(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17))(@types/react@18.3.19)(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)(use-sync-external-store@1.5.0(react@18.3.1))':
+  '@theguild/components@8.1.2(@theguild/tailwind-config@0.6.4(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17))(@types/react@18.3.19)(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)(use-sync-external-store@1.5.0(react@18.3.1))':
     dependencies:
       '@giscus/react': 3.0.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@next/bundle-analyzer': 15.0.3
+      '@next/bundle-analyzer': 15.1.1
       '@radix-ui/react-navigation-menu': 1.2.13(@types/react@18.3.19)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@theguild/tailwind-config': 0.6.1(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17)
+      '@theguild/tailwind-config': 0.6.4(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17)
       clsx: 2.1.1
       fuzzy: 0.1.3
       next: 15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra: 4.0.0-app-router.34(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
-      nextra-theme-docs: 4.0.0-app-router.34(@types/react@18.3.19)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@4.0.0-app-router.34(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.5.0(react@18.3.1))
+      nextra: 4.0.0-app-router.38(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+      nextra-theme-docs: 4.0.0-app-router.38(@types/react@18.3.19)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@4.0.0-app-router.38(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.5.0(react@18.3.1))
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       react-paginate: 8.2.0(react@18.3.1)
@@ -10132,7 +10134,7 @@ snapshots:
       npm-to-yarn: 3.0.1
       unist-util-visit: 5.0.0
 
-  '@theguild/tailwind-config@0.6.1(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17)':
+  '@theguild/tailwind-config@0.6.4(postcss-import@16.1.1(postcss@8.5.6))(postcss-lightningcss@1.0.1(postcss@8.5.6))(tailwindcss@3.4.17)':
     dependencies:
       '@tailwindcss/container-queries': 0.1.1(tailwindcss@3.4.17)
       postcss-import: 16.1.1(postcss@8.5.6)
@@ -13716,13 +13718,13 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  nextra-theme-docs@4.0.0-app-router.34(@types/react@18.3.19)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@4.0.0-app-router.34(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.5.0(react@18.3.1)):
+  nextra-theme-docs@4.0.0-app-router.38(@types/react@18.3.19)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(nextra@4.0.0-app-router.38(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(use-sync-external-store@1.5.0(react@18.3.1)):
     dependencies:
       '@headlessui/react': 2.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       clsx: 2.1.1
       next: 15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes: 0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      nextra: 4.0.0-app-router.34(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+      nextra: 4.0.0-app-router.38(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
       react: 18.3.1
       react-compiler-runtime: 19.0.0-beta-df7b47d-20241124(react@18.3.1)
       react-dom: 18.3.1(react@18.3.1)
@@ -13735,7 +13737,7 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  nextra@4.0.0-app-router.34(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3):
+  nextra@4.0.0-app-router.38(acorn@8.15.0)(next@15.4.7(@babel/core@7.28.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3):
     dependencies:
       '@formatjs/intl-localematcher': 0.5.10
       '@headlessui/react': 2.2.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -13773,7 +13775,7 @@ snapshots:
       title: 4.0.1
       unist-util-remove: 4.0.0
       unist-util-visit: 5.0.0
-      yaml: 2.8.0
+      yaml: 2.8.1
       zod: 3.25.76
       zod-validation-error: 3.5.3(zod@3.25.76)
     transitivePeerDependencies:
@@ -15455,7 +15457,7 @@ snapshots:
       vfile-message: 4.0.3
       vfile-reporter: 8.1.1
       vfile-statistics: 3.0.0
-      yaml: 2.8.0
+      yaml: 2.8.1
     transitivePeerDependencies:
       - bluebird
       - supports-color
