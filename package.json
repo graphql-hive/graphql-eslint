@@ -53,7 +53,7 @@
     "turbo": "2.4.4",
     "typescript": "5.8.3",
     "vitest": "2.1.9",
-    "wrangler": "4.2.0"
+    "wrangler": "4.59.1"
   },
   "pnpm": {
     "patchedDependencies": {
