@@ -67,7 +67,7 @@
       "esbuild": "0.25.0",
       "@eslint/plugin-kit": "0.3.4",
       "cookie": "0.7.0",
-      "glob": "11.1.0"
+      "glob": "13.0.6"
     }
   }
 }
