@@ -47,7 +47,7 @@ export type GraphQLESLintRuleContext<Options = any[]> = Omit<
   report(descriptor: ReportDescriptor): void;
 };
 
-export type CategoryType = 'Operations' | 'Schema';
+export type CategoryType = 'Operations' | 'Schema' | 'Both';
 
 type RuleMetaDataDocs = Required<Rule.RuleMetaData>['docs'];
 
