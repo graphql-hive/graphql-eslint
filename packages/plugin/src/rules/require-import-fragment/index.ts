@@ -69,7 +69,7 @@ export const rule: GraphQLESLintRule = {
     schema: [],
   },
   create(context) {
-    const comments = (context.sourceCode ?? context.getSourceCode()).getAllComments();
+    const comments = context.sourceCode.getAllComments();
     const siblings = requireGraphQLOperations(RULE_ID, context);
     const filePath = context.filename;
 

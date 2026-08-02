@@ -45,7 +45,7 @@ export const rule: GraphQLESLintRule = {
     const rootTypeNames = new Set(
       [schema.getQueryType(), schema.getMutationType()].filter(v => !!v).map(type => type.name),
     );
-    const sourceCode = context.sourceCode ?? context.getSourceCode();
+    const sourceCode = context.sourceCode;
 
     return {
       'ObjectTypeDefinition,ObjectTypeExtension'(
