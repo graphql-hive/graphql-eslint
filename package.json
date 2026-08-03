@@ -5,10 +5,10 @@
   "author": "Dotan Simha <dotansimha@gmail.com>",
   "license": "MIT",
   "private": true,
-  "packageManager": "pnpm@10.6.5",
+  "packageManager": "pnpm@11.20.0",
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=10.6"
+    "node": ">=24",
+    "pnpm": ">=11"
   },
   "scripts": {
     "build": "turbo run build --filter=!website && attw --pack packages/plugin/dist",
@@ -54,22 +54,5 @@
     "typescript": "5.8.3",
     "vitest": "2.1.9",
     "wrangler": "4.2.0"
-  },
-  "pnpm": {
-    "patchedDependencies": {
-      "eslint": "patches/eslint.patch",
-      "json-schema-to-markdown@1.1.1": "patches/json-schema-to-markdown@1.1.1.patch"
-    },
-    "overrides": {
-      "@graphql-eslint/eslint-plugin": "workspace:*",
-      "eslint": "9.22.0",
-      "graphql": "16.10.0",
-      "esbuild": "0.25.0",
-      "@eslint/plugin-kit": "0.3.4",
-      "cookie": "0.7.0",
-      "glob": "11.1.0",
-      "eslint-plugin-unicorn": "56.0.1",
-      "eslint-plugin-mdx": "3.8.1"
-    }
   }
 }
