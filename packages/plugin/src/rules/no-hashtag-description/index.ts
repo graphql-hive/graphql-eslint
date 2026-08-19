@@ -75,7 +75,7 @@ export const rule: GraphQLESLintRule = {
               next.kind === TokenKind.NAME &&
               linesAfter < 2
             ) {
-              const sourceCode = context.getSourceCode();
+              const { sourceCode } = context;
               const { tokens } = sourceCode.ast;
 
               const t = tokens.find(

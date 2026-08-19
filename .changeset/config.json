@@ -9,7 +9,7 @@
   "changelog": [
     "@changesets/changelog-github",
     {
-      "repo": "dimaMachina/graphql-eslint"
+      "repo": "graphql-hive/graphql-eslint"
     }
   ],
   "snapshot": {

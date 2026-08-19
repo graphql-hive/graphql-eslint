@@ -14,7 +14,7 @@ const docsComponents = getDocsMDXComponents({
     gitFolder: string;
     additionalFiles: Record<string, string>;
   }) {
-    const user = 'dimaMachina';
+    const user = 'graphql-hive';
     const repo = 'graphql-eslint';
     const branch = 'master';
     const docsPath = path.join(process.cwd(), '..', 'examples', gitFolder);

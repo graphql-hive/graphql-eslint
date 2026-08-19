@@ -131,7 +131,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
                     {
                       desc: 'Remove selections',
                       fix(fixer) {
-                        const sourceCode = context.getSourceCode();
+                        const { sourceCode } = context;
                         const foundNode = sourceCode.getNodeByRangeIndex(token.range[0]) as any;
                         const parentNode = foundNode.parent.parent;
                         return fixer.remove(

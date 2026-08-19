@@ -13,7 +13,7 @@ _Progress of the issue based on the
 - [ ] 1. The issue provides a reproduction available on GitHub, Stackblitz or CodeSandbox
 
      > For example, you can start off by editing the
-     > ['basic' example on Stackblitz](https://stackblitz.com/github/dimaMachina/graphql-eslint/tree/master/examples/graphql-config).
+     > ['basic' example on Stackblitz](https://stackblitz.com/githubgraphql-hive/graphql-eslint/tree/master/examples/graphql-config).
 
      > Please make sure the graphql-eslint version under `package.json` matches yours.
 
