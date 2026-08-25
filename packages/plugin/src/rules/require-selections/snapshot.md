@@ -154,6 +154,78 @@ exports[`require-selections > invalid > should report an error about missing \`u
     Include it in your selection set or add to used fragments \`UserFullFields\` or \`UserFields\`.
 `;
 
+exports[`require-selections > invalid > should report an error when a fragment on the union type selects \`id\` for one member but not the other 1`] = `
+#### ⌨️ Code
+
+      1 | { userOrPost { ...UnionFragment } }
+
+#### ❌ Error
+
+    > 1 | { userOrPost { ...UnionFragment } }
+        |              ^ Field \`userOrPost.id\` must be selected when it's available on a type.
+    Include it in your selection set or add to used fragment \`UnionFragment\`.
+`;
+
+exports[`require-selections > invalid > should report an error when one union member selects \`id\` inline and another omits it via a named fragment spread 1`] = `
+#### ⌨️ Code
+
+      1 | { userOrPost { ... on User { id } ...PostFields } }
+
+#### ❌ Error
+
+    > 1 | { userOrPost { ... on User { id } ...PostFields } }
+        |              ^ Field \`userOrPost.id\` must be selected when it's available on a type.
+    Include it in your selection set or add to used fragment \`PostFields\`.
+`;
+
+exports[`require-selections > invalid > should report an error when one union member selects \`id\` via inline fragment but the other does not 1`] = `
+#### ⌨️ Code
+
+       1 |         {
+       2 |           userOrPost {
+       3 |             ... on User {
+       4 |               id
+       5 |             }
+       6 |             ... on Post {
+       7 |               title
+       8 |             }
+       9 |           }
+      10 |         }
+
+#### ❌ Error
+
+      1 |         {
+    > 2 |           userOrPost {
+        |                      ^ Field \`userOrPost.id\` must be selected when it's available on a type.
+    Include it in your selection set.
+      3 |             ... on User {
+
+#### 💡 Suggestion: Add \`id\` selection
+
+     1 |         {
+     2 |           userOrPost {
+     3 |             ... on User {
+     4 |               id
+     5 |             }
+     6 |             ... on Post {
+     7 |               id title
+     8 |             }
+     9 |           }
+    10 |         }
+`;
+
+exports[`require-selections > invalid > should report an error when union members are selected via named fragment spreads and one omits \`id\` 1`] = `
+#### ⌨️ Code
+
+      1 | { userOrPost { ...UserFields ...PostFields } }
+
+#### ❌ Error
+
+    > 1 | { userOrPost { ...UserFields ...PostFields } }
+        |              ^ Field \`userOrPost.id\` must be selected when it's available on a type.
+    Include it in your selection set or add to used fragments \`UserFields\` or \`PostFields\`.
+`;
+
 exports[`require-selections > invalid > should report an error with union 1`] = `
 #### ⌨️ Code
 

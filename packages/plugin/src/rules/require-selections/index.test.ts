@@ -316,6 +316,77 @@ ruleTester.run<RuleOptions, true>('require-selections', rule, {
         }
       `,
     },
+    {
+      name: 'should work when every union member selects `id` via inline fragments',
+      code: /* GraphQL */ `
+        {
+          userOrPost {
+            ... on User {
+              id
+              name
+            }
+            ... on Post {
+              id
+              title
+            }
+          }
+        }
+      `,
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: '{ foo }',
+        },
+      },
+    },
+    {
+      name: 'should work when every union member selects `id` via named fragment spreads',
+      code: '{ userOrPost { ...UserFields ...PostFields } }',
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: /* GraphQL */ `
+            fragment UserFields on User {
+              id
+            }
+            fragment PostFields on Post {
+              id
+            }
+          `,
+        },
+      },
+    },
+    {
+      name: 'should work when `id` is selected in a sibling inline fragment of the same union member',
+      code: /* GraphQL */ `
+        {
+          userOrPost {
+            ... on Post {
+              id
+            }
+            ... on Post {
+              title
+            }
+          }
+        }
+      `,
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: '{ foo }',
+        },
+      },
+    },
+    {
+      name: 'should work when `id` for a union member comes from a named fragment spread alongside an inline fragment',
+      code: '{ userOrPost { ...PostId ... on Post { title } } }',
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: 'fragment PostId on Post { id }',
+        },
+      },
+    },
   ],
   invalid: [
     {
@@ -396,6 +467,77 @@ ruleTester.run<RuleOptions, true>('require-selections', rule, {
             }
             fragment UserFields on User {
               name
+            }
+          `,
+        },
+      },
+    },
+    {
+      name: 'should report an error when one union member selects `id` via inline fragment but the other does not',
+      errors: [MESSAGE_ID],
+      code: /* GraphQL */ `
+        {
+          userOrPost {
+            ... on User {
+              id
+            }
+            ... on Post {
+              title
+            }
+          }
+        }
+      `,
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: '{ foo }',
+        },
+      },
+    },
+    {
+      name: 'should report an error when union members are selected via named fragment spreads and one omits `id`',
+      errors: [MESSAGE_ID],
+      code: '{ userOrPost { ...UserFields ...PostFields } }',
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: /* GraphQL */ `
+            fragment UserFields on User {
+              id
+            }
+            fragment PostFields on Post {
+              title
+            }
+          `,
+        },
+      },
+    },
+    {
+      name: 'should report an error when one union member selects `id` inline and another omits it via a named fragment spread',
+      errors: [MESSAGE_ID],
+      code: '{ userOrPost { ... on User { id } ...PostFields } }',
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: 'fragment PostFields on Post { title }',
+        },
+      },
+    },
+    {
+      name: 'should report an error when a fragment on the union type selects `id` for one member but not the other',
+      errors: [MESSAGE_ID],
+      code: '{ userOrPost { ...UnionFragment } }',
+      parserOptions: {
+        graphQLConfig: {
+          schema: USER_POST_SCHEMA,
+          documents: /* GraphQL */ `
+            fragment UnionFragment on UserOrPost {
+              ... on User {
+                id
+              }
+              ... on Post {
+                title
+              }
             }
           `,
         },

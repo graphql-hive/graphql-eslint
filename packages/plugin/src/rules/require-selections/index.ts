@@ -175,27 +175,66 @@ export const rule: GraphQLESLintRule<RuleOptions, true> = {
       if (rawType instanceof GraphQLObjectType || rawType instanceof GraphQLInterfaceType) {
         checkFields(rawType);
       } else if (rawType instanceof GraphQLUnionType) {
+        const types = rawType.getTypes();
+
+        // Group every selection by the concrete member type it targets, so each
+        // member is validated independently (selecting `id` for one member must
+        // not satisfy a sibling member that omits it) while selections spread
+        // across several inline fragments or spreads of the *same* member are
+        // merged — matching how GraphQL executes them.
+        const selectionSetsByType = new Map<GraphQLObjectType, SelectionSetNode[]>();
+        const addSelectionSet = (t: GraphQLObjectType, selectionSet: SelectionSetNode): void => {
+          const existing = selectionSetsByType.get(t);
+          if (existing) {
+            existing.push(selectionSet);
+          } else {
+            selectionSetsByType.set(t, [selectionSet]);
+          }
+        };
+
         for (const selection of node.selections) {
-          const types = rawType.getTypes();
           if (selection.kind === Kind.INLINE_FRAGMENT) {
             const t = types.find(t => t.name === selection.typeCondition!.name.value);
             if (t) {
-              checkFields(t);
+              addSelectionSet(t, selection.selectionSet);
             }
           } else if (selection.kind === Kind.FRAGMENT_SPREAD) {
             const [foundSpread] = siblings.getFragment(selection.name.value);
-            if (!foundSpread) return;
+            if (!foundSpread) continue;
             const fragmentSpread = foundSpread.document;
-
-            // the fragment is either for the union type itself or one of the types in the union
-            const t =
-              fragmentSpread.typeCondition.name.value === rawType.name
-                ? rawType
-                : types.find(t => t.name === fragmentSpread.typeCondition.name.value)!;
             checkedFragmentSpreads.add(fragmentSpread.name.value);
 
-            checkSelections(fragmentSpread.selectionSet, t, loc, parent, checkedFragmentSpreads);
+            if (fragmentSpread.typeCondition.name.value === rawType.name) {
+              // Fragment declared on the union itself — recurse so its own inline
+              // fragments and spreads get grouped by member type.
+              checkSelections(
+                fragmentSpread.selectionSet,
+                rawType,
+                loc,
+                parent,
+                checkedFragmentSpreads,
+              );
+            } else {
+              const t = types.find(t => t.name === fragmentSpread.typeCondition.name.value);
+              if (t) {
+                addSelectionSet(t, fragmentSpread.selectionSet);
+              }
+            }
           }
+        }
+
+        for (const [t, selectionSets] of selectionSetsByType) {
+          // A single selection set is passed through untouched so ESLint
+          // suggestions (which need real AST positions) keep working; multiple
+          // selection sets for the same member are merged before checking.
+          const selectionSet: OmitRecursively<SelectionSetNode, 'loc'> =
+            selectionSets.length === 1
+              ? selectionSets[0]
+              : {
+                  kind: Kind.SELECTION_SET,
+                  selections: selectionSets.flatMap(s => s.selections),
+                };
+          checkSelections(selectionSet, t, loc, parent, checkedFragmentSpreads);
         }
       }
 
