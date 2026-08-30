@@ -1,6 +1,7 @@
 import { RuleTester } from '@theguild/eslint-rule-tester';
 import { GRAPHQL_JS_VALIDATIONS } from '../src/rules/graphql-js-validation.js';
-import { DEFAULT_CONFIG, ParserOptionsForTests } from './test-utils.js';
+import type { ParserOptionsForTests } from './test-utils.js';
+import { DEFAULT_CONFIG } from './test-utils.js';
 
 const ruleTester = new RuleTester<ParserOptionsForTests>({
   languageOptions: {
@@ -55,10 +56,47 @@ ruleTester.run<[{ ignoreClientDirectives: string[] }]>(
         `,
         options: [{ ignoreClientDirectives: ['api'] }],
       },
+      {
+        name: 'should ignore client directives on FragmentDefinition',
+        code: /* GraphQL */ `
+          fragment UserFields on User @client {
+            id
+          }
+        `,
+        options: [{ ignoreClientDirectives: ['client'] }],
+      },
+      {
+        name: 'should ignore client directives on InlineFragment',
+        code: /* GraphQL */ `
+          {
+            user {
+              ... on User @client {
+                id
+              }
+            }
+          }
+        `,
+        options: [{ ignoreClientDirectives: ['client'] }],
+      },
+      {
+        name: 'should ignore client directives on FragmentSpread',
+        code: /* GraphQL */ `
+          fragment UserFields on User {
+            id
+          }
+
+          {
+            user {
+              ...UserFields @client
+            }
+          }
+        `,
+        options: [{ ignoreClientDirectives: ['client'] }],
+      },
     ],
     invalid: [
       {
-        name: 'should work only with Kind.FIELD',
+        name: 'should not ignore directives on schema definitions',
         code: 'scalar Foo @bad',
         options: [{ ignoreClientDirectives: ['bad'] }],
         errors: [{ message: 'Unknown directive "@bad".' }],
