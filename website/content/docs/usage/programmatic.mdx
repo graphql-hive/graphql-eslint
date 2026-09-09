@@ -1,8 +1,118 @@
 ---
 sidebarTitle: Programmatic
-icon: GearIcon
+title: Programmatic usage
 ---
 
-# Programmatic usage
+<Callout type="info">
 
-<ESLintConfigs gitFolder="programmatic" />
+Check out
+[the official examples](https://github.com/graphql-hive/graphql-eslint/tree/master/examples/programmatic)
+for
+[ESLint Flat Config](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/programmatic/eslint.config.js)
+or
+[ESLint Legacy Config](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/programmatic/.eslintrc.cjs).
+
+</Callout>
+
+## ESLint Flat Config
+
+```js title="eslint.config.js"
+import js from '@eslint/js'
+import graphqlPlugin from '@graphql-eslint/eslint-plugin'
+
+export default [
+  {
+    files: ['**/*.js'],
+    rules: js.configs.recommended.rules
+  },
+  {
+    files: ['**/*.graphql'],
+    languageOptions: {
+      parser: graphqlPlugin.parser,
+      parserOptions: {
+        graphQLConfig: {
+          schema: 'schema.graphql',
+          documents: ['query.graphql', 'fragment.graphql', 'fragment2.graphql']
+        }
+      }
+    },
+    plugins: {
+      '@graphql-eslint': graphqlPlugin
+    },
+    rules: {
+      '@graphql-eslint/require-selections': ['error', { fieldName: '_id' }],
+      '@graphql-eslint/unique-fragment-name': 'error',
+      '@graphql-eslint/no-anonymous-operations': 'error',
+      '@graphql-eslint/naming-convention': [
+        'error',
+        {
+          OperationDefinition: {
+            style: 'PascalCase',
+            forbiddenPrefixes: ['Query', 'Mutation', 'Subscription', 'Get'],
+            forbiddenSuffixes: ['Query', 'Mutation', 'Subscription']
+          }
+        }
+      ],
+      '@graphql-eslint/unique-enum-value-names': 'error',
+      '@graphql-eslint/require-description': ['error', { FieldDefinition: true }]
+    }
+  }
+]
+```
+
+## ESLint Legacy Config
+
+<Callout type="warning">
+
+An eslintrc configuration file, is deprecated and support will be removed in ESLint v10.0.0. Migrate
+to an [`eslint.config.js` file](#eslint-flat-config)
+
+</Callout>
+
+```js title=".eslintrc.cjs"
+/**
+ * Legacy config example, should be run with `ESLINT_USE_FLAT_CONFIG=false` environment variable in ESLint 9
+ */
+
+module.exports = {
+  root: true,
+  // ❗️ It's very important that you don't have any rules configured at the top-level config,
+  // and to move all configurations into the overrides section. Since JavaScript rules
+  // can't run on GraphQL files and vice versa, if you have rules configured at the top level,
+  // they will try to also execute for all overrides, as ESLint's configs cascade
+  overrides: [
+    {
+      files: ['*.js'],
+      extends: ['eslint:recommended']
+    },
+    {
+      files: ['*.graphql'],
+      parser: '@graphql-eslint/eslint-plugin',
+      parserOptions: {
+        graphQLConfig: {
+          schema: 'schema.graphql',
+          documents: ['query.graphql', 'fragment.graphql', 'fragment2.graphql']
+        }
+      },
+      plugins: ['@graphql-eslint'],
+      rules: {
+        '@graphql-eslint/require-selections': ['error', { fieldName: '_id' }],
+        '@graphql-eslint/unique-fragment-name': 'error',
+        '@graphql-eslint/no-anonymous-operations': 'error',
+        '@graphql-eslint/naming-convention': [
+          'error',
+          {
+            OperationDefinition: {
+              style: 'PascalCase',
+              forbiddenPrefixes: ['Query', 'Mutation', 'Subscription', 'Get'],
+              forbiddenSuffixes: ['Query', 'Mutation', 'Subscription']
+            }
+          }
+        ],
+        '@graphql-eslint/unique-enum-value-names': 'error',
+        '@graphql-eslint/require-description': ['error', { FieldDefinition: true }]
+      }
+    }
+  ]
+}
+```

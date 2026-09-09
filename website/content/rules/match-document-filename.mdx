@@ -1,17 +1,14 @@
 ---
+title: 'match-document-filename'
 description: 'This rule allows you to enforce that the file name should match the operation name.'
 ---
 
-# `match-document-filename`
-
 - Category: `Operations`
 - Rule name: `@graphql-eslint/match-document-filename`
-- Requires GraphQL Schema: `false`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-graphql-schema)
-- Requires GraphQL Operations: `false`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-siblings-operations)
+- Requires GraphQL Schema: `false` [ℹ️](/docs/usage#providing-graphql-schema-optional)
+- Requires GraphQL Operations: `false` [ℹ️](/docs/usage#providing-graphql-operations-optional)
 
-{metadata.description}
+This rule allows you to enforce that the file name should match the operation name.
 
 ## Usage Examples
 
@@ -153,19 +150,19 @@ The object must be one of the following types:
 
 ---
 
-# Sub Schemas
+## Sub Schemas
 
 The schema defines the following additional types:
 
-## `asString` (enum)
+### `asString` (enum)
 
 One of: `camelCase`, `PascalCase`, `snake_case`, `UPPER_CASE`, `kebab-case`, `matchDocumentStyle`
 
-## `asObject` (object)
+### `asObject` (object)
 
 Properties of the `asObject` object:
 
-### `style` (enum)
+#### `style` (enum)
 
 One of: `camelCase`, `PascalCase`, `snake_case`, `UPPER_CASE`, `kebab-case`, `matchDocumentStyle`
 
@@ -178,9 +175,9 @@ This element must be one of the following enum values:
 - `kebab-case`
 - `matchDocumentStyle`
 
-### `suffix` (string)
+#### `suffix` (string)
 
-### `prefix` (string)
+#### `prefix` (string)
 
 ## Resources
 
