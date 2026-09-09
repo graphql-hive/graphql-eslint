@@ -77,6 +77,14 @@ module.exports = {
       },
     },
     {
+      files: ['website/**/*.mdx'],
+      rules: {
+        // The docs are rendered by Astro (the-guild-org/website), not React:
+        // markup uses plain HTML and SVG attribute names.
+        'react/no-unknown-property': 'off',
+      },
+    },
+    {
       files: ['website/**/*.mdx/**'],
       rules: {
         'import/no-default-export': 'off',

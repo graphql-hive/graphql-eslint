@@ -1,3 +1,1 @@
-import prettierConfig from '@theguild/prettier-config';
-
-export default prettierConfig;
+export { default } from '@theguild/prettier-config';
