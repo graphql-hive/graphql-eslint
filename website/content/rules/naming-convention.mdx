@@ -336,19 +336,19 @@ Default: `false`
 
 ---
 
-# Sub Schemas
+## Sub Schemas
 
 The schema defines the following additional types:
 
-## `asString` (enum)
+### `asString` (enum)
 
 One of: `camelCase`, `PascalCase`, `snake_case`, `UPPER_CASE`
 
-## `asObject` (object)
+### `asObject` (object)
 
 Properties of the `asObject` object:
 
-### `style` (enum)
+#### `style` (enum)
 
 One of: `camelCase`, `PascalCase`, `snake_case`, `UPPER_CASE`
 
@@ -359,11 +359,11 @@ This element must be one of the following enum values:
 - `snake_case`
 - `UPPER_CASE`
 
-### `prefix` (string)
+#### `prefix` (string)
 
-### `suffix` (string)
+#### `suffix` (string)
 
-### `forbiddenPatterns` (array)
+#### `forbiddenPatterns` (array)
 
 Should be of instance of `RegEx`
 
@@ -376,11 +376,11 @@ Additional restrictions:
 - Minimum items: `1`
 - Unique items: `true`
 
-### `requiredPattern` (object)
+#### `requiredPattern` (object)
 
 Should be of instance of `RegEx`
 
-### `forbiddenPrefixes` (array)
+#### `forbiddenPrefixes` (array)
 
 > [!WARNING]
 >
@@ -394,7 +394,7 @@ Additional restrictions:
 - Minimum items: `1`
 - Unique items: `true`
 
-### `forbiddenSuffixes` (array)
+#### `forbiddenSuffixes` (array)
 
 > [!WARNING]
 >
@@ -408,7 +408,7 @@ Additional restrictions:
 - Minimum items: `1`
 - Unique items: `true`
 
-### `requiredPrefixes` (array)
+#### `requiredPrefixes` (array)
 
 > [!WARNING]
 >
@@ -422,7 +422,7 @@ Additional restrictions:
 - Minimum items: `1`
 - Unique items: `true`
 
-### `requiredSuffixes` (array)
+#### `requiredSuffixes` (array)
 
 > [!WARNING]
 >
@@ -436,7 +436,7 @@ Additional restrictions:
 - Minimum items: `1`
 - Unique items: `true`
 
-### `ignorePattern` (string)
+#### `ignorePattern` (string)
 
 Option to skip validation of some words, e.g. acronyms
 

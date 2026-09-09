@@ -140,7 +140,16 @@ async function generateDocs(): Promise<void> {
             }
           : jsonSchema;
 
-      blocks.push('## Config Schema', md(jsonSchema, '##'));
+      let schemaMarkdown: string = md(jsonSchema, '##');
+      // json-schema-to-markdown emits the definitions under an H1; the page
+      // title is the only H1, so that block becomes a section of its own.
+      const subSchemas = schemaMarkdown.indexOf('\n# Sub Schemas');
+      if (subSchemas !== -1) {
+        schemaMarkdown =
+          schemaMarkdown.slice(0, subSchemas) +
+          schemaMarkdown.slice(subSchemas).replace(/^(#+) /gm, '#$1 ');
+      }
+      blocks.push('## Config Schema', schemaMarkdown);
     }
 
     if (docs.whenNotToUseIt) {
