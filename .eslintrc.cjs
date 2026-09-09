@@ -77,46 +77,6 @@ module.exports = {
       },
     },
     {
-      files: ['website/**'],
-      extends: [
-        '@theguild/eslint-config/react',
-        '@theguild/eslint-config/mdx',
-        'plugin:tailwindcss/recommended',
-      ],
-      rules: {
-        'tailwindcss/classnames-order': 'off',
-        'tailwindcss/enforces-negative-arbitrary-values': 'error',
-        'tailwindcss/enforces-shorthand': 'error',
-        'tailwindcss/migration-from-tailwind-2': 'error',
-        'tailwindcss/no-custom-classname': [
-          'error',
-          {
-            // TODO: figure out why there is an error only on CI
-            whitelist: [
-              'nextra-scrollbar',
-              '_text-primary-600',
-              '_underline',
-              '_decoration-from-font',
-            ],
-          },
-        ],
-        'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
-      },
-      settings: {
-        tailwindcss: {
-          config: 'website/tailwind.config.ts',
-        },
-      },
-    },
-    {
-      files: ['website/**/*.mdx'],
-      rules: {
-        // TODO: remove `# {frontMatter.title}` and this override
-        '@typescript-eslint/no-unused-expressions': 'off',
-        'no-undef': 'off',
-      },
-    },
-    {
       files: ['website/**/*.mdx/**'],
       rules: {
         'import/no-default-export': 'off',

@@ -42,13 +42,10 @@ function printMarkdownTable(columns: (Column | string)[], dataSource: string[][]
     alignRow.push(alignSymbol);
   }
 
-  return [
-    // '<!-- prettier-ignore-start -->',
-    headerRow.join('|'),
-    alignRow.join('|'),
-    ...dataSource.map(row => row.join('|')),
-    // '<!-- prettier-ignore-end -->',
-  ].join('\n');
+  // Canonical GFM shape (leading and trailing pipes): prettier aligns the
+  // columns afterwards, and the MDX parser needs no ignore comment for it.
+  const printRow = (cells: string[]) => `| ${cells.join(' | ')} |`;
+  return [printRow(headerRow), printRow(alignRow), ...dataSource.map(printRow)].join('\n');
 }
 
 const MARKDOWN_LINK_RE = /\[(.*?)]\(.*\)/;
@@ -60,11 +57,13 @@ async function generateDocs(): Promise<void> {
     const frontMatterDescription = rule.meta
       .docs!.description!.replace(/\n.*/g, '')
       .replace(MARKDOWN_LINK_RE, '$1');
+    // The website renders the frontmatter `title` as the page heading, so
+    // the body starts right after it.
     const blocks: string[] = [
       '---',
+      `title: ${JSON.stringify(ruleName)}`,
       `description: ${JSON.stringify(frontMatterDescription)}`,
       '---',
-      `# \`${ruleName}\``,
     ];
     const { deprecated, docs, schema, fixable, hasSuggestions } = rule.meta;
 
@@ -100,10 +99,10 @@ async function generateDocs(): Promise<void> {
     blocks.push(
       `- Category: \`${categories.join(' & ')}\``,
       `- Rule name: \`@graphql-eslint/${ruleName}\``,
-      `- Requires GraphQL Schema: \`${requiresSchema}\` [ℹ️](/docs/getting-started#extended-linting-rules-with-graphql-schema)`,
-      `- Requires GraphQL Operations: \`${requiresSiblings}\` [ℹ️](/docs/getting-started#extended-linting-rules-with-siblings-operations)`,
+      `- Requires GraphQL Schema: \`${requiresSchema}\` [ℹ️](/docs/usage#providing-graphql-schema-optional)`,
+      `- Requires GraphQL Operations: \`${requiresSiblings}\` [ℹ️](/docs/usage#providing-graphql-operations-optional)`,
       BR,
-      docs.description === frontMatterDescription ? '{metadata.description}' : docs.description,
+      docs.description,
     );
 
     if (docs.examples?.length > 0) {
@@ -201,9 +200,12 @@ async function generateDocs(): Promise<void> {
 
   result.push(
     Promise.resolve({
-      path: resolve(RULES_PATH, 'index.md'),
+      path: resolve(RULES_PATH, 'index.mdx'),
       content: [
-        '# Overview',
+        '---',
+        'title: Overview',
+        'description: Every GraphQL-ESLint rule, with the configs that enable it and what it applies to.',
+        '---',
         'Each rule has emojis denoting:',
         `- ${Icon.SCHEMA} if the rule applies to schema documents`,
         `- ${Icon.OPERATIONS} if the rule applies to operations`,
@@ -212,8 +214,8 @@ async function generateDocs(): Promise<void> {
         `- ${Icon.FIXABLE} if some problems reported by the rule are automatically fixable by the \`--fix\` [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) option`,
         `- ${Icon.HAS_SUGGESTIONS} if some problems reported by the rule are manually fixable by editor [suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions)`,
         BR,
-        '<!-- 🚨 IMPORTANT! Do not manually modify this table. Run: `yarn generate:docs` -->',
-        '<!-- prettier-ignore -->',
+        '{/* 🚨 IMPORTANT! Do not manually modify this table. Run: `pnpm generate:docs` */}',
+        BR,
         printMarkdownTable(
           [
             `Name${NBSP.repeat(20)}`,
@@ -237,11 +239,31 @@ async function generateDocs(): Promise<void> {
     writeFile(
       path,
       await prettier.format(content, {
-        parser: 'markdown',
+        parser: 'mdx',
         ...prettierConfigMd,
       }),
     );
   }
+
+  // The sidebar order of the rules section: hand-written pages first, then
+  // the rules grouped by category (the website reads it from meta.json).
+  const byCategory = (predicate: (categories: string[]) => boolean) =>
+    Object.entries(rules)
+      .filter(([, rule]) => !rule.meta.deprecated && predicate(asArray(rule.meta.docs.category)))
+      .map(([ruleName]) => ruleName)
+      .sort((a, b) => a.localeCompare(b));
+  const meta = {
+    title: 'Rules',
+    pages: [
+      'index',
+      'prettier',
+      'deprecated-rules',
+      ...byCategory(categories => categories.length > 1),
+      ...byCategory(categories => categories.length === 1 && categories[0] === 'Schema'),
+      ...byCategory(categories => categories.length === 1 && categories[0] === 'Operations'),
+    ],
+  };
+  await writeFile(resolve(RULES_PATH, 'meta.json'), `${JSON.stringify(meta, null, 2)}\n`);
 
   console.log('✅  Documentation generated');
 }

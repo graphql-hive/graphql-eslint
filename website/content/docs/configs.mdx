@@ -1,4 +1,6 @@
-# Shared Configs
+---
+title: Shared Configs
+---
 
 ## Schema Configs
 
@@ -15,15 +17,17 @@
 | [`flat/operations-recommended`](https://github.com/graphql-hive/graphql-eslint/tree/master/packages/plugin/src/configs/operations-recommended.ts) | enables recommended rules for consuming GraphQL (operations) development |
 |         [`flat/operations-all`](https://github.com/graphql-hive/graphql-eslint/tree/master/packages/plugin/src/configs/operations-all.ts)         | enables all rules for consuming GraphQL (operations) development         |
 
-> [!TIP]
->
-> If you are in a project that develops the GraphQL schema, you'll need `schema` rules.
->
-> If you are in a project that develops GraphQL operations (`query`/`mutation`/`subscription`),
-> you'll need `operations` rules.
->
-> If you are in a monorepo project, you probably need both sets of rules, see
-> [example of configuration](https://github.com/graphql-hive/graphql-eslint/tree/master/examples/monorepo/eslint.config.js).
+<Callout type="tip">
+
+If you are in a project that develops the GraphQL schema, you'll need `schema` rules.
+
+If you are in a project that develops GraphQL operations (`query`/`mutation`/`subscription`), you'll
+need `operations` rules.
+
+If you are in a monorepo project, you probably need both sets of rules, see
+[example of configuration](https://github.com/graphql-hive/graphql-eslint/tree/master/examples/monorepo/eslint.config.js).
+
+</Callout>
 
 ## Config Usage
 
@@ -31,7 +35,7 @@ For example, to enable the `flat/schema-recommended` config, in a new configurat
 the `rules` field to the `rules` field from the associated config from `graphqlPlugin.configs`
 object.
 
-```diff filename="eslint.config.js"
+```diff title="eslint.config.js"
 import graphqlPlugin from '@graphql-eslint/eslint-plugin'
 
 export default [

@@ -1,0 +1,13 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index",
+    "usage",
+    "configs",
+    "[Rules](/rules)",
+    "disabling-rules",
+    "vscode",
+    "parser",
+    "custom-rules"
+  ]
+}

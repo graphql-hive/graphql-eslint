@@ -16,7 +16,4 @@ dist/
 .bob/
 .idea/
 out/
-website/public/_redirects
-website/public/sitemap.xml
-website/public/robots.txt
 .turbo/

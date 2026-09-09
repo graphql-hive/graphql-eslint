@@ -1,20 +1,17 @@
 ---
+title: 'known-fragment-names'
 description:
   'A GraphQL document is only valid if all `...Fragment` fragment spreads refer to fragments defined
   in the same document.'
 ---
-
-# `known-fragment-names`
 
 ✅ The `"extends": "plugin:@graphql-eslint/operations-recommended"` property in a configuration file
 enables this rule.
 
 - Category: `Operations`
 - Rule name: `@graphql-eslint/known-fragment-names`
-- Requires GraphQL Schema: `true`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-graphql-schema)
-- Requires GraphQL Operations: `true`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-siblings-operations)
+- Requires GraphQL Schema: `true` [ℹ️](/docs/usage#providing-graphql-schema-optional)
+- Requires GraphQL Operations: `true` [ℹ️](/docs/usage#providing-graphql-operations-optional)
 
 A GraphQL document is only valid if all `...Fragment` fragment spreads refer to fragments defined in
 the same document.

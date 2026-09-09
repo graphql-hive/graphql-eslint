@@ -1,22 +1,20 @@
 ---
+title: 'strict-id-in-types'
 description:
   'Requires output types to have one unique identifier unless they do not have a logical one.
   Exceptions can be used to ignore output types that do not have unique identifiers.'
 ---
-
-# `strict-id-in-types`
 
 ✅ The `"extends": "plugin:@graphql-eslint/schema-recommended"` property in a configuration file
 enables this rule.
 
 - Category: `Schema`
 - Rule name: `@graphql-eslint/strict-id-in-types`
-- Requires GraphQL Schema: `true`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-graphql-schema)
-- Requires GraphQL Operations: `false`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-siblings-operations)
+- Requires GraphQL Schema: `true` [ℹ️](/docs/usage#providing-graphql-schema-optional)
+- Requires GraphQL Operations: `false` [ℹ️](/docs/usage#providing-graphql-operations-optional)
 
-{metadata.description}
+Requires output types to have one unique identifier unless they do not have a logical one.
+Exceptions can be used to ignore output types that do not have unique identifiers.
 
 ## Usage Examples
 
