@@ -199,22 +199,31 @@ export const rule: GraphQLESLintRule<RuleOptions, true> = {
         }
       }
 
-      function checkFields(rawType: GraphQLInterfaceType | GraphQLObjectType) {
+      function checkFields(rawType: GraphQLInterfaceType | GraphQLObjectType): void {
         const fields = rawType.getFields();
-        const hasIdFieldInType = idNames.some(name => fields[name]);
 
-        if (!hasIdFieldInType) {
+        // Only check fields which are actually present on this type
+        const idFieldsInType = idNames.filter(name => fields[name]);
+
+        // Type doesn't implement any of the `fieldNames`
+        if (idFieldsInType.length === 0) {
           return;
         }
 
+        // checkFragments reads `selection.loc`, which `node` (typed without `loc`) lacks;
+        // removing the cast needs `loc` kept in checkSelections' node type and its callers
         checkFragments(node as GraphQLESTreeNode<SelectionSetNode>);
 
         if (requireAllFields) {
-          for (const idName of idNames) {
+          for (const idName of idFieldsInType) {
+            // For each `fieldName` present on this type, check it's in the
+            // selection separately
             report([idName]);
           }
         } else {
-          report(idNames);
+          // Pass the `fieldNames` present on this type together; `report` will
+          // pass if _any_ of them are selected
+          report(idFieldsInType);
         }
       }
 
