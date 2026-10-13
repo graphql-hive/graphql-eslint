@@ -1,5 +1,14 @@
 # @graphql-eslint/eslint-plugin
 
+## 4.4.2
+
+### Patch Changes
+
+- [#2971](https://github.com/graphql-hive/graphql-eslint/pull/2971)
+  [`017bd3f`](https://github.com/graphql-hive/graphql-eslint/commit/017bd3fc0835dc08e1f659fbe231e6676532287e)
+  Thanks [@eddeee888](https://github.com/eddeee888)! - `require-selections` with `requireAllFields`
+  no longer requires fieldNames that don't exist on the selected type.
+
 ## 4.4.1
 
 ### Patch Changes
