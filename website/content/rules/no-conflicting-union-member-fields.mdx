@@ -1,0 +1,92 @@
+---
+description:
+  'Reports shared field names with conflicting return types on object members of the same union. The
+  strict mode compares complete types; response-shape mode reports only differences that force a
+  field-merging conflict.'
+---
+
+# `no-conflicting-union-member-fields`
+
+- Category: `Schema`
+- Rule name: `@graphql-eslint/no-conflicting-union-member-fields`
+- Requires GraphQL Schema: `true`
+  [ℹ️](/docs/getting-started#extended-linting-rules-with-graphql-schema)
+- Requires GraphQL Operations: `false`
+  [ℹ️](/docs/getting-started#extended-linting-rules-with-siblings-operations)
+
+{metadata.description}
+
+## Usage Examples
+
+### Correct (response-shape)
+
+```graphql
+# eslint @graphql-eslint/no-conflicting-union-member-fields: ['error', { mode: 'response-shape' }]
+
+type FirstPayload {
+  id: ID
+}
+type SecondPayload {
+  id: ID
+}
+type A {
+  value: FirstPayload
+}
+type B {
+  value: SecondPayload
+}
+union Result = A | B
+```
+
+### Incorrect
+
+```graphql
+# eslint @graphql-eslint/no-conflicting-union-member-fields: 'error'
+
+type Drn {
+  country: String
+}
+type Poem {
+  id: Int
+}
+type Novel {
+  id: Drn
+}
+union Book = Poem | Novel
+```
+
+### Correct
+
+```graphql
+# eslint @graphql-eslint/no-conflicting-union-member-fields: 'error'
+
+type Poem {
+  id: ID
+}
+type Novel {
+  id: ID
+}
+union Book = Poem | Novel
+```
+
+## Config Schema
+
+The schema defines the following properties:
+
+### `mode` (string, enum)
+
+`strict` is the default: compare complete named types, list layers and nullability. `response-shape`
+compares wrappers and scalar or enum leaves, rejects leaf/composite mismatches, and ignores
+differences between composite names alone.
+
+This element must be one of the following enum values:
+
+- `strict`
+- `response-shape`
+
+Default: `"strict"`
+
+## Resources
+
+- [Rule source](https://github.com/graphql-hive/graphql-eslint/tree/master/packages/plugin/src/rules/no-conflicting-union-member-fields/index.ts)
+- [Test source](https://github.com/graphql-hive/graphql-eslint/tree/master/packages/plugin/src/rules/no-conflicting-union-member-fields/index.test.ts)
