@@ -112,7 +112,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
     type: 'suggestion',
     fixable: 'code',
     docs: {
-      category: ['Schema', 'Operations'],
+      category: 'Schema-and-operations',
       description:
         'Enforce arrange in alphabetical order for type fields, enum values, input object fields, operation selections and more.',
       url: `https://the-guild.dev/graphql/eslint/rules/${RULE_ID}`,
