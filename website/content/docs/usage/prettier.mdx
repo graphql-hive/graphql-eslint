@@ -1,8 +1,93 @@
 ---
 sidebarTitle: Prettier
-icon: PrettierIcon
+title: Usage with eslint-plugin-prettier
 ---
 
-# Usage with `eslint-plugin-prettier`
+<Callout type="info">
 
-<ESLintConfigs gitFolder="prettier" />
+Check out
+[the official examples](https://github.com/graphql-hive/graphql-eslint/tree/master/examples/prettier)
+for
+[ESLint Flat Config](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/prettier/eslint.config.js)
+or
+[ESLint Legacy Config](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/prettier/.eslintrc.cjs).
+
+</Callout>
+
+## ESLint Flat Config
+
+```js title="eslint.config.js"
+import prettierConfig from 'eslint-config-prettier'
+import prettierPlugin from 'eslint-plugin-prettier'
+import js from '@eslint/js'
+import graphqlPlugin from '@graphql-eslint/eslint-plugin'
+
+export default [
+  {
+    plugins: {
+      prettier: { rules: prettierPlugin.rules }
+    }
+  },
+  {
+    files: ['**/*.js'],
+    processor: graphqlPlugin.processor,
+    rules: {
+      ...js.configs.recommended.rules,
+      ...prettierConfig.rules,
+      ...prettierPlugin.configs.recommended.rules
+    }
+  },
+  {
+    files: ['**/*.graphql'],
+    languageOptions: {
+      parser: graphqlPlugin.parser
+    },
+    plugins: {
+      '@graphql-eslint': graphqlPlugin
+    },
+    rules: {
+      'prettier/prettier': 'error'
+    }
+  }
+]
+```
+
+## ESLint Legacy Config
+
+<Callout type="warning">
+
+An eslintrc configuration file, is deprecated and support will be removed in ESLint v10.0.0. Migrate
+to an [`eslint.config.js` file](#eslint-flat-config)
+
+</Callout>
+
+```js title=".eslintrc.cjs"
+/**
+ * Legacy config example, should be run with `ESLINT_USE_FLAT_CONFIG=false` environment variable in ESLint 9
+ */
+
+module.exports = {
+  root: true,
+  overrides: [
+    {
+      files: ['*.js'],
+      processor: '@graphql-eslint/graphql',
+      extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+      env: {
+        es2022: true
+      },
+      parserOptions: {
+        sourceType: 'module'
+      }
+    },
+    {
+      files: ['*.graphql'],
+      parser: '@graphql-eslint/eslint-plugin',
+      plugins: ['@graphql-eslint'],
+      rules: {
+        'prettier/prettier': 'error'
+      }
+    }
+  ]
+}
+```

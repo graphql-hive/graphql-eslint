@@ -47,6 +47,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Check that the generated rule docs are committed
+        run: pnpm generate:docs && git diff --exit-code website/content/rules
+
   test:
     name:
       Node.js v${{matrix.node_version}} / GraphQL v${{matrix.graphql_version}} / ESLint v9

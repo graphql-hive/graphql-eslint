@@ -1,0 +1,15 @@
+{
+  "title": "Usage",
+  "pages": [
+    "graphql",
+    "js",
+    "schema-and-operations",
+    "multiple-projects",
+    "programmatic",
+    "svelte",
+    "vue",
+    "astro",
+    "prettier",
+    "custom-rules"
+  ]
+}

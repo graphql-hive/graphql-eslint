@@ -1,20 +1,17 @@
 ---
+title: 'no-undefined-variables'
 description:
   'A GraphQL operation is only valid if all variables encountered, both directly and via fragment
   spreads, are defined by that operation.'
 ---
-
-# `no-undefined-variables`
 
 ✅ The `"extends": "plugin:@graphql-eslint/operations-recommended"` property in a configuration file
 enables this rule.
 
 - Category: `Operations`
 - Rule name: `@graphql-eslint/no-undefined-variables`
-- Requires GraphQL Schema: `true`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-graphql-schema)
-- Requires GraphQL Operations: `true`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-siblings-operations)
+- Requires GraphQL Schema: `true` [ℹ️](/docs/usage#providing-graphql-schema-optional)
+- Requires GraphQL Operations: `true` [ℹ️](/docs/usage#providing-graphql-operations-optional)
 
 A GraphQL operation is only valid if all variables encountered, both directly and via fragment
 spreads, are defined by that operation.

@@ -1,21 +1,7 @@
 ---
 asIndexPage: true
+title: Usage
 ---
-
-import AstroIcon from '@icons/astro.svg?svgr'
-import GearIcon from '@icons/gear.svg?svgr'
-import GraphQLIcon from '@icons/graphql.svg?svgr'
-import HalfIcon from '@icons/half.svg?svgr'
-import JSIcon from '@icons/javascript.svg?svgr'
-import PrettierIcon from '@icons/prettier.svg?svgr'
-import StackIcon from '@icons/stack.svg?svgr'
-import SvelteIcon from '@icons/svelte.svg?svgr'
-import VueIcon from '@icons/vue.svg?svgr'
-import { Cards, Steps, Tabs } from '@theguild/components'
-import { createIndexPage, getPageMap, MDXRemote } from '@theguild/components/server'
-import { GraphqlConfigInfo } from '../../../app/graphql-config-info.mdx'
-
-# Usage
 
 ## Quickstart
 
@@ -29,9 +15,11 @@ Install the plugin package with your favourite package manager.
 npm i -D @graphql-eslint/eslint-plugin
 ```
 
-> [!WARNING]
->
-> Make sure you have [`graphql`](https://npmjs.com/package/graphql) dependency in your project.
+<Callout type="warning">
+
+Make sure you have [`graphql`](https://npmjs.com/package/graphql) dependency in your project.
+
+</Callout>
 
 ### Configuration
 
@@ -40,7 +28,7 @@ Create a new
 in your `eslint.config.js` file to apply this plugin to `.graphql` files and configure
 [the rules](/rules) you want to enforce.
 
-```js filename="eslint.config.js"
+```js title="eslint.config.js"
 import graphqlPlugin from '@graphql-eslint/eslint-plugin'
 
 export default [
@@ -61,16 +49,16 @@ export default [
 ]
 ```
 
-### Lint GraphQL Definitions in Code Files <sup>_(Optional)_</sup>[#lint-in-code-files]
+### Lint GraphQL Definitions in Code Files <sup>_(Optional)_</sup>
 
 If you're defining GraphQL schemas or operations directly within code files (e.g., `.js`, `.jsx`,
-`.ts`, `.tsx` files), check out [the usage with `.js`/`.jsx`](./usage/js) files.
+`.ts`, `.tsx` files), check out [the usage with `.js`/`.jsx`](/docs/usage/js) files.
 
-### Providing GraphQL Schema <sup>_(Optional)_</sup>[#providing-schema]
+### Providing GraphQL Schema <sup>_(Optional)_</sup>
 
 Some linting rules require access to the entire GraphQL schema. For example, the
-[no-unreachable-types](../rules/no-unreachable-types) rule checks that all types are reachable
-through root-level fields.
+[no-unreachable-types](/rules/no-unreachable-types) rule checks that all types are reachable through
+root-level fields.
 
 To enable these rules, you need to inform ESLint how to identify and load your complete schema.
 
@@ -78,26 +66,40 @@ The GraphQL ESLint plugin integrates seamlessly with
 [GraphQL Config](https://the-guild.dev/graphql/config), which it uses to automatically load your
 schema.
 
-> [!TIP]
->
-> GraphQL Config uses [`GraphQL Tools`](https://the-guild.dev/graphql/tools) and its loaders under
-> the hood to handle the schema loading. It also
-> [supports multiple ways to specify your schema](https://the-guild.dev/graphql/config/docs/user/schema),
-> including:
->
-> - `.json` (introspection result)
-> - `.graphql` files
-> - a URL endpoint
-> - or a raw string.
+<Callout type="tip">
 
-<GraphqlConfigInfo name="schema" />
+GraphQL Config uses [`GraphQL Tools`](https://the-guild.dev/graphql/tools) and its loaders under the
+hood to handle the schema loading. It also
+[supports multiple ways to specify your schema](https://the-guild.dev/graphql/config/docs/user/schema),
+including:
+
+- `.json` (introspection result)
+- `.graphql` files
+- a URL endpoint
+- or a raw string.
+
+</Callout>
+
+<Callout type="info">
+
+If you have a
+[GraphQL Config configuration file](https://the-guild.dev/graphql/config/docs/user/usage) in your
+project, the GraphQL-ESLint parser will automatically use it to load your GraphQL schema.
+
+You should specify a `schema` key in the GraphQL Config configuration file to load your GraphQL
+schema.
+
+Alternatively, you can pass GraphQL Config options programmatically via
+`languageOptions.parserOptions.graphQLConfig` in your `eslint.config.js` file.
+
+</Callout>
 
 Example of providing GraphQL schema:
 
 <Tabs items={['GraphQL Config', 'Programmatic Usage']}>
 <Tabs.Tab>
 
-```js filename="graphql.config.js"
+```js title="graphql.config.js"
 export default {
   // a path to a local `.graphql` file
   schema: './schema.graphql',
@@ -120,7 +122,7 @@ export default {
 
 <Tabs.Tab>
 
-```diff filename="eslint.config.js"
+```diff title="eslint.config.js"
 import graphqlPlugin from '@graphql-eslint/eslint-plugin'
 
 export default [
@@ -148,7 +150,7 @@ export default [
 </Tabs.Tab>
 </Tabs>
 
-### Providing GraphQL Operations <sup>_(Optional)_</sup>[#providing-operations]
+### Providing GraphQL Operations <sup>_(Optional)_</sup>
 
 While implementing this tool, we had to find solutions for a better integration of the GraphQL
 ecosystem and ESLint core.
@@ -164,20 +166,34 @@ The GraphQL ESLint plugin integrates seamlessly with
 [GraphQL Config](https://the-guild.dev/graphql/config), which it uses to automatically load your
 sibling operations and fragments.
 
-> [!TIP]
->
-> GraphQL Config uses [`GraphQL Tools`](https://the-guild.dev/graphql/tools) and its loaders under
-> the hood to handle the loading of operations and fragments. It also
-> [supports multiple ways to specify them](https://the-guild.dev/graphql/config/docs/user/documents).
+<Callout type="tip">
 
-<GraphqlConfigInfo name="operations" configKey="documents" />
+GraphQL Config uses [`GraphQL Tools`](https://the-guild.dev/graphql/tools) and its loaders under the
+hood to handle the loading of operations and fragments. It also
+[supports multiple ways to specify them](https://the-guild.dev/graphql/config/docs/user/documents).
+
+</Callout>
+
+<Callout type="info">
+
+If you have a
+[GraphQL Config configuration file](https://the-guild.dev/graphql/config/docs/user/usage) in your
+project, the GraphQL-ESLint parser will automatically use it to load your GraphQL operations.
+
+You should specify a `documents` key in the GraphQL Config configuration file to load your GraphQL
+operations.
+
+Alternatively, you can pass GraphQL Config options programmatically via
+`languageOptions.parserOptions.graphQLConfig` in your `eslint.config.js` file.
+
+</Callout>
 
 Example of providing GraphQL operations:
 
 <Tabs items={['GraphQL Config', 'Programmatic Usage']}>
 <Tabs.Tab>
 
-```js filename="graphql.config.js"
+```js title="graphql.config.js"
 export default {
   // a path to a local `.graphql` file
   documents: './users.graphql',
@@ -194,7 +210,7 @@ export default {
 
 <Tabs.Tab>
 
-```diff filename="eslint.config.js"
+```diff title="eslint.config.js"
 import graphqlPlugin from '@graphql-eslint/eslint-plugin'
 
 export default [
@@ -226,18 +242,200 @@ export default [
 
 ## Usage
 
-<MDXRemote
-  compiledSource={await createIndexPage(await getPageMap('/docs/usage'))}
-  components={{
-    Cards,
-    GraphQLIcon,
-    JSIcon,
-    HalfIcon,
-    StackIcon,
-    GearIcon,
-    SvelteIcon,
-    VueIcon,
-    AstroIcon,
-    PrettierIcon
-  }}
-/>
+<Cards>
+  <Cards.Card
+    title="GraphQL Files"
+    description="Usage with .graphql files"
+    href="/docs/usage/graphql"
+    icon={
+      <svg
+        width="20"
+        height="20"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        fill="#e10098"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M50 6.90308L87.323 28.4515V71.5484L50 93.0968L12.677 71.5484V28.4515L50 6.90308ZM16.8647 30.8693V62.5251L44.2795 15.0414L16.8647 30.8693ZM50 13.5086L18.3975 68.2457H81.6025L50 13.5086ZM77.4148 72.4334H22.5852L50 88.2613L77.4148 72.4334ZM83.1353 62.5251L55.7205 15.0414L83.1353 30.8693V62.5251Z"
+        />
+        <circle cx="50" cy="9.3209" r="8.82" />
+        <circle cx="85.2292" cy="29.6605" r="8.82" />
+        <circle cx="85.2292" cy="70.3396" r="8.82" />
+        <circle cx="50" cy="90.6791" r="8.82" />
+        <circle cx="14.7659" cy="70.3396" r="8.82" />
+        <circle cx="14.7659" cy="29.6605" r="8.82" />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Code Files"
+    description="Usage with code files .js/.jsx"
+    href="/docs/usage/js"
+    icon={
+      <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 630 630">
+        <rect width="630" height="630" fill="#f7df1e" />
+        <path d="m423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z" />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Schema and Operations"
+    description="Usage to lint both schema/operations"
+    href="/docs/usage/schema-and-operations"
+    icon={
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 15 15"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.49991 0.876892C3.84222 0.876892 0.877075 3.84204 0.877075 7.49972C0.877075 11.1574 3.84222 14.1226 7.49991 14.1226C11.1576 14.1226 14.1227 11.1574 14.1227 7.49972C14.1227 3.84204 11.1576 0.876892 7.49991 0.876892ZM7.49988 1.82689C4.36688 1.8269 1.82707 4.36672 1.82707 7.49972C1.82707 10.6327 4.36688 13.1725 7.49988 13.1726V1.82689Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Multiple Projects"
+    description="Usage to lint different schemas"
+    href="/docs/usage/multiple-projects"
+    icon={
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 15 15"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M7.75432 1.81954C7.59742 1.72682 7.4025 1.72682 7.24559 1.81954L1.74559 5.06954C1.59336 5.15949 1.49996 5.32317 1.49996 5.5C1.49996 5.67683 1.59336 5.84051 1.74559 5.93046L7.24559 9.18046C7.4025 9.27318 7.59742 9.27318 7.75432 9.18046L13.2543 5.93046C13.4066 5.84051 13.5 5.67683 13.5 5.5C13.5 5.32317 13.4066 5.15949 13.2543 5.06954L7.75432 1.81954ZM7.49996 8.16923L2.9828 5.5L7.49996 2.83077L12.0171 5.5L7.49996 8.16923ZM2.25432 8.31954C2.01658 8.17906 1.70998 8.2579 1.56949 8.49564C1.42901 8.73337 1.50785 9.03998 1.74559 9.18046L7.24559 12.4305C7.4025 12.5232 7.59742 12.5232 7.75432 12.4305L13.2543 9.18046C13.4921 9.03998 13.5709 8.73337 13.4304 8.49564C13.2899 8.2579 12.9833 8.17906 12.7456 8.31954L7.49996 11.4192L2.25432 8.31954Z" />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Programmatic"
+    description="Programmatic usage"
+    href="/docs/usage/programmatic"
+    icon={
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 15 15"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7.07095 0.650238C6.67391 0.650238 6.32977 0.925096 6.24198 1.31231L6.0039 2.36247C5.6249 2.47269 5.26335 2.62363 4.92436 2.81013L4.01335 2.23585C3.67748 2.02413 3.23978 2.07312 2.95903 2.35386L2.35294 2.95996C2.0722 3.2407 2.0232 3.6784 2.23493 4.01427L2.80942 4.92561C2.62307 5.2645 2.47227 5.62594 2.36216 6.00481L1.31209 6.24287C0.924883 6.33065 0.650024 6.6748 0.650024 7.07183V7.92897C0.650024 8.32601 0.924883 8.67015 1.31209 8.75794L2.36228 8.99603C2.47246 9.375 2.62335 9.73652 2.80979 10.0755L2.2354 10.9867C2.02367 11.3225 2.07267 11.7602 2.35341 12.041L2.95951 12.6471C3.24025 12.9278 3.67795 12.9768 4.01382 12.7651L4.92506 12.1907C5.26384 12.377 5.62516 12.5278 6.0039 12.6379L6.24198 13.6881C6.32977 14.0753 6.67391 14.3502 7.07095 14.3502H7.92809C8.32512 14.3502 8.66927 14.0753 8.75705 13.6881L8.99505 12.6383C9.37411 12.5282 9.73573 12.3773 10.0748 12.1909L10.986 12.7653C11.3218 12.977 11.7595 12.928 12.0403 12.6473L12.6464 12.0412C12.9271 11.7604 12.9761 11.3227 12.7644 10.9869L12.1902 10.076C12.3768 9.73688 12.5278 9.37515 12.638 8.99596L13.6879 8.75794C14.0751 8.67015 14.35 8.32601 14.35 7.92897V7.07183C14.35 6.6748 14.0751 6.33065 13.6879 6.24287L12.6381 6.00488C12.528 5.62578 12.3771 5.26414 12.1906 4.92507L12.7648 4.01407C12.9766 3.6782 12.9276 3.2405 12.6468 2.95975L12.0407 2.35366C11.76 2.07292 11.3223 2.02392 10.9864 2.23565L10.0755 2.80989C9.73622 2.62328 9.37437 2.47229 8.99505 2.36209L8.75705 1.31231C8.66927 0.925096 8.32512 0.650238 7.92809 0.650238H7.07095ZM4.92053 3.81251C5.44724 3.44339 6.05665 3.18424 6.71543 3.06839L7.07095 1.50024H7.92809L8.28355 3.06816C8.94267 3.18387 9.5524 3.44302 10.0794 3.81224L11.4397 2.9547L12.0458 3.56079L11.1882 4.92117C11.5573 5.44798 11.8164 6.0575 11.9321 6.71638L13.5 7.07183V7.92897L11.932 8.28444C11.8162 8.94342 11.557 9.55301 11.1878 10.0798L12.0453 11.4402L11.4392 12.0462L10.0787 11.1886C9.55192 11.5576 8.94241 11.8166 8.28355 11.9323L7.92809 13.5002H7.07095L6.71543 11.932C6.0569 11.8162 5.44772 11.5572 4.92116 11.1883L3.56055 12.046L2.95445 11.4399L3.81213 10.0794C3.4431 9.55266 3.18403 8.94326 3.06825 8.2845L1.50002 7.92897V7.07183L3.06818 6.71632C3.18388 6.05765 3.44283 5.44833 3.81171 4.92165L2.95398 3.561L3.56008 2.95491L4.92053 3.81251ZM9.02496 7.50008C9.02496 8.34226 8.34223 9.02499 7.50005 9.02499C6.65786 9.02499 5.97513 8.34226 5.97513 7.50008C5.97513 6.65789 6.65786 5.97516 7.50005 5.97516C8.34223 5.97516 9.02496 6.65789 9.02496 7.50008ZM9.92496 7.50008C9.92496 8.83932 8.83929 9.92499 7.50005 9.92499C6.1608 9.92499 5.07513 8.83932 5.07513 7.50008C5.07513 6.16084 6.1608 5.07516 7.50005 5.07516C8.83929 5.07516 9.92496 6.16084 9.92496 7.50008Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Svelte"
+    description="Usage with .svelte files"
+    href="/docs/usage/svelte"
+    icon={
+      <svg
+        width="20"
+        height="20"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="#fff"
+        viewBox="0 0 107 128"
+      >
+        <path
+          d="M94.1566,22.8189c-10.4-14.8851-30.94-19.2971-45.7914-9.8348L22.2825,29.6078A29.9234,29.9234,0,0,0,8.7639,49.6506a31.5136,31.5136,0,0,0,3.1076,20.2318A30.0061,30.0061,0,0,0,7.3953,81.0653a31.8886,31.8886,0,0,0,5.4473,24.1157c10.4022,14.8865,30.9423,19.2966,45.7914,9.8348L84.7167,98.3921A29.9177,29.9177,0,0,0,98.2353,78.3493,31.5263,31.5263,0,0,0,95.13,58.117a30,30,0,0,0,4.4743-11.1824,31.88,31.88,0,0,0-5.4473-24.1157"
+          fill="#ff3e00"
+        />
+        <path d="M45.8171,106.5815A20.7182,20.7182,0,0,1,23.58,98.3389a19.1739,19.1739,0,0,1-3.2766-14.5025,18.1886,18.1886,0,0,1,.6233-2.4357l.4912-1.4978,1.3363.9815a33.6443,33.6443,0,0,0,10.203,5.0978l.9694.2941-.0893.9675a5.8474,5.8474,0,0,0,1.052,3.8781,6.2389,6.2389,0,0,0,6.6952,2.485,5.7449,5.7449,0,0,0,1.6021-.7041L69.27,76.281a5.4306,5.4306,0,0,0,2.4506-3.631,5.7948,5.7948,0,0,0-.9875-4.3712,6.2436,6.2436,0,0,0-6.6978-2.4864,5.7427,5.7427,0,0,0-1.6.7036l-9.9532,6.3449a19.0329,19.0329,0,0,1-5.2965,2.3259,20.7181,20.7181,0,0,1-22.2368-8.2427,19.1725,19.1725,0,0,1-3.2766-14.5024,17.9885,17.9885,0,0,1,8.13-12.0513L55.8833,23.7472a19.0038,19.0038,0,0,1,5.3-2.3287A20.7182,20.7182,0,0,1,83.42,29.6611a19.1739,19.1739,0,0,1,3.2766,14.5025,18.4,18.4,0,0,1-.6233,2.4357l-.4912,1.4978-1.3356-.98a33.6175,33.6175,0,0,0-10.2037-5.1l-.9694-.2942.0893-.9675a5.8588,5.8588,0,0,0-1.052-3.878,6.2389,6.2389,0,0,0-6.6952-2.485,5.7449,5.7449,0,0,0-1.6021.7041L37.73,51.719a5.4218,5.4218,0,0,0-2.4487,3.63,5.7862,5.7862,0,0,0,.9856,4.3717,6.2437,6.2437,0,0,0,6.6978,2.4864,5.7652,5.7652,0,0,0,1.602-.7041l9.9519-6.3425a18.978,18.978,0,0,1,5.2959-2.3278,20.7181,20.7181,0,0,1,22.2368,8.2427,19.1725,19.1725,0,0,1,3.2766,14.5024,17.9977,17.9977,0,0,1-8.13,12.0532L51.1167,104.2528a19.0038,19.0038,0,0,1-5.3,2.3287" />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Vue"
+    description="Usage with .vue files"
+    href="/docs/usage/vue"
+    icon={
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 128 128"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path fill="#42b883" d="M78.8,10L64,35.4L49.2,10H0l64,110l64-110C128,10,78.8,10,78.8,10z" />
+        <path fill="#35495e" d="M78.8,10L64,35.4L49.2,10H25.6L64,76l38.4-66H78.8z" />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Astro"
+    description="Usage with .astro files"
+    href="/docs/usage/astro"
+    icon={
+      <svg
+        width="20"
+        height="20"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 128 128"
+      >
+        <path d="M47.7 107.1c-5.5-5-7.2-15.7-4.9-23.4 4 4.9 9.6 6.4 15.4 7.3 8.9 1.3 17.6.8 25.9-3.2l2.8-1.7a18 18 0 0 1-7.2 20l-5.5 3.8c-5.6 3.8-7.2 8.2-5 14.7l.2.7a14 14 0 0 1-6.6-5.6 15.8 15.8 0 0 1-2.6-8.6c0-1.5 0-3-.2-4.5-.5-3.7-2.2-5.3-5.5-5.4-3.3-.1-5.9 2-6.6 5.2l-.2.7ZM16 82.4s16.5-8 33-8l12.4-38.3c.5-2 1.8-3.2 3.3-3.2 1.6 0 3 1.3 3.4 3.2l12.4 38.3c19.6 0 33 8 33 8l-28-76c-.8-2.3-2.2-3.7-4-3.7H48c-1.8 0-3.1 1.4-4 3.7l-28 76Z" />
+        <path
+          fill="url(#a)"
+          d="M47.7 107.1c-5.5-5-7.2-15.7-4.9-23.4 4 4.9 9.6 6.4 15.4 7.3 8.9 1.3 17.6.8 25.9-3.2l2.8-1.7a18 18 0 0 1-7.2 20l-5.5 3.8c-5.6 3.8-7.2 8.2-5 14.7l.2.7a14 14 0 0 1-6.6-5.6 15.8 15.8 0 0 1-2.6-8.6c0-1.5 0-3-.2-4.5-.5-3.7-2.2-5.3-5.5-5.4-3.3-.1-5.9 2-6.6 5.2l-.2.7Z"
+        />
+        <linearGradient
+          id="a"
+          x1="64.7"
+          x2="77.4"
+          y1="119.2"
+          y2="77.4"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#d83333" />
+          <stop offset="1" stop-color="#f041ff" />
+        </linearGradient>
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Prettier"
+    description="Usage with eslint-plugin-prettier"
+    href="/docs/usage/prettier"
+    icon={
+      <svg width="20" height="20" viewBox="0 0 210 210" xmlns="http://www.w3.org/2000/svg">
+        <rect fill="#56b3b4" x="165" y="40" width="20" height="10" rx="5" />
+        <rect fill="#ea5e5e" x="15" y="200" width="60" height="10" rx="5" />
+        <rect fill="#bf85bf" x="135" y="120" width="40" height="10" rx="5" />
+        <rect fill="#ea5e5e" x="75" y="120" width="50" height="10" rx="5" />
+        <rect fill="#56b3b4" x="15" y="120" width="50" height="10" rx="5" />
+        <rect fill="#bf85bf" x="15" y="160" width="60" height="10" rx="5" />
+        <rect fill="#bf85bf" x="15" y="80" width="60" height="10" rx="5" />
+        <rect fill="#f7ba3e" x="65" y="20" width="110" height="10" rx="5" />
+        <rect fill="#ea5e5e" x="15" y="20" width="40" height="10" rx="5" />
+        <rect fill="#f7ba3e" x="55" y="180" width="20" height="10" rx="5" />
+        <rect fill="#56b3b4" x="55" y="60" width="20" height="10" rx="5" />
+        <rect fill="#56b3b4" x="15" y="180" width="30" height="10" rx="5" />
+        <rect fill="#f7ba3e" x="15" y="60" width="30" height="10" rx="5" />
+        <rect fill="#56b3b4" x="95" y="100" width="90" height="10" rx="5" />
+        <rect fill="#f7ba3e" x="45" y="100" width="40" height="10" rx="5" />
+        <rect fill="#ea5e5e" x="15" y="100" width="20" height="10" rx="5" />
+        <rect fill="#bf85bf" x="105" y="40" width="50" height="10" rx="5" />
+        <rect fill="#56b3b4" x="15" y="40" width="80" height="10" rx="5" />
+        <rect fill="#f7ba3e" x="45" y="140" width="100" height="10" rx="5" />
+        <rect fill="#bf85bf" x="15" y="140" width="20" height="10" rx="5" />
+        <rect fill="#ea5e5e" x="135" y="60" width="60" height="10" rx="5" />
+        <rect fill="#f7ba3e" x="135" y="80" width="60" height="10" rx="5" />
+        <rect fill="#56b3b4" x="15" y="0" width="130" height="10" rx="5" />
+      </svg>
+    }
+  />
+  <Cards.Card
+    title="Custom GraphQL Rules"
+    description="Usage with custom GraphQL rules"
+    href="/docs/usage/custom-rules"
+  />
+</Cards>
