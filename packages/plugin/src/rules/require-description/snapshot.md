@@ -289,6 +289,40 @@ exports[`require-description > invalid > ignoredSelectors 1`] = `
       18 |           id: ID!
 `;
 
+exports[`require-description > invalid > rootField with more than one root type 1`] = `
+#### ⌨️ Code
+
+      1 |         type Query {
+      2 |           user: User
+      3 |         }
+      4 |         type Mutation {
+      5 |           createUser: User
+      6 |         }
+      7 |         type User {
+      8 |           id: ID
+      9 |         }
+
+#### ⚙️ Options
+
+    {
+      "rootField": true
+    }
+
+#### ❌ Error 1/2
+
+      1 |         type Query {
+    > 2 |           user: User
+        |           ^^^^ Description is required for field "user" in type "Query"
+      3 |         }
+
+#### ❌ Error 2/2
+
+      4 |         type Mutation {
+    > 5 |           createUser: User
+        |           ^^^^^^^^^^ Description is required for field "createUser" in type "Mutation"
+      6 |         }
+`;
+
 exports[`require-description > invalid > should disable description for ObjectTypeDefinition 1`] = `
 #### ⌨️ Code
 
