@@ -21,6 +21,7 @@ import {
   requireGraphQLOperations,
   requireGraphQLSchema,
 } from '../../utils.js';
+import { createOperationVisitor } from './operations.js';
 
 const RULE_ID = 'require-selections';
 const DEFAULT_ID_FIELD_NAME = 'id';
@@ -38,6 +39,11 @@ const schema = {
     type: 'object',
     additionalProperties: false,
     properties: {
+      operationsOnly: {
+        type: 'boolean',
+        description:
+          'Check composed operations instead of standalone fragments, merging selections per concrete type.',
+      },
       fieldName: {
         oneOf: [{ $ref: '#/definitions/asString' }, { $ref: '#/definitions/asArray' }],
         default: DEFAULT_ID_FIELD_NAME,
@@ -117,6 +123,10 @@ export const rule: GraphQLESLintRule<RuleOptions, true> = {
     schema,
   },
   create(context) {
+    // Preserve existing behavior unless the consumer explicitly opts into composed operations.
+    if (context.options[0]?.operationsOnly) {
+      return createOperationVisitor(context);
+    }
     const schema = requireGraphQLSchema(RULE_ID, context);
     const siblings = requireGraphQLOperations(RULE_ID, context);
     const { fieldName = DEFAULT_ID_FIELD_NAME, requireAllFields } = context.options[0] || {};

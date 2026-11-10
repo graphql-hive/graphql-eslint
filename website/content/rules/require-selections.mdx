@@ -19,6 +19,74 @@ enables this rule.
 
 {metadata.description}
 
+## Check composed operations
+
+Set `operationsOnly: true` on this rule to check required fields in the completed operation. The
+option defaults to `false`; existing presets do not enable it. It does not affect other rules or
+change how documents are loaded.
+
+```js
+export default [
+  {
+    rules: {
+      '@graphql-eslint/require-selections': [
+        'error',
+        {
+          fieldName: ['id', 'encid'],
+          requireAllFields: true,
+          operationsOnly: true
+        }
+      ]
+    }
+  }
+]
+```
+
+The default mode checks standalone fragments too. With `operationsOnly: true`, a fragment may
+provide only part of the required selections, as long as its consumer selects the remaining fields:
+
+```graphql
+query {
+  business {
+    id
+    encid
+    ...BusinessDetails
+  }
+}
+
+fragment BusinessDetails on Business {
+  name
+}
+```
+
+Assuming `Business` exposes both configured fields, this operation passes in the new mode. The
+fragment is not required to select the fields independently. Fragment spreads can be nested;
+ordinary fragment resolution already supports nesting, while this option changes where the
+requirements are enforced.
+
+Matching response fields are merged across direct selections and fragments. For example,
+`business { id } business { encid }` satisfies both requirements for the same returned object.
+Different aliases and different operations are checked separately. Requirements on child objects are
+still checked even when their parent type has none of the configured fields.
+
+For interfaces and unions, each possible concrete response type must select the configured fields
+that exist on that type, including members without an explicit fragment branch. Shared interface
+selections count, but selections for one union member cannot satisfy another member. This also
+applies to nested fields. Suggestions use inline type conditions for abstract selections.
+
+With `requireAllFields: true`, the actual configured schema fields are required: `id: encid` selects
+only `encid`, while `businessId: id` selects `id`. When `requireAllFields` is omitted or false, an
+alias matching a configured name continues to count. If adding a missing field would conflict with
+an existing alias, the diagnostic has no insertion suggestion.
+
+The mode works with the existing GraphQL Config `documents` configuration and its loaders. Errors
+inside sibling fragments are reported at the consumer spread, and suggestions only edit local nodes.
+When linting a file containing only fragments, this rule emits no diagnostics in operation-only
+mode; lint their consuming operations to check the combined selections.
+
+Omitting `operationsOnly` or setting it to `false` preserves the existing standalone-fragment
+checks, alias interpretation, abstract-type behavior, diagnostics, and suggestions.
+
 ## Usage Examples
 
 ### Incorrect
@@ -83,6 +151,11 @@ Default: `"id"`
 ### `requireAllFields` (boolean)
 
 Whether all fields of `fieldName` option must be included.
+
+### `operationsOnly` (boolean)
+
+Check composed operations instead of standalone fragments, merging selections per concrete type.
+Optional; defaults to `false`. Existing behavior is unchanged unless explicitly enabled.
 
 ---
 
