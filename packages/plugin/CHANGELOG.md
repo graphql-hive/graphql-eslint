@@ -1,5 +1,18 @@
 # @graphql-eslint/eslint-plugin
 
+## 4.4.3
+
+### Patch Changes
+
+- [#2977](https://github.com/graphql-hive/graphql-eslint/pull/2977)
+  [`4a876a6`](https://github.com/graphql-hive/graphql-eslint/commit/4a876a66689e4bb9aa67a9d17ae90a1643658261)
+  Thanks [@ikusakov2](https://github.com/ikusakov2)! - Clear stored processor offsets before each
+  preprocessing pass so removing embedded GraphQL or failing to extract it cannot shift JavaScript
+  diagnostics, fixes, or suggestions on a later lint.
+
+  Weakly cache sibling-document indexes so obsolete document snapshots can be collected after the
+  document cache refreshes, while preserving index reuse for the same source array.
+
 ## 4.4.2
 
 ### Patch Changes
