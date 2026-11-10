@@ -29,6 +29,8 @@ export const processor = {
   },
   supportsAutofix: true,
   preprocess(code, filePath) {
+    // A later buffer may skip or fail extraction, so never reuse its previous offsets.
+    blocksMap.delete(filePath);
     if (process.env.ESLINT_USE_FLAT_CONFIG !== 'false' && filePath.endsWith('.vue')) {
       throw new Error(
         "Processing of `.vue` files is no longer supported, follow the new official vue example for ESLint's flat config https://github.com/graphql-hive/graphql-eslint/tree/master/examples/vue-code-file",

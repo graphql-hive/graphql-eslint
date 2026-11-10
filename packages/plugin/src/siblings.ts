@@ -26,7 +26,9 @@ export type SiblingOperations = {
   getOperationByType(operationType: OperationTypeNode): OperationSource[];
 };
 
-const siblingOperationsCache = new Map<Source[], SiblingOperations>();
+// Document loading can replace source arrays when its cache expires. Let obsolete
+// snapshots and their indexes be collected instead of retaining them for the process lifetime.
+const siblingOperationsCache = new WeakMap<Source[], SiblingOperations>();
 
 export function getSiblings(documents: Source[]): SiblingOperations {
   if (documents.length === 0) {
@@ -54,9 +56,7 @@ export function getSiblings(documents: Source[]): SiblingOperations {
     };
   }
 
-  // Since the siblings array is cached, we can use it as cache key.
-  // We should get the same array reference each time we get
-  // to this point for the same graphql project
+  // Reuse the index while document loading returns the same source array.
   const value = siblingOperationsCache.get(documents);
 
   if (value) {
