@@ -191,7 +191,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
       kinds.add(
         `:matches(ObjectTypeDefinition, ObjectTypeExtension)[name.value=/^(${[
           ...rootTypeNames,
-        ].join(',')})$/] > FieldDefinition`,
+        ].join('|')})$/] > FieldDefinition`,
       );
     }
     let selector = `:matches(${[...kinds]})`;

@@ -229,6 +229,22 @@ ruleTester.run<RuleOptions>('require-description', rule, {
       errors: [{ messageId: RULE_ID }],
     },
     {
+      name: 'rootField with more than one root type',
+      ...useSchema(/* GraphQL */ `
+        type Query {
+          user: User
+        }
+        type Mutation {
+          createUser: User
+        }
+        type User {
+          id: ID
+        }
+      `),
+      options: [{ rootField: true }],
+      errors: [{ messageId: RULE_ID }, { messageId: RULE_ID }],
+    },
+    {
       name: 'ignoredSelectors',
       options: [
         {
