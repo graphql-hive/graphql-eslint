@@ -84,4 +84,22 @@ describe('processor state between editor buffers', () => {
     expect(result.line).toBe(1);
     expect(result.fix?.range).toEqual([code.indexOf('id'), code.indexOf('id') + 2]);
   });
+
+  it('maps fix ranges to the original code when GraphQL follows a CRLF line', () => {
+    const filePath = path.resolve('processor-crlf.js');
+    const code = 'const a = 1;\r\nconst query = gql`{ id }`;';
+    processor.preprocess(code, filePath);
+    const message: Linter.LintMessage = {
+      ruleId: 'example',
+      severity: 2,
+      message: 'GraphQL diagnostic',
+      line: 1,
+      column: 3,
+      fix: { range: [2, 4], text: '__typename' },
+    };
+    const [result] = processor.postprocess([[message], []], filePath);
+
+    expect(result.line).toBe(2);
+    expect(result.fix?.range).toEqual([code.indexOf('id'), code.indexOf('id') + 2]);
+  });
 });
