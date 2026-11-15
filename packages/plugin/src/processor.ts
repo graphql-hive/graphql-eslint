@@ -68,12 +68,26 @@ export const processor = {
         ...pluckConfig,
       });
 
+      // Index in `code` where each line starts, using the same line terminators as Babel.
+      // "a\nbc" -> [0, 2]; "a\r\nbc" -> [0, 3]
+      const lineStarts = [
+        0,
+        ...Array.from(
+          code.matchAll(/\r\n|[\r\n\u2028\u2029]/g),
+          match => match.index + match[0].length,
+        ),
+      ];
+
       const blocks: Block[] = sources.map(item => ({
         filename: 'document.graphql',
         text: item.body,
         lineOffset: item.locationOffset.line - 1,
-        // @ts-expect-error -- `index` field exist but show ts error
-        offset: item.locationOffset.index + 1,
+        // `locationOffset` has a 1-based line and column, and the offset is the index after the
+        // start position:
+        // "a\nbc" with { line: 2, column: 1 } -> lineStarts[1] + 1 = 3
+        // "a\r\nbc" with { line: 2, column: 2 } -> lineStarts[1] + 2 = 5
+        // "abc" with { line: 1, column: 3 } -> lineStarts[0] + 3 = 3
+        offset: lineStarts[item.locationOffset.line - 1] + item.locationOffset.column,
       }));
       blocksMap.set(filePath, blocks);
 
