@@ -169,7 +169,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
     type: 'suggestion',
     docs: {
       description: 'Require names to follow specified conventions.',
-      category: ['Schema', 'Operations'],
+      category: 'Schema-and-operations',
       recommended: true,
       url: 'https://the-guild.dev/graphql/eslint/rules/naming-convention',
       examples: [

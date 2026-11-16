@@ -284,7 +284,7 @@ export const GRAPHQL_JS_VALIDATIONS: Record<string, GraphQLESLintRule> = Object.
       hasDidYouMeanSuggestions: true,
     },
     {
-      category: ['Schema', 'Operations'],
+      category: 'Schema-and-operations',
       description:
         'A GraphQL field is only valid if all supplied arguments are defined by that field.',
       requiresSchema: true,
@@ -326,7 +326,7 @@ export const GRAPHQL_JS_VALIDATIONS: Record<string, GraphQLESLintRule> = Object.
       },
     },
     {
-      category: ['Schema', 'Operations'],
+      category: 'Schema-and-operations',
       description:
         'A GraphQL document is only valid if all `@directive`s are known by the schema and legally positioned.',
       requiresSchema: true,
@@ -412,7 +412,7 @@ export const GRAPHQL_JS_VALIDATIONS: Record<string, GraphQLESLintRule> = Object.
       hasDidYouMeanSuggestions: true,
     },
     {
-      category: ['Schema', 'Operations'],
+      category: 'Schema-and-operations',
       description:
         'A GraphQL document is only valid if referenced types (specifically variable definitions and fragment conditions) are defined by the type schema.',
       requiresSchema: true,
@@ -576,7 +576,7 @@ export const GRAPHQL_JS_VALIDATIONS: Record<string, GraphQLESLintRule> = Object.
       rule: ProvidedRequiredArgumentsRule,
     },
     {
-      category: ['Schema', 'Operations'],
+      category: 'Schema-and-operations',
       description:
         'A field or directive is only valid if all required (non-null without a default value) field arguments have been provided.',
       requiresSchema: true,
@@ -634,7 +634,7 @@ export const GRAPHQL_JS_VALIDATIONS: Record<string, GraphQLESLintRule> = Object.
       rule: UniqueDirectivesPerLocationRule,
     },
     {
-      category: ['Schema', 'Operations'],
+      category: 'Schema-and-operations',
       description:
         'A GraphQL document is only valid if all non-repeatable directives at a given location are uniquely named.',
       requiresSchema: true,
