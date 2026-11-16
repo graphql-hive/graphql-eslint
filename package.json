@@ -11,10 +11,11 @@
     "pnpm": ">=11"
   },
   "scripts": {
-    "build": "turbo run build --filter=!website && attw --pack packages/plugin/dist",
+    "build": "turbo run build && attw --pack packages/plugin/dist",
     "ci:lint": "pnpm lint --output-file eslint_report.json --format json",
     "create-rule": "tsx scripts/create-rule.ts",
     "generate:configs": "tsx scripts/generate-configs.ts",
+    "generate:docs": "tsx scripts/generate-docs.ts",
     "lint": "ESLINT_USE_FLAT_CONFIG=false eslint --ignore-path .gitignore --cache .",
     "lint:prettier": "prettier --ignore-path .gitignore --ignore-path .prettierignore --cache --check .",
     "prebuild": "rimraf tsconfig.tsbuildinfo",

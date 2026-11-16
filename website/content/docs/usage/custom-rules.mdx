@@ -1,11 +1,64 @@
 ---
 sidebarTitle: Custom GraphQL Rules
+title: Usage with custom GraphQL rules
 ---
 
-# Usage with custom GraphQL rules
+<Callout type="info">
 
-<ESLintConfigs gitFolder="custom-rules" additionalFiles={{ 'Custom GraphQL Rule': 'my-rule.js' }} />
+Check out
+[the official example](https://github.com/graphql-hive/graphql-eslint/tree/master/examples/custom-rules)
+for
+[ESLint Flat Config](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/custom-rules/eslint.config.js).
 
-> [!TIP]
->
-> Check out the [custom rules](/docs/custom-rules) guide to learn how to create your own rules.
+</Callout>
+
+## Custom GraphQL Rule
+
+```js title="my-rule.js"
+export const rule = {
+  create(context) {
+    return {
+      OperationDefinition(node) {
+        if (!node.name?.value) {
+          context.report({
+            node,
+            message: 'Oops, name is required!'
+          })
+        }
+      }
+    }
+  }
+}
+```
+
+## ESLint Flat Config
+
+```js title="eslint.config.js"
+import graphqlPlugin from '@graphql-eslint/eslint-plugin'
+import { rule } from './my-rule.js'
+
+export default [
+  {
+    files: ['**/*.graphql'],
+    languageOptions: {
+      parser: graphqlPlugin.parser
+    },
+    plugins: {
+      '@internal': {
+        rules: {
+          'my-rule': rule
+        }
+      }
+    },
+    rules: {
+      '@internal/my-rule': 'error'
+    }
+  }
+]
+```
+
+<Callout type="tip">
+
+Check out the [custom rules](/docs/custom-rules) guide to learn how to create your own rules.
+
+</Callout>

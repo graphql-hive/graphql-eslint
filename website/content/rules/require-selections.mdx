@@ -1,8 +1,7 @@
 ---
+title: 'require-selections'
 description: 'Enforce selecting specific fields when they are available on the GraphQL type.'
 ---
-
-# `require-selections`
 
 ✅ The `"extends": "plugin:@graphql-eslint/operations-recommended"` property in a configuration file
 enables this rule.
@@ -12,12 +11,10 @@ enables this rule.
 
 - Category: `Operations`
 - Rule name: `@graphql-eslint/require-selections`
-- Requires GraphQL Schema: `true`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-graphql-schema)
-- Requires GraphQL Operations: `true`
-  [ℹ️](/docs/getting-started#extended-linting-rules-with-siblings-operations)
+- Requires GraphQL Schema: `true` [ℹ️](/docs/usage#providing-graphql-schema-optional)
+- Requires GraphQL Operations: `true` [ℹ️](/docs/usage#providing-graphql-operations-optional)
 
-{metadata.description}
+Enforce selecting specific fields when they are available on the GraphQL type.
 
 ## Usage Examples
 
@@ -86,13 +83,13 @@ Whether all fields of `fieldName` option must be included.
 
 ---
 
-# Sub Schemas
+## Sub Schemas
 
 The schema defines the following additional types:
 
-## `asString` (string)
+### `asString` (string)
 
-## `asArray` (array)
+### `asArray` (array)
 
 ## When Not To Use It
 

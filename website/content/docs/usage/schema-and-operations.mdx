@@ -1,8 +1,141 @@
 ---
 sidebarTitle: Schema and Operations
-icon: HalfIcon
+title: Usage to lint both schema/operations
 ---
 
-# Usage to lint both schema/operations
+<Callout type="info">
 
-<ESLintConfigs gitFolder="monorepo" additionalFiles={{ 'GraphQL Config': 'graphql.config.js' }} />
+Check out
+[the official examples](https://github.com/graphql-hive/graphql-eslint/tree/master/examples/monorepo)
+for
+[ESLint Flat Config](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/monorepo/eslint.config.js)
+or
+[ESLint Legacy Config](https://github.com/graphql-hive/graphql-eslint/blob/master/examples/monorepo/.eslintrc.cjs).
+
+</Callout>
+
+## GraphQL Config
+
+```js title="graphql.config.js"
+export default {
+  schema: 'server/**/*.gql',
+  documents: 'client/**/*.{tsx,gql}'
+}
+```
+
+## ESLint Flat Config
+
+```js title="eslint.config.js"
+import js from '@eslint/js'
+import graphqlPlugin from '@graphql-eslint/eslint-plugin'
+
+export default [
+  {
+    files: ['**/*.{js,tsx}'],
+    rules: js.configs.recommended.rules
+  },
+  {
+    files: ['client/**/*.tsx'],
+    // Setup processor for operations/fragments definitions on code-files
+    processor: graphqlPlugin.processor,
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true
+        }
+      }
+    }
+  },
+  {
+    // Setup GraphQL Parser
+    files: ['**/*.{graphql,gql}'],
+    languageOptions: {
+      parser: graphqlPlugin.parser
+    },
+    plugins: {
+      '@graphql-eslint': graphqlPlugin
+    }
+  },
+  {
+    // Setup recommended config for schema files
+    files: ['server/**/*.gql'],
+    rules: graphqlPlugin.configs['flat/schema-recommended'].rules
+  },
+  {
+    // Setup recommended config for operations files
+    files: ['client/**/*.{graphql,gql}'],
+    rules: graphqlPlugin.configs['flat/operations-recommended'].rules
+  }
+]
+```
+
+## ESLint Legacy Config
+
+<Callout type="warning">
+
+An eslintrc configuration file, is deprecated and support will be removed in ESLint v10.0.0. Migrate
+to an [`eslint.config.js` file](#eslint-flat-config)
+
+</Callout>
+
+```js title=".eslintrc.cjs"
+/**
+ * Legacy config example, should be run with `ESLINT_USE_FLAT_CONFIG=false` environment variable in ESLint 9
+ */
+
+module.exports = {
+  root: true,
+  // ❗️ It's very important that you don't have any rules configured at the top-level config,
+  // and to move all configurations into the overrides section. Since JavaScript rules
+  // can't run on GraphQL files and vice versa, if you have rules configured at the top level,
+  // they will try to also execute for all overrides, as ESLint's configs cascade
+  overrides: [
+    {
+      files: '*.{js,tsx}',
+      extends: 'eslint:recommended',
+      env: {
+        es2022: true
+      },
+      parserOptions: {
+        sourceType: 'module'
+      }
+    },
+    {
+      files: 'client/**/*.tsx',
+      parserOptions: {
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true
+        }
+      }
+    },
+    {
+      // Setup GraphQL Parser
+      files: '*.{graphql,gql}',
+      parser: '@graphql-eslint/eslint-plugin',
+      plugins: ['@graphql-eslint']
+    },
+    {
+      // Setup processor for operations/fragments definitions on code-files
+      files: 'client/**/*.tsx',
+      processor: '@graphql-eslint/graphql'
+    },
+    {
+      // Setup recommended config for schema files
+      files: 'server/**/*.gql',
+      extends: 'plugin:@graphql-eslint/schema-recommended',
+      rules: {
+        // Override graphql-eslint rules for schema files
+      }
+    },
+    {
+      // Setup recommended config for operations files
+      files: 'client/**/*.{graphql,gql}',
+      extends: 'plugin:@graphql-eslint/operations-recommended',
+      rules: {
+        // Override graphql-eslint rules for operations files
+      }
+    }
+  ]
+}
+```

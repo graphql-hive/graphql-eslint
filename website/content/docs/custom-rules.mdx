@@ -1,4 +1,6 @@
-# Writing Custom Rules
+---
+title: Writing Custom Rules
+---
 
 To get started with your own rules, start by understanding how
 [ESLint custom rules works](https://eslint.org/docs/latest/extend/custom-rules).
@@ -24,8 +26,8 @@ the AST nodes you wish to visit. It can either be a
 or a complex [ESLint selector](https://eslint.org/docs/developer-guide/selectors) that allows you to
 travel and filter AST nodes.
 
-We recommend you to read the [graphql-eslint parser documentation](/docs/getting-started/parser)
-before getting started, to understand the differences between the AST structures.
+We recommend you to read the [graphql-eslint parser documentation](/docs/parser) before getting
+started, to understand the differences between the AST structures.
 
 The `graphql-eslint` comes with a TypeScript wrapper for ESLint rules, and provides a testkit to
 simplify testing process with GraphQL schemas, so you can use that by importing `GraphQLESLintRule`
@@ -33,7 +35,7 @@ type. But if you wish to use JavaScript - that's fine :)
 
 Here's an example for a simple rule that reports on anonymous GraphQL operations:
 
-```ts filename="my-rule.ts"
+```ts title="my-rule.ts"
 import { GraphQLESLintRule } from '@graphql-eslint/eslint-plugin'
 
 const rule: GraphQLESLintRule = {
@@ -71,8 +73,7 @@ rules. It covers most of the use-cases and concepts of rules.
 Since our parser converts GraphQL AST to ESTree structure, there are some minor differences in the
 structure of the objects. If you are using TypeScript, and you typed your rule with
 `GraphQLESLintRule` - you'll see that each `node` is a bit different from the AST nodes of GraphQL
-(you can read more about that in
-[graphql-eslint parser documentation](/docs/getting-started/parser)).
+(you can read more about that in [graphql-eslint parser documentation](/docs/parser)).
 
 If you need access to the original GraphQL AST `node`, you can use `.rawNode()` method on each node
 you get from the AST structure of ESLint.
@@ -82,7 +83,7 @@ objects.
 
 Here's an example for using original `graphql-js` validate method to validate `OperationDefinition`:
 
-```ts filename="my-rule.ts"
+```ts title="my-rule.ts"
 import { validate } from 'graphql'
 import { requireGraphQLSchema } from '@graphql-eslint/eslint-plugin'
 
@@ -131,7 +132,7 @@ call `requireGraphQLSchema` - it will validate that the schema is loaded.
 `typeInfo` is provided on every node, based on the type of that node, for example, to access the
 `GraphQLOutputType` while you are visiting a `SelectionSet` node, you can do:
 
-```ts filename="my-rule.ts"
+```ts title="my-rule.ts"
 import { requireGraphQLSchema } from '@graphql-eslint/eslint-plugin'
 
 export const rule = {
@@ -163,7 +164,7 @@ of ESLint.
 The wrapped `GraphQLRuleTester` provides built-in configured parser, and a schema loader, if you
 need to test your rule with a loaded schema.
 
-```ts filename="my-rule.test.ts"
+```ts title="my-rule.test.ts"
 import { RuleTester } from 'eslint'
 import { parser } from '@graphql-eslint/eslint-plugin'
 import { rule } from './my-rule'
