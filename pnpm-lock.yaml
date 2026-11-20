@@ -293,9 +293,6 @@ importers:
       graphql-config:
         specifier: ^5.1.3
         version: 5.1.5(@types/node@22.13.10)(graphql@16.10.0)(supports-color@9.4.0)(typescript@5.8.3)
-      graphql-depth-limit:
-        specifier: ^1.1.0
-        version: 1.1.0(graphql@16.10.0)
       lodash.lowercase:
         specifier: ^4.3.0
         version: 4.3.0
@@ -315,9 +312,6 @@ importers:
       '@types/estree':
         specifier: 1.0.6
         version: 1.0.6
-      '@types/graphql-depth-limit':
-        specifier: 1.1.6
-        version: 1.1.6
       '@types/json-schema':
         specifier: 7.0.15
         version: 7.0.15
@@ -2882,9 +2876,6 @@ packages:
   '@types/geojson@7946.0.16':
     resolution: {integrity: sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg==}
 
-  '@types/graphql-depth-limit@1.1.6':
-    resolution: {integrity: sha512-WU4bjoKOzJ8CQE32Pbyq+YshTMcLJf2aJuvVtSLv1BQPwDUGa38m2Vr8GGxf0GZ0luCQcfxlhZeHKu6nmTBvrw==}
-
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
 
@@ -3345,10 +3336,6 @@ packages:
   arraybuffer.prototype.slice@1.0.4:
     resolution: {integrity: sha512-BNoCY6SXXPQ7gF2opIP4GBE+Xw7U+pHMYKuzjgCN3GwiaIR09UUeKfheyIry77QtrCBlC0KK0q5/TER/tYh3PQ==}
     engines: {node: '>= 0.4'}
-
-  arrify@1.0.1:
-    resolution: {integrity: sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==}
-    engines: {node: '>=0.10.0'}
 
   as-table@1.0.55:
     resolution: {integrity: sha512-xvsWESUJn0JN421Xb9MQw6AsMHRCUknCe0Wjlxvjud80mU4E6hQf1A6NzQKcYNmYw62MfzEtXc+badstZP3JpQ==}
@@ -4672,12 +4659,6 @@ packages:
     peerDependenciesMeta:
       cosmiconfig-toml-loader:
         optional: true
-
-  graphql-depth-limit@1.1.0:
-    resolution: {integrity: sha512-+3B2BaG8qQ8E18kzk9yiSdAa75i/hnnOwgSeAxVJctGQPvmeiLtqKOYF6HETCyRjiF7Xfsyal0HbLlxCQkgkrw==}
-    engines: {node: '>=6.0.0'}
-    peerDependencies:
-      graphql: 16.10.0
 
   graphql-ws@6.0.6:
     resolution: {integrity: sha512-zgfER9s+ftkGKUZgc0xbx8T7/HMO4AV5/YuYiFc+AtgcO5T0v8AxYYNQ+ltzuzDZgNkYJaFspm5MMYLjQzrkmw==}
@@ -10338,10 +10319,6 @@ snapshots:
 
   '@types/geojson@7946.0.16': {}
 
-  '@types/graphql-depth-limit@1.1.6':
-    dependencies:
-      graphql: 16.10.0
-
   '@types/hast@3.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -10863,8 +10840,6 @@ snapshots:
       es-errors: 1.3.0
       get-intrinsic: 1.3.0
       is-array-buffer: 3.0.5
-
-  arrify@1.0.1: {}
 
   as-table@1.0.55:
     dependencies:
@@ -12414,11 +12389,6 @@ snapshots:
       - typescript
       - uWebSockets.js
       - utf-8-validate
-
-  graphql-depth-limit@1.1.0(graphql@16.10.0):
-    dependencies:
-      arrify: 1.0.1
-      graphql: 16.10.0
 
   graphql-ws@6.0.6(graphql@16.10.0)(ws@8.18.3):
     dependencies:
