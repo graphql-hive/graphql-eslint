@@ -47,7 +47,7 @@
   "peerDependencies": {
     "@apollo/subgraph": "^2",
     "eslint": ">=8.44.0",
-    "graphql": "^16",
+    "graphql": "^16 || ^17",
     "json-schema-to-ts": "^3"
   },
   "peerDependenciesMeta": {
@@ -75,7 +75,8 @@
     "@types/estree": "1.0.6",
     "@types/json-schema": "7.0.15",
     "@types/lodash.lowercase": "4.3.9",
-    "graphql": "16.10.0",
+    "graphql": "17.1.0",
+    "graphql-16": "npm:graphql@16.10.0",
     "json-schema-to-ts": "3.1.1"
   },
   "publishConfig": {

@@ -2,9 +2,27 @@ import { spawnSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
 import { ESLint } from 'eslint';
+import { getGraphQLResolverImportArg, GraphQLVersion } from '../graphql-resolver.js';
 import { CWD as PROJECT_CWD, slash } from '../src/utils.js';
 
 const CWD = path.join(PROJECT_CWD, '..', '..');
+
+// set by the vitest project, see `vite.config.ts`
+const GRAPHQL_VERSION = process.env.GRAPHQL_VERSION as GraphQLVersion;
+
+/**
+ * Examples resolve `graphql` from the plugin's own `node_modules`, preload the custom resolver so
+ * the built plugin runs against the graphql version of the current vitest project too
+ */
+const ESLINT_ENV = {
+  ...process.env,
+  NODE_OPTIONS: [
+    process.env.NODE_OPTIONS,
+    `--import=${getGraphQLResolverImportArg(GRAPHQL_VERSION)}`,
+  ]
+    .filter(Boolean)
+    .join(' '),
+};
 
 function countErrors(results: ESLint.LintResult[]): number {
   return results.reduce<number>((acc, curr: ESLint.LintResult & { fatalErrorCount: number }) => {
@@ -21,6 +39,7 @@ ${results.map(result => result.messages.map(m => m.message)).join('\n\n')}
 function getFlatESLintOutput(cwd: string): ESLint.LintResult[] {
   const { stdout, stderr } = spawnSync('eslint', ['--format', 'json', '.'], {
     cwd,
+    env: ESLINT_ENV,
     // For Windows, otherwise `stdout` and `stderr` are `null`
     shell: os.platform() === 'win32',
   });
@@ -34,7 +53,7 @@ function getLegacyESLintOutput(cwd: string): ESLint.LintResult[] {
     ['--format', 'json', '--ignore-pattern', 'eslint.config.js', '.'],
     {
       cwd,
-      env: { ...process.env, ESLINT_USE_FLAT_CONFIG: 'false' },
+      env: { ...ESLINT_ENV, ESLINT_USE_FLAT_CONFIG: 'false' },
       // For Windows, otherwise `stdout` and `stderr` are `null`
       shell: os.platform() === 'win32',
     },
@@ -86,6 +105,21 @@ function normalizeResults(results: ESLint.LintResult[]) {
 }
 
 describe('Examples', () => {
+  it('should run the built plugin against the selected graphql version', () => {
+    const { stdout, stderr } = spawnSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '-e',
+        "import('graphql').then(g => console.log(g.versionInfo.major))",
+      ],
+      // resolve `graphql` like the built plugin does
+      { cwd: path.join(PROJECT_CWD, 'dist'), env: ESLINT_ENV },
+    );
+    expect(stderr.toString()).toBe('');
+    expect(stdout.toString().trim()).toBe(GRAPHQL_VERSION);
+  });
+
   it('should work programmatically', () => {
     const cwd = path.join(CWD, 'examples', 'programmatic');
     testESLintOutput(cwd, 6);
