@@ -7,6 +7,8 @@ import { CWD as PROJECT_CWD, slash } from '../src/utils.js';
 
 const CWD = path.join(PROJECT_CWD, '..', '..');
 
+const IS_WINDOWS = os.platform() === 'win32';
+
 // set by the vitest project, see `vite.config.ts`
 const GRAPHQL_VERSION = process.env.GRAPHQL_VERSION as GraphQLVersion;
 
@@ -41,7 +43,7 @@ function getFlatESLintOutput(cwd: string): ESLint.LintResult[] {
     cwd,
     env: ESLINT_ENV,
     // For Windows, otherwise `stdout` and `stderr` are `null`
-    shell: os.platform() === 'win32',
+    shell: IS_WINDOWS,
   });
 
   return parseESLintOutput({ stdout, stderr });
@@ -55,7 +57,7 @@ function getLegacyESLintOutput(cwd: string): ESLint.LintResult[] {
       cwd,
       env: { ...ESLINT_ENV, ESLINT_USE_FLAT_CONFIG: 'false' },
       // For Windows, otherwise `stdout` and `stderr` are `null`
-      shell: os.platform() === 'win32',
+      shell: IS_WINDOWS,
     },
   );
 
@@ -104,7 +106,8 @@ function normalizeResults(results: ESLint.LintResult[]) {
     .filter(result => result.messages.length > 0);
 }
 
-describe('Examples', () => {
+// spawning `eslint` is slow, especially on Windows
+describe('Examples', { timeout: 60_000 }, () => {
   it('should run the built plugin against the selected graphql version', () => {
     const { stdout, stderr } = spawnSync(
       process.execPath,
@@ -120,65 +123,44 @@ describe('Examples', () => {
     expect(stdout.toString().trim()).toBe(GRAPHQL_VERSION);
   });
 
-  it('should work programmatically', () => {
-    const cwd = path.join(CWD, 'examples', 'programmatic');
-    testESLintOutput(cwd, 6);
-  });
-
-  it('should work on `.js` files', () => {
-    const cwd = path.join(CWD, 'examples', 'code-file');
-    testESLintOutput(cwd, 4);
-  });
-
-  it('should work with `graphql-config`', () => {
-    const cwd = path.join(CWD, 'examples', 'graphql-config');
-    testESLintOutput(cwd, 2);
-  });
-
-  it('should work with `eslint-plugin-prettier`', () => {
-    const cwd = path.join(CWD, 'examples', 'prettier');
-    testESLintOutput(cwd, 23);
-  });
-
-  it('should work in monorepo', () => {
-    const cwd = path.join(CWD, 'examples', 'monorepo');
-    testESLintOutput(cwd, 11);
-  });
-
-  it('should work in svelte', () => {
-    const cwd = path.join(CWD, 'examples', 'svelte-code-file');
-    testESLintOutput(cwd, 2);
-  });
-
-  it('should work in vue', () => {
-    const cwd = path.join(CWD, 'examples', 'vue-code-file');
-    testESLintOutput(cwd, 4);
-  });
-
-  it('should work in multiple projects', () => {
-    const cwd = path.join(CWD, 'examples', 'multiple-projects-graphql-config');
-    testESLintOutput(cwd, 4);
-  });
-
-  it('should work with custom rules', () => {
-    const cwd = path.join(CWD, 'examples', 'custom-rules');
-    const flatResults = getFlatESLintOutput(cwd);
-    // Windows has some offset for `range`, I think due \r\n handling
-    if (os.platform() !== 'win32') {
-      expect(normalizeResults(flatResults)).toMatchSnapshot();
-    }
-    expect(countErrors(flatResults)).toBe(1);
-  });
+  testExample('should work programmatically', 'programmatic', 6);
+  testExample('should work on `.js` files', 'code-file', 4);
+  testExample('should work with `graphql-config`', 'graphql-config', 2);
+  testExample('should work with `eslint-plugin-prettier`', 'prettier', 23);
+  testExample('should work in monorepo', 'monorepo', 11);
+  testExample('should work in svelte', 'svelte-code-file', 2);
+  testExample('should work in vue', 'vue-code-file', 4);
+  testExample('should work in multiple projects', 'multiple-projects-graphql-config', 4);
+  testExample('should work with custom rules', 'custom-rules', 1, { legacy: false });
 });
 
-function testESLintOutput(cwd: string, errorCount: number): void {
-  const flatResults = getFlatESLintOutput(cwd);
-  const results = getLegacyESLintOutput(cwd);
-  // Windows has some offset for `range`, I think due \r\n handling
-  if (os.platform() !== 'win32') {
-    expect(normalizeResults(flatResults)).toMatchSnapshot();
-    expect(normalizeResults(results)).toMatchSnapshot();
-  }
-  expect(countErrors(flatResults)).toBe(errorCount);
-  expect(countErrors(results)).toBe(errorCount);
+/**
+ * Windows has some offset for `range`, I think due \r\n handling, so snapshots are only compared on
+ * other platforms. The snapshot test is skipped (not just its assertion) on Windows, otherwise
+ * vitest reports its snapshots as obsolete and fails in CI.
+ */
+function testExample(
+  name: string,
+  example: string,
+  errorCount: number,
+  { legacy = true }: { legacy?: boolean } = {},
+): void {
+  const cwd = path.join(CWD, 'examples', example);
+  const getOutputs = () => [
+    getFlatESLintOutput(cwd),
+    ...(legacy ? [getLegacyESLintOutput(cwd)] : []),
+  ];
+
+  it.skipIf(IS_WINDOWS)(name, () => {
+    for (const results of getOutputs()) {
+      expect(normalizeResults(results)).toMatchSnapshot();
+      expect(countErrors(results)).toBe(errorCount);
+    }
+  });
+
+  it.runIf(IS_WINDOWS)(`${name} (error count)`, () => {
+    for (const results of getOutputs()) {
+      expect(countErrors(results)).toBe(errorCount);
+    }
+  });
 }
