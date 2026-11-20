@@ -321,8 +321,8 @@ importers:
         specifier: 17.1.0
         version: 17.1.0
       graphql-16:
-        specifier: npm:graphql@16.10.0
-        version: graphql@16.10.0
+        specifier: npm:graphql@16.15.0
+        version: graphql@16.15.0
       json-schema-to-ts:
         specifier: 3.1.1
         version: 3.1.1
@@ -4899,6 +4899,10 @@ packages:
 
   graphql@16.10.0:
     resolution: {integrity: sha512-AjqGKbDGUFRKIRCP9tCKiIGHyriz2oHEbPIbEtcSLSs4YjReZOIPQQWek4+6hjw62H9QShXHyaGivGiYVLeYFQ==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  graphql@16.15.0:
+    resolution: {integrity: sha512-32kz9FecohDiC/tgcViwnRXM7HFBVTPiW7pHO+DikKOI5KjhU/jNULOReXsrFqt2WAYbE9xFXsTffJw6iTO8qw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
   graphql@17.1.0:
@@ -12813,6 +12817,8 @@ snapshots:
       ws: 8.23.0
 
   graphql@16.10.0: {}
+
+  graphql@16.15.0: {}
 
   graphql@17.1.0: {}
 
