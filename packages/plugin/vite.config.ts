@@ -1,5 +1,4 @@
 import path from 'node:path';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 const GRAPHQL_PATH = path.join(__dirname, 'node_modules', 'graphql');
@@ -27,5 +26,7 @@ export default defineConfig({
       graphql: path.join(GRAPHQL_PATH, 'index.js'),
     },
   },
-  plugins: [tsconfigPaths()],
+  resolve: {
+    tsconfigPaths: true,
+  },
 });
