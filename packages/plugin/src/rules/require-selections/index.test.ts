@@ -88,7 +88,7 @@ const DOCUMENT_WITH_UNION = /* GraphQL */ `
   }
 `;
 
-ruleTester.run<RuleOptions, true>('require-selections', rule, {
+ruleTester.run<RuleOptions>('require-selections', rule, {
   valid: [
     {
       name: "should ignore checking selections on OperationDefinition as it's redundant check",

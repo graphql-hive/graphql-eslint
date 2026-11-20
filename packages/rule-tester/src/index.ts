@@ -3,7 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { AST, RuleTester as ESLintRuleTester, Linter, Rule } from 'eslint';
 import { codeFrameColumns } from '@babel/code-frame';
-import { GraphQLESLintRule } from '../../plugin/src/types.js';
+import { GraphQLESLintRule, GraphQLESLintRuleContext } from '../../plugin/src/types.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -34,9 +34,13 @@ export class RuleTester<ParserOptions> extends ESLintRuleTester {
   }
 
   // @ts-expect-error -- fix later
-  run<Options, WithTypeInfo extends boolean = false>(
+  run<Options>(
     ruleId: string,
-    rule: GraphQLESLintRule<Options, WithTypeInfo>,
+    // Listener return type is intentionally not inferred: inferring `WithTypeInfo` through the
+    // recursive `GraphQLESTreeNode` types is expensive and hits circularity errors with graphql v17
+    rule: Pick<GraphQLESLintRule<Options>, 'meta'> & {
+      create(context: GraphQLESLintRuleContext<Options>): unknown;
+    },
     tests: {
       valid: (string | ValidTestCase<Options, ParserOptions>)[];
       invalid: (ValidTestCase<Options, ParserOptions> &
