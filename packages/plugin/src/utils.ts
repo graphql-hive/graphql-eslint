@@ -165,6 +165,14 @@ const DisplayNodeNameMap: Record<Kind, string> = {
   [Kind.UNION_TYPE_EXTENSION]: 'union',
   [Kind.VARIABLE_DEFINITION]: 'variable',
   [Kind.VARIABLE]: 'variable',
+  // Kinds introduced in graphql v17 (string literals so the map also works with graphql v16)
+  FragmentArgument: 'fragment argument',
+  DirectiveExtension: 'directive',
+  TypeCoordinate: 'type coordinate',
+  MemberCoordinate: 'member coordinate',
+  ArgumentCoordinate: 'argument coordinate',
+  DirectiveCoordinate: 'directive coordinate',
+  DirectiveArgumentCoordinate: 'directive argument coordinate',
 } as const;
 
 export function displayNodeName(node: GraphQLESTreeNode<ASTNode, boolean>): string {

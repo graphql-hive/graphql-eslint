@@ -16,7 +16,7 @@ function useSchema(code: string) {
   };
 }
 
-ruleTester.run<RuleOptions, true>('relay-arguments', rule, {
+ruleTester.run<RuleOptions>('relay-arguments', rule, {
   valid: [
     useSchema(/* GraphQL */ `
       type User {

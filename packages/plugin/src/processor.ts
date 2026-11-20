@@ -68,12 +68,13 @@ export const processor = {
         ...pluckConfig,
       });
 
-      const blocks: Block[] = sources.map(item => ({
+      const lineStartIndexes = getLineStartIndexes(code);
+      const blocks: Block[] = sources.map(({ body, locationOffset: { line, column } }) => ({
         filename: 'document.graphql',
-        text: item.body,
-        lineOffset: item.locationOffset.line - 1,
-        // @ts-expect-error -- `index` field exist but show ts error
-        offset: item.locationOffset.index + 1,
+        text: body,
+        lineOffset: line - 1,
+        // `locationOffset` points (1-based) to the opening backtick, `+ 1` skips it
+        offset: lineStartIndexes[line - 1] + (column - 1) + 1,
       }));
       blocksMap.set(filePath, blocks);
 
@@ -131,3 +132,13 @@ export const processor = {
     return result.sort((a, b) => a.line - b.line || a.column - b.column);
   },
 } satisfies Linter.Processor<Block | string>;
+
+function getLineStartIndexes(code: string): number[] {
+  const indexes = [0];
+  for (let i = 0; i < code.length; i += 1) {
+    if (code[i] === '\n') {
+      indexes.push(i + 1);
+    }
+  }
+  return indexes;
+}
