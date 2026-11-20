@@ -113,8 +113,8 @@ importers:
   examples/code-file:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@eslint/js':
         specifier: 9.22.0
@@ -129,8 +129,8 @@ importers:
   examples/custom-rules:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@graphql-eslint/eslint-plugin':
         specifier: workspace:*
@@ -142,8 +142,8 @@ importers:
   examples/graphql-config:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@eslint/js':
         specifier: 9.22.0
@@ -158,8 +158,8 @@ importers:
   examples/monorepo:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@eslint/js':
         specifier: 9.22.0
@@ -174,8 +174,8 @@ importers:
   examples/multiple-projects-graphql-config:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@graphql-eslint/eslint-plugin':
         specifier: workspace:*
@@ -187,8 +187,8 @@ importers:
   examples/prettier:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@eslint/js':
         specifier: 9.22.0
@@ -212,8 +212,8 @@ importers:
   examples/programmatic:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@eslint/js':
         specifier: 9.22.0
@@ -228,8 +228,8 @@ importers:
   examples/svelte-code-file:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@graphql-eslint/eslint-plugin':
         specifier: workspace:*
@@ -250,8 +250,8 @@ importers:
   examples/vue-code-file:
     dependencies:
       graphql:
-        specifier: 16.10.0
-        version: 16.10.0
+        specifier: 17.1.0
+        version: 17.1.0
     devDependencies:
       '@graphql-eslint/eslint-plugin':
         specifier: workspace:*
