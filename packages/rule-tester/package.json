@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "engines": {
-    "node": ">=18"
+    "node": ">=22.18.0"
   },
   "exports": {
     "./package.json": "./package.json",
