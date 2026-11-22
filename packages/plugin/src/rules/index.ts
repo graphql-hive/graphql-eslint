@@ -10,6 +10,7 @@ import { rule as loneExecutableDefinition } from './lone-executable-definition/i
 import { rule as matchDocumentFilename } from './match-document-filename/index.js';
 import { rule as namingConvention } from './naming-convention/index.js';
 import { rule as noAnonymousOperations } from './no-anonymous-operations/index.js';
+import { rule as noConflictingUnionMemberFields } from './no-conflicting-union-member-fields/index.js';
 import { rule as noDeprecated } from './no-deprecated/index.js';
 import { rule as noDuplicateFields } from './no-duplicate-fields/index.js';
 import { rule as noHashtagDescription } from './no-hashtag-description/index.js';
@@ -47,6 +48,7 @@ export const rules = {
   'match-document-filename': matchDocumentFilename,
   'naming-convention': namingConvention,
   'no-anonymous-operations': noAnonymousOperations,
+  'no-conflicting-union-member-fields': noConflictingUnionMemberFields,
   'no-deprecated': noDeprecated,
   'no-duplicate-fields': noDuplicateFields,
   'no-hashtag-description': noHashtagDescription,

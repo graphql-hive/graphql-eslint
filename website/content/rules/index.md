@@ -31,6 +31,7 @@ Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs
 [match-document-filename](/rules/match-document-filename)|This rule allows you to enforce that the file name should match the operation name.|![all][]|📦|🚀|
 [naming-convention](/rules/naming-convention)|Require names to follow specified conventions.|![recommended][]|📄 📦|🚀|💡
 [no-anonymous-operations](/rules/no-anonymous-operations)|Require name for your GraphQL operations. This is useful since most GraphQL client libraries are using the operation name for caching purposes.|![recommended][]|📦|🚀|💡
+[no-conflicting-union-member-fields](/rules/no-conflicting-union-member-fields)|Reports shared field names with conflicting return types on object members of the same union. The strict mode compares complete types; response-shape mode reports only differences that force a field-merging conflict.|![all][]|📄|🚀|
 [no-deprecated](/rules/no-deprecated)|Enforce that deprecated fields or enum values are not in use by operations.|![recommended][]|📦|🚀|💡
 [no-duplicate-fields](/rules/no-duplicate-fields)|Checks for duplicate fields in selection set, variables in operation definition, or in arguments set of a field.|![recommended][]|📦|🚀|💡
 [no-fragment-cycles](/rules/no-fragment-cycles)|A GraphQL fragment is only valid when it does not have cycles in fragments usage.|![recommended][]|📦|🔮|

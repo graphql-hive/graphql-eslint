@@ -18,6 +18,7 @@ export default {
       },
     ],
     '@graphql-eslint/input-name': 'error',
+    '@graphql-eslint/no-conflicting-union-member-fields': 'error',
     '@graphql-eslint/no-root-type': ['error', { disallow: ['mutation', 'subscription'] }],
     '@graphql-eslint/no-scalar-result-type-on-mutation': 'error',
     '@graphql-eslint/require-deprecation-date': 'error',
