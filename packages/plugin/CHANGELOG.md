@@ -1,5 +1,45 @@
 # @graphql-eslint/eslint-plugin
 
+## 5.0.0
+
+### Major Changes
+
+- [#2987](https://github.com/graphql-hive/graphql-eslint/pull/2987)
+  [`a6a972f`](https://github.com/graphql-hive/graphql-eslint/commit/a6a972f02851b2d0159248f8ceed4ecc4ba8fb03)
+  Thanks [@n1ru4l](https://github.com/n1ru4l)! - Support `graphql` v17 and update to the latest
+  major versions of `@graphql-tools/*` and `graphql-config`.
+
+  **Breaking changes**
+
+  - Node.js `>=22.18.0` is required (previously `>=18`), as required by `graphql-config` v6 and
+    `@graphql-tools/*` latest majors.
+  - Updated dependencies: `graphql-config` v5 → v6, `@graphql-tools/code-file-loader` v8 → v9,
+    `@graphql-tools/graphql-tag-pluck` v8 → v9, `@graphql-tools/utils` v10 → v13.
+  - The optional `@apollo/subgraph` peer dependency is now `^2.16.0` (first version supporting
+    graphql v17).
+
+  **Changes**
+
+  - `graphql` peer dependency is now `^16 || ^17`.
+  - Fix loading federation schemas with `@apollo/subgraph` >= 2.17, which no longer accepts a single
+    schema module in `buildSubgraphSchema`.
+  - ESTree nodes keep the same shape with both graphql versions: list fields that graphql v17 leaves
+    `undefined` when empty (e.g. `directives`, `arguments`, `fields`, `interfaces`) are normalized
+    to `[]`, like graphql v16 does. `node.rawNode()` still returns the original graphql-js node.
+  - `selection-set-depth` no longer depends on the unmaintained `graphql-depth-limit` package (which
+    is incompatible with graphql v17) and uses a built-in port of it instead.
+
+### Patch Changes
+
+- [#2977](https://github.com/graphql-hive/graphql-eslint/pull/2977)
+  [`4a876a6`](https://github.com/graphql-hive/graphql-eslint/commit/4a876a66689e4bb9aa67a9d17ae90a1643658261)
+  Thanks [@ikusakov2](https://github.com/ikusakov2)! - Clear stored processor offsets before each
+  preprocessing pass so removing embedded GraphQL or failing to extract it cannot shift JavaScript
+  diagnostics, fixes, or suggestions on a later lint.
+
+  Weakly cache sibling-document indexes so obsolete document snapshots can be collected after the
+  document cache refreshes, while preserving index reuse for the same source array.
+
 ## 4.4.2
 
 ### Patch Changes
