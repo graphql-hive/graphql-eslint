@@ -1,11 +1,11 @@
 import { AST } from 'eslint';
-import { DocumentNode, ExecutableDefinitionNode, GraphQLError, Kind } from 'graphql';
-import depthLimit from 'graphql-depth-limit';
+import { DocumentNode, ExecutableDefinitionNode, Kind } from 'graphql';
 import { FromSchema } from 'json-schema-to-ts';
 import { GraphQLESTreeNode } from '../../estree-converter/index.js';
 import { SiblingOperations } from '../../siblings.js';
 import { GraphQLESLintRule } from '../../types.js';
 import { ARRAY_DEFAULT_OPTIONS, logger, requireGraphQLOperations } from '../../utils.js';
+import { checkDepthLimit } from './depth-limit.js';
 
 const RULE_ID = 'selection-set-depth';
 
@@ -96,7 +96,6 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
     }
 
     const { maxDepth, ignore = [] } = context.options[0];
-    const checkFn = depthLimit(maxDepth, { ignore });
 
     return {
       'OperationDefinition, FragmentDefinition'(node: GraphQLESTreeNode<ExecutableDefinitionNode>) {
@@ -108,10 +107,12 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
             definitions: [rawNode, ...fragmentsInUse],
           };
 
-          checkFn({
-            getDocument: () => document,
-            reportError(error: GraphQLError) {
-              const { line, column } = error.locations![0];
+          checkDepthLimit(document, {
+            maxDepth,
+            ignore,
+            onDepthExceeded(exceededNode, operationName) {
+              // 1-based, relative to the source the node was parsed from (fragments can come from siblings)
+              const { line, column } = exceededNode.loc!.startToken;
 
               // @ts-expect-error -- fix types
               const ancestors = context.sourceCode.getAncestors(node);
@@ -124,7 +125,7 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
                   line,
                   column: column - 1,
                 },
-                message: error.message,
+                message: `'${operationName}' exceeds maximum operation depth of ${maxDepth}`,
                 // Don't provide suggestions for fragment that can be in a separate file
                 ...(token && {
                   suggest: [

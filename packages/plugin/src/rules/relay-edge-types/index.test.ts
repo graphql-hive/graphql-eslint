@@ -1,7 +1,7 @@
 import { ruleTester, withSchema } from '../../../__tests__/test-utils.js';
 import { rule, RuleOptions } from './index.js';
 
-ruleTester.run<RuleOptions, true>('relay-edge-types', rule, {
+ruleTester.run<RuleOptions>('relay-edge-types', rule, {
   valid: [
     withSchema({
       name: 'when cursor returns string',

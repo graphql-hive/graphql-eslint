@@ -50,7 +50,8 @@ export function getSchema(project: GraphQLProjectConfig): Schema {
     // eslint-disable-next-line @typescript-eslint/no-require-imports -- we inject createRequire in `tsup.config.ts`
     const { buildSubgraphSchema } = require('@apollo/subgraph');
 
-    schema = buildSubgraphSchema({ typeDefs });
+    // array of modules: works with all @apollo/subgraph v2 versions (v2.17 dropped the single module form)
+    schema = buildSubgraphSchema([{ typeDefs }]);
   } else {
     schema = project.loadSchemaSync(project.schema, 'GraphQLSchema', opts);
   }

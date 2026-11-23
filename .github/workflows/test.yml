@@ -17,12 +17,11 @@ jobs:
       githubToken: ${{ secrets.GITHUB_TOKEN }}
 
   typecheck:
-    name: typecheck / graphql v${{matrix.graphql_version}} (${{matrix.os}})
+    name: typecheck (${{matrix.os}})
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
-        graphql_version: [16]
 
     steps:
       - name: Checkout out code
@@ -48,9 +47,8 @@ jobs:
         run: pnpm build
 
   test:
-    name:
-      Node.js v${{matrix.node_version}} / GraphQL v${{matrix.graphql_version}} / ESLint v9
-      (${{matrix.os}})
+    # every test runs against all supported graphql versions, see `packages/plugin/vite.config.ts`
+    name: Node.js v${{matrix.node_version}} / ESLint v9 (${{matrix.os}})
     timeout-minutes: 60
     runs-on: ${{ matrix.os }}
     needs: [typecheck]
@@ -58,7 +56,6 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node_version: [24]
-        graphql_version: [16]
 
     steps:
       - name: Checkout Master

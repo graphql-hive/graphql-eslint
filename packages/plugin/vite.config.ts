@@ -1,8 +1,9 @@
-import path from 'node:path';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
-
-const GRAPHQL_PATH = path.join(__dirname, 'node_modules', 'graphql');
+import {
+  getGraphQLResolverImportArg,
+  GRAPHQL_VERSIONS,
+  graphqlVitePlugin,
+} from './graphql-resolver.js';
 
 export default defineConfig({
   test: {
@@ -15,17 +16,20 @@ export default defineConfig({
       return testPath.replace('__tests__/', '__tests__/__snapshots__/').replace(/\.ts$/, '.md');
     },
     setupFiles: ['./serializer.ts'],
-    alias: {
-      // fixes Duplicate "graphql" modules cannot be used at the same time since different
-      'graphql/validation/index.js': path.join(GRAPHQL_PATH, 'validation', 'index.js'),
-      'graphql/validation/validate.js': path.join(GRAPHQL_PATH, 'validation', 'validate.js'),
-      'graphql/utilities/valueFromASTUntyped.js': path.join(
-        GRAPHQL_PATH,
-        'utilities',
-        'valueFromASTUntyped.js',
-      ),
-      graphql: path.join(GRAPHQL_PATH, 'index.js'),
-    },
+    pool: 'forks',
+    // Run every test against each supported graphql version, filter with `--project graphql-v16`
+    projects: GRAPHQL_VERSIONS.map(version => ({
+      extends: true,
+      plugins: [graphqlVitePlugin(version)],
+      test: {
+        name: `graphql-v${version}`,
+        env: { GRAPHQL_VERSION: version },
+        // makes dependencies loaded natively by Node.js resolve the same graphql version
+        execArgv: ['--import', getGraphQLResolverImportArg(version)],
+      },
+    })),
   },
-  plugins: [tsconfigPaths()],
+  resolve: {
+    tsconfigPaths: true,
+  },
 });
