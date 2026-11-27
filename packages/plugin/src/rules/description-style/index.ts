@@ -22,6 +22,52 @@ const schema = {
 
 export type RuleOptions = FromSchema<typeof schema>;
 
+const isWhitespace = (char: string | undefined): boolean => char === ' ' || char === '\t';
+
+/**
+ * Re-encodes the parsed value of an inline description as a block string, so that the escape
+ * sequences of the inline form (`\"`, `\n`, `\\`) are not carried over as literal characters and
+ * the closing `"""` can never be swallowed by a trailing `"` or `\`.
+ */
+function toBlockString(value: string): string {
+  const escapedValue = value.replace(/"""/g, '\\"""');
+  const lines = escapedValue.split(/\r\n|[\n\r]/g);
+  const isSingleLine = lines.length === 1;
+  const forceLeadingNewLine =
+    lines.length > 1 && lines.slice(1).every(line => line.length === 0 || isWhitespace(line[0]));
+  const hasTrailingTripleQuotes = escapedValue.endsWith('\\"""');
+  const hasTrailingQuote = value.endsWith('"') && !hasTrailingTripleQuotes;
+  const hasTrailingSlash = value.endsWith('\\');
+  const forceTrailingNewLine = hasTrailingQuote || hasTrailingSlash;
+  const printAsMultipleLines =
+    !isSingleLine || value.length > 70 || forceTrailingNewLine || forceLeadingNewLine;
+  const skipLeadingNewLine = isSingleLine && isWhitespace(value[0]);
+
+  let result = '';
+  if ((printAsMultipleLines && !skipLeadingNewLine) || forceLeadingNewLine) {
+    result += '\n';
+  }
+  result += escapedValue;
+  if (printAsMultipleLines || forceTrailingNewLine) {
+    result += '\n';
+  }
+  return `"""${result}"""`;
+}
+
+/**
+ * Re-encodes the raw text of a block string as an inline string: `\"""` is the only escape of a
+ * block string, while `"` and `\` must be escaped in an inline string.
+ */
+function toInlineString(blockText: string): string {
+  const content = blockText
+    .slice(3, -3)
+    .replace(/\\"""/g, '"""')
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\s+/g, ' ');
+  return `"${content}"`;
+}
+
 export const rule: GraphQLESLintRule<RuleOptions> = {
   meta: {
     type: 'suggestion',
@@ -73,10 +119,9 @@ export const rule: GraphQLESLintRule<RuleOptions> = {
               desc: `Change to ${isBlock ? 'block' : 'inline'} style description`,
               fix(fixer) {
                 const { sourceCode } = context;
-                const originalText = sourceCode.getText(node as any);
                 const newText = isBlock
-                  ? originalText.replace(/(^")|("$)/g, '"""')
-                  : originalText.replace(/(^""")|("""$)/g, '"').replace(/\s+/g, ' ');
+                  ? toBlockString(node.value)
+                  : toInlineString(sourceCode.getText(node as any));
                 return fixer.replaceText(node as any, newText);
               },
             },
