@@ -156,3 +156,82 @@ exports[`description-style > invalid > Invalid #2 1`] = `
     7 |     record: User
     8 |   }
 `;
+
+exports[`description-style > invalid > block suggestion does not let a trailing quote swallow the closing delimiter 1`] = `
+#### ⌨️ Code
+
+      1 | type Query {
+      2 |   "Returns \\"ok\\""
+      3 |   a: Int
+      4 | }
+
+#### ❌ Error
+
+      1 | type Query {
+    > 2 |   "Returns \\"ok\\""
+        |   ^^^^^^^^^^^^^^^^ Unexpected inline description for field "a" in type "Query"
+      3 |   a: Int
+
+#### 💡 Suggestion: Change to block style description
+
+    1 | type Query {
+    2 |   """
+    3 | Returns "ok"
+    4 | """
+    5 |   a: Int
+    6 | }
+`;
+
+exports[`description-style > invalid > block suggestion keeps the parsed value of an inline description with escapes 1`] = `
+#### ⌨️ Code
+
+      1 | type Query {
+      2 |   "say \\"hi\\" now"
+      3 |   a: Int
+      4 | }
+
+#### ❌ Error
+
+      1 | type Query {
+    > 2 |   "say \\"hi\\" now"
+        |   ^^^^^^^^^^^^^^^^ Unexpected inline description for field "a" in type "Query"
+      3 |   a: Int
+
+#### 💡 Suggestion: Change to block style description
+
+    1 | type Query {
+    2 |   """say "hi" now"""
+    3 |   a: Int
+    4 | }
+`;
+
+exports[`description-style > invalid > inline suggestion escapes quotes and backslashes of a block description 1`] = `
+#### ⌨️ Code
+
+      1 | type Query {
+      2 |   """
+      3 |   Returns "ok" for C:\\dir
+      4 |   """
+      5 |   a: Int
+      6 | }
+
+#### ⚙️ Options
+
+    {
+      "style": "inline"
+    }
+
+#### ❌ Error
+
+      1 | type Query {
+    > 2 |   """
+        |   ^ Unexpected block description for field "a" in type "Query"
+      3 |   Returns "ok" for C:\\dir
+
+#### 💡 Suggestion: Change to inline style description
+
+    1 | type Query {
+    2 |   " Returns \\"ok\\" for C:\\\\dir "
+    3 |   a: Int
+    4 | }
+`;
